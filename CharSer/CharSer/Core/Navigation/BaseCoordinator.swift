@@ -25,6 +25,15 @@ class BaseCoordinator {
         childCoordinators.append(coordinator)
     }
     
+    func typeDependencyIsAdded(_ coordinator: BaseCoordinator) -> (Bool) {
+        for element in childCoordinators {
+            if type(of: element) === type(of: coordinator) {
+            return true
+            }
+        }
+        return false
+    }
+    
     func removeDependency(_ coordinator: BaseCoordinator?) {
         guard
             childCoordinators.isEmpty == false,

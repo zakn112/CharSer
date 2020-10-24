@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="elg-aW-ZIX">
+            <objects>
+                <viewController storyboardIdentifier="mainMenu" id="aeV-xf-IWB" customClass="MainMenuViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="81Q-Cx-cuj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pN-8p-TLk">
+                                <rect key="frame" x="10" y="54" width="394" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vj4-Oo-fxe"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrB-NX-UjH">
+                                <rect key="frame" x="10" y="114" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dZ9-Xf-0MQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Сменить пользователя">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeUserButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="5FR-6O-jNY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qde-Eq-bc6">
+                                <rect key="frame" x="10" y="174" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dJZ-hh-nA9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Заказы клиентов">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJE-KS-hQD">
+                                <rect key="frame" x="10" y="234" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HiD-Rk-Pnd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Установка тарифов">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whp-dw-n0L">
+                                <rect key="frame" x="10" y="294" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="teF-tv-YYl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Клиенты">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-Iq-QNy">
+                                <rect key="frame" x="10" y="354" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="70O-Mw-noq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Пользователи">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="UsersListButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="wfD-IH-5I8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P78-wL-2mT"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="lJE-KS-hQD" firstAttribute="top" secondItem="qde-Eq-bc6" secondAttribute="bottom" constant="10" id="05L-u1-VqB"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="lJE-KS-hQD" secondAttribute="trailing" constant="10" id="855-cU-Mxc"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="Scw-Iq-QNy" secondAttribute="trailing" constant="10" id="CRE-tC-qXa"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="7pN-8p-TLk" secondAttribute="trailing" constant="10" id="K0H-tz-feD"/>
+                            <constraint firstItem="lJE-KS-hQD" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="Xef-Au-Ral"/>
+                            <constraint firstItem="Scw-Iq-QNy" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="ZqS-P9-jCW"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="qde-Eq-bc6" secondAttribute="trailing" constant="10" id="gZn-gg-faS"/>
+                            <constraint firstItem="QrB-NX-UjH" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="hzJ-fY-5it"/>
+                            <constraint firstItem="7pN-8p-TLk" firstAttribute="top" secondItem="P78-wL-2mT" secondAttribute="top" constant="10" id="ipl-xu-oKa"/>
+                            <constraint firstItem="QrB-NX-UjH" firstAttribute="top" secondItem="7pN-8p-TLk" secondAttribute="bottom" constant="10" id="kK1-1z-qwH"/>
+                            <constraint firstItem="7pN-8p-TLk" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="n61-J0-FEJ"/>
+                            <constraint firstItem="Scw-Iq-QNy" firstAttribute="top" secondItem="whp-dw-n0L" secondAttribute="bottom" constant="10" id="p1P-Vn-bZQ"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="QrB-NX-UjH" secondAttribute="trailing" constant="10" id="qfQ-2a-xoN"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="whp-dw-n0L" secondAttribute="trailing" constant="10" id="t7o-vZ-BRQ"/>
+                            <constraint firstItem="qde-Eq-bc6" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="uIz-OU-gg7"/>
+                            <constraint firstItem="whp-dw-n0L" firstAttribute="top" secondItem="lJE-KS-hQD" secondAttribute="bottom" constant="10" id="ucD-64-1b6"/>
+                            <constraint firstItem="qde-Eq-bc6" firstAttribute="top" secondItem="QrB-NX-UjH" secondAttribute="bottom" constant="10" id="vLk-lL-EQw"/>
+                            <constraint firstItem="whp-dw-n0L" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="xNK-pr-fMq"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gx1-3h-oTz" appends="YES" id="fZh-VA-Yjv"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJ8-cG-RBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="gx1-3h-oTz">
+                    <connections>
+                        <action selector="LeftSwipe:" destination="aeV-xf-IWB" id="Zy4-nm-e4R"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="377" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

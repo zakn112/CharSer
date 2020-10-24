@@ -18,22 +18,32 @@ final class MainDesktopCoordinator: BaseCoordinator {
     
     private func showMainDesktop() {
         let controller = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "mainDesktop")
+            .instantiateViewController(withIdentifier: "mainDesktop") as! MainDesktopViewController
         
-//        controller.onCansel = { [weak self] in
-//            //self?.showRecoverModule()
-//            self?.onFinishFlow?()
-//        }
-//
-//        controller.onSuccess = { [weak self] in
-//             self?.onFinishFlow?()
-//        }
+        controller.onMainMenu = { [weak self] in
+            self?.showMainMenuModule()
+        }
         
-        let rootController = UINavigationController(rootViewController: controller)
+        let rootController = MainDesktopNavigationController(rootViewController: controller)
         setAsRoot(rootController)
         self.rootController = rootController
     }
     
-   
+    private func showMainMenuModule() {
+        let coordinator = MainMenuCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+            self?.rootController?.popViewController(animated: true)
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    
     
 }

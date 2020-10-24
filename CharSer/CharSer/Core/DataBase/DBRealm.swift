@@ -18,6 +18,10 @@ class DBRealm: DataBaseInterface {
         Realm.Configuration.defaultConfiguration = config
     }
     
+}
+
+//MARK: Users
+extension DBRealm{
     func getUsetsCount() -> (Int) {
         let realm = try! Realm()
         
@@ -26,8 +30,35 @@ class DBRealm: DataBaseInterface {
         return users.count
     }
     
-    func createUser(by user: User) -> (result: Bool, message: String) {
-        if let _ = getUserByLogin(login: user.login) {
+    func getUsersList() ->([User]?) {
+        let realm = try! Realm()
+        
+        let usersDB = realm.objects(ReferenceUser.self)
+        
+        if usersDB.count == 0 {
+          return nil
+        }
+        
+        var users = [User]()
+        
+        users = usersDB.map{ userDB in
+            let user = User()
+            user.first_name = userDB.first_name
+            user.last_name = userDB.last_name
+            user.login = userDB.login
+            if  userDB.role == "admin" {
+                user.role = .admin
+            }else if userDB.role == "user" {
+                user.role = .user
+            }
+            return user
+        }
+        
+        return users
+    }
+    
+    func addUser(by user: User, update: Bool, updatePassword: Bool) -> (result: Bool, message: String) {
+        if !update, let _ = getUserByLogin(login: user.login) {
             return (result: false, message: "Уже есть пользователь с таким логином")
         }
         
@@ -36,13 +67,16 @@ class DBRealm: DataBaseInterface {
         userBD.first_name = user.first_name
         userBD.last_name = user.last_name
         userBD.login = user.login
-        userBD.password = user.password
         userBD.role = user.role.rawValue
+        if updatePassword {
+        userBD.password = user.password
+        }
         
         let realm = try! Realm()
         try! realm.write {
-               realm.add(userBD)
+           realm.add(userBD, update: .modified)
         }
+        
         
        return (result: true, message: "")
     }
@@ -92,6 +126,5 @@ class DBRealm: DataBaseInterface {
         
         return user
     }
-    
 }
 

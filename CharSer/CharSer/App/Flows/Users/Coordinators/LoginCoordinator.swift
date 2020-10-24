@@ -16,6 +16,10 @@ final class LoginCoordinator: BaseCoordinator {
         showLoginModule()
     }
     
+    func startPush() {
+        showLoginModulePush()
+    }
+    
     private func showLoginModule() {
         let controller = UIStoryboard(name: "Users", bundle: nil)
             .instantiateViewController(withIdentifier: "login") as! LoginViewController
@@ -33,6 +37,23 @@ final class LoginCoordinator: BaseCoordinator {
         setAsRoot(rootController)
         self.rootController = rootController
     }
+    
+    private func showLoginModulePush() {
+        let controller = UIStoryboard(name: "Users", bundle: nil)
+            .instantiateViewController(withIdentifier: "login") as! LoginViewController
+        
+        controller.onCansel = { [weak self] in
+            //self?.showRecoverModule()
+            self?.onFinishFlow?()
+        }
+        
+        controller.onSuccess = { [weak self] in
+             self?.onFinishFlow?()
+        }
+        
+        self.rootController?.pushViewController(controller, animated: true)
+    }
+    
     
    
     

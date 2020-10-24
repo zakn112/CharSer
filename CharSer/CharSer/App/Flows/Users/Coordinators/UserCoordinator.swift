@@ -18,7 +18,7 @@ final class UserCoordinator: BaseCoordinator {
     
     private func showUserModule() {
         let controller = UIStoryboard(name: "Users", bundle: nil)
-            .instantiateViewController(withIdentifier: "user") as! UserViewController
+            .instantiateViewController(withIdentifier: "User") as! UserViewController
         
         controller.onCansel = { [weak self] in
             //self?.showRecoverModule()

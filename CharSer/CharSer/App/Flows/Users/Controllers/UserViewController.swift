@@ -13,6 +13,7 @@ class UserViewController: UIViewController {
     var onSuccess: (() -> Void)?
     
     var user: User?
+    var newUser = false
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -22,6 +23,9 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateInterface()
+        
         if Session.shared.firstRun {
             roleSegmentedControl.selectedSegmentIndex = 1
             roleSegmentedControl.isEnabled = false
@@ -42,10 +46,11 @@ class UserViewController: UIViewController {
         }
         
         fillModelUsingForm()
+      
+        let updatePassword = newUser || user?.password != ""
+        let saveResult = DataBase.shared.addUser(by: user!,update: !newUser, updatePassword: updatePassword)
         
-        let saveResult = DataBase.shared.createUser(by: user!)
-        
-        if !saveResult.result {
+        if !(saveResult.result) {
             let alert = UIAlertController(title: "Error", message: saveResult.message, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alert.addAction(action)
@@ -54,7 +59,9 @@ class UserViewController: UIViewController {
             return
         }
         
-        Session.shared.currenUser = user
+        if Session.shared.firstRun {
+            Session.shared.currenUser = user
+        }
         
         onSuccess?()
     }
@@ -67,7 +74,10 @@ class UserViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func fieldsСheck() -> (correct: Bool, message: String) {
+    
+    // MARK: - Private implementation
+    
+    private func fieldsСheck() -> (correct: Bool, message: String) {
         var message = ""
         var correct = true
         
@@ -81,7 +91,7 @@ class UserViewController: UIViewController {
             correct = false
         }
         
-        if passwordTextField.text == "" {
+        if passwordTextField.text == "", user == nil {
             message += "Не заполнен пароль пользователя \n"
             correct = false
         }
@@ -89,7 +99,7 @@ class UserViewController: UIViewController {
         return (correct: correct, message: message)
     }
     
-    func fillModelUsingForm() {
+    private func fillModelUsingForm() {
         if user == nil {
             user = User()
         }
@@ -108,5 +118,24 @@ class UserViewController: UIViewController {
         }
         
     }
+    
+    private func updateInterface() {
+        if user == nil {
+            firstNameTextField.text = ""
+            lastNameTextField.text = ""
+            loginTextField.text = ""
+            passwordTextField.text = ""
+            
+            newUser = true
+        }else{
+            firstNameTextField.text = user?.first_name
+            lastNameTextField.text = user?.last_name
+            loginTextField.text = user?.login
+            passwordTextField.text = ""
+            loginTextField.isEnabled = false
+            newUser = false
+        }
+        
+       }
 
 }
