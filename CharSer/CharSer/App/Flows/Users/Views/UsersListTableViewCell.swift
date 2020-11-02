@@ -25,7 +25,7 @@ class UsersListTableViewCell: UITableViewCell {
     }
 
     func setUser(user: User){
-        userNameLabel.text = "\(user.first_name) \(user.last_name)"
+        userNameLabel.text = "\(user.firstName) \(user.lastName)"
         userRoleLabel.text = user.role.rawValue
     }
     

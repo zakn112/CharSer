@@ -9,12 +9,12 @@ import Foundation
 import RealmSwift
 
 class DocumentCustomerOrder: Object {
-    @objc dynamic var customerOrder_ID:Int = 0
+    @objc dynamic var customerOrderID:Int = 0
     @objc dynamic var date:Date = Date()
     @objc dynamic var number:String = ""
-    @objc dynamic var chargObject_ID:Int = 0
+    @objc dynamic var chargObjectID:Int = 0
     @objc dynamic var status:String = ""
-    @objc dynamic var customer_ID:Int = 0
+    @objc dynamic var customerID:Int = 0
     @objc dynamic var author:Int = 0
     @objc dynamic var startTime:Date = Date()
     @objc dynamic var endTime:Date = Date()
@@ -23,6 +23,6 @@ class DocumentCustomerOrder: Object {
     @objc dynamic var sessionDuration:Double = 0
     
     override class func primaryKey() -> String? {
-        return "customerOrder_ID"
+        return "customerOrderID"
     }
 }

@@ -44,7 +44,7 @@ final class UserListCoordinator: BaseCoordinator {
             self?.userListController?.updateForm()
         }
         controller.user = user
-        
+
         self.rootController?.pushViewController(controller, animated: true)
     }
    

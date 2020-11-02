@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class TpDocumentSettingTariffsTariffs: Object {
-    @objc dynamic var settingTariffs_ID:Int = 0
+    @objc dynamic var settingTariffsID:Int = 0
     @objc dynamic var Weekday:Int8 = 0
     @objc dynamic var startTime:Date = Date()
     @objc dynamic var endTime:Date = Date()

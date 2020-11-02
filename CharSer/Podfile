@@ -6,8 +6,8 @@ target 'CharSer' do
   use_frameworks!
 
   # Pods for CharSer
-  pod 'RealmSwift'
-
+   pod 'RealmSwift', '~> 5.4.8'
+  
   target 'CharSerTests' do
     inherit! :search_paths
     # Pods for testing

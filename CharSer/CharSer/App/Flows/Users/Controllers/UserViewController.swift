@@ -64,6 +64,7 @@ class UserViewController: UIViewController {
         }
         
         onSuccess?()
+      
     }
     /*
     // MARK: - Navigation
@@ -105,8 +106,8 @@ class UserViewController: UIViewController {
         }
        
         if let user = user {
-            user.first_name = firstNameTextField.text ?? ""
-            user.last_name = lastNameTextField.text ?? ""
+            user.firstName = firstNameTextField.text ?? ""
+            user.lastName = lastNameTextField.text ?? ""
             user.login = loginTextField.text ?? ""
             user.password = passwordTextField.text ?? ""
             
@@ -128,8 +129,8 @@ class UserViewController: UIViewController {
             
             newUser = true
         }else{
-            firstNameTextField.text = user?.first_name
-            lastNameTextField.text = user?.last_name
+            firstNameTextField.text = user?.firstName
+            lastNameTextField.text = user?.lastName
             loginTextField.text = user?.login
             passwordTextField.text = ""
             loginTextField.isEnabled = false

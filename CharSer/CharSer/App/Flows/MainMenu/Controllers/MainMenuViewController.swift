@@ -11,7 +11,10 @@ class MainMenuViewController: UIViewController {
 
     var onMainDesktop: (() -> Void)?
     var onUsersList: (() -> Void)?
+    var onCustomersList: (() -> Void)?
     var onChangeUser: (() -> Void)?
+    var onСhargObjectsList: (() -> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,14 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func changeUserButtonPress(_ sender: Any) {
         onChangeUser?()
+    }
+    
+    @IBAction func customersListButtonPress(_ sender: Any) {
+        onCustomersList?()
+    }
+    
+    @IBAction func сhargObjectsListButtonPress(_ sender: Any) {
+        onСhargObjectsList?()
     }
     /*
     // MARK: - Navigation

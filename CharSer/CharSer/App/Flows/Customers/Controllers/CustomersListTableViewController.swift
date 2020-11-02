@@ -1,30 +1,26 @@
 //
-//  UsersListTableViewController.swift
+//  CustomersListTableViewController.swift
 //  CharSer
 //
-//  Created by Андрей Закусов on 18.10.2020.
+//  Created by Андрей Закусов on 26.10.2020.
 //
 
 import UIKit
 
-class UsersListTableViewController: UITableViewController {
-    
-    var users: [User]?
+class CustomersListTableViewController: UITableViewController {
+    var customers: [Customer]?
     
     var onFinishFlow: (() -> Void)?
-    var onUserSelected: ((User?) -> Void)?
-
+    var onCustomerSelected: ((Customer?) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-       let users2 = DataBase.shared.getObjectsList(object: User())
-        
-        users = DataBase.shared.getUsersList()
+        customers = DataBase.shared.getCustomersList()
 
     }
     
-   
     override func viewWillDisappear(_ animated: Bool) {
         if let _ = self.navigationController?.viewControllers.firstIndex(of: self) {
             
@@ -34,11 +30,13 @@ class UsersListTableViewController: UITableViewController {
 
     }
     
-    @IBAction func addUserButtonPress(_ sender: Any) {
-        onUserSelected?(nil)
+    @IBAction func addButtonPress(_ sender: Any) {
+        onCustomerSelected?(nil)
     }
     
+
     func updateForm(){
+        customers = DataBase.shared.getCustomersList()
         tableView.reloadData()
     }
     
@@ -51,28 +49,25 @@ class UsersListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return users?.count ?? 0
+        return customers?.count ?? 0
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "userItem", for: indexPath) as? UsersListTableViewCell,
-           let users = users {
-            cell.setUser(user: users[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "customerItem", for: indexPath) as? CustomerListTableViewCell,
+           let customers = customers {
+            cell.setCustomer(customer: customers[indexPath.row])
             return cell
         }
         
-        return UsersListTableViewCell()
+        return CustomerListTableViewCell()
     }
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let users = users {
-           let currentUser = users[indexPath.row]
-            onUserSelected?(currentUser)
+        if let customers = customers {
+           let currentCustomer = customers[indexPath.row]
+            onCustomerSelected?(currentCustomer)
         }
     }
-    
-    
 
 }

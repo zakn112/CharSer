@@ -11,11 +11,12 @@ enum userRole: String {
     case admin, user
 }
 
-class User {
+class User: ReferenceModel {
     var login:String = ""
     var password:String = ""
-    var first_name:String = ""
-    var last_name:String = ""
+    var firstName:String = ""
+    var lastName:String = ""
+    var id: Int = 0
     
     var role: userRole = .user
     

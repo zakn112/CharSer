@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -69,6 +69,9 @@
                                 <state key="normal" title="Клиенты">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="customersListButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="Sj8-zy-KD6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-Iq-QNy">
                                 <rect key="frame" x="10" y="354" width="394" height="50"/>
@@ -84,6 +87,20 @@
                                     <action selector="UsersListButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="wfD-IH-5I8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkW-cK-ZIy">
+                                <rect key="frame" x="10" y="414" width="394" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kMg-Ba-A57"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Объекты тарификации">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="сhargObjectsListButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="zt6-kN-JOC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P78-wL-2mT"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -92,13 +109,16 @@
                             <constraint firstItem="lJE-KS-hQD" firstAttribute="top" secondItem="qde-Eq-bc6" secondAttribute="bottom" constant="10" id="05L-u1-VqB"/>
                             <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="lJE-KS-hQD" secondAttribute="trailing" constant="10" id="855-cU-Mxc"/>
                             <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="Scw-Iq-QNy" secondAttribute="trailing" constant="10" id="CRE-tC-qXa"/>
+                            <constraint firstItem="rkW-cK-ZIy" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="E0g-6h-FKs"/>
                             <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="7pN-8p-TLk" secondAttribute="trailing" constant="10" id="K0H-tz-feD"/>
+                            <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="rkW-cK-ZIy" secondAttribute="trailing" constant="10" id="QLZ-yC-M4C"/>
                             <constraint firstItem="lJE-KS-hQD" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="Xef-Au-Ral"/>
                             <constraint firstItem="Scw-Iq-QNy" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="ZqS-P9-jCW"/>
                             <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="qde-Eq-bc6" secondAttribute="trailing" constant="10" id="gZn-gg-faS"/>
                             <constraint firstItem="QrB-NX-UjH" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="hzJ-fY-5it"/>
                             <constraint firstItem="7pN-8p-TLk" firstAttribute="top" secondItem="P78-wL-2mT" secondAttribute="top" constant="10" id="ipl-xu-oKa"/>
                             <constraint firstItem="QrB-NX-UjH" firstAttribute="top" secondItem="7pN-8p-TLk" secondAttribute="bottom" constant="10" id="kK1-1z-qwH"/>
+                            <constraint firstItem="rkW-cK-ZIy" firstAttribute="top" secondItem="Scw-Iq-QNy" secondAttribute="bottom" constant="10" id="mCh-p7-hmW"/>
                             <constraint firstItem="7pN-8p-TLk" firstAttribute="leading" secondItem="P78-wL-2mT" secondAttribute="leading" constant="10" id="n61-J0-FEJ"/>
                             <constraint firstItem="Scw-Iq-QNy" firstAttribute="top" secondItem="whp-dw-n0L" secondAttribute="bottom" constant="10" id="p1P-Vn-bZQ"/>
                             <constraint firstItem="P78-wL-2mT" firstAttribute="trailing" secondItem="QrB-NX-UjH" secondAttribute="trailing" constant="10" id="qfQ-2a-xoN"/>
@@ -120,7 +140,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="377" y="136"/>
+            <point key="canvasLocation" x="376.81159420289856" y="135.9375"/>
         </scene>
     </scenes>
     <resources>

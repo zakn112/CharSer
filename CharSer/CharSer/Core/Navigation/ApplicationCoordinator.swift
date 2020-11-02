@@ -19,7 +19,7 @@ final class ApplicationCoordinator: BaseCoordinator {
             return
         }
         
-        let usersCount = DataBase.shared.getUsetsCount()
+        let usersCount = DataBase.shared.getUsersCount()
         
         if usersCount == 0 {
             Session.shared.firstRun = true

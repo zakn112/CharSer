@@ -34,6 +34,16 @@ final class MainMenuCoordinator: BaseCoordinator {
             self?.showLoginModule()
         }
         
+        controller.onCustomersList = { [weak self] in
+           
+            self?.showCustomersListModule()
+        }
+        
+        controller.onСhargObjectsList = { [weak self] in
+           
+            self?.showСhargObjectsListModule()
+        }
+        
         
         self.rootController?.pushViewController(controller, animated: true)
 
@@ -41,6 +51,36 @@ final class MainMenuCoordinator: BaseCoordinator {
     
     private func showUserListModule() {
         let coordinator = UserListCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    private func showCustomersListModule() {
+        let coordinator = CustomersListCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    private func showСhargObjectsListModule() {
+        let coordinator = ChargObjectsListCoordinator()
         
         if typeDependencyIsAdded(coordinator) {
             return
