@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Окончание работы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LS-4o-UP2">
-                                <rect key="frame" x="10" y="354" width="394" height="21"/>
+                                <rect key="frame" x="10" y="294" width="394" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="7jQ-Vf-4ca"/>
                                     <constraint firstAttribute="height" constant="21" id="I2B-0O-6Ol"/>
@@ -72,16 +72,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-vG-fFP">
-                                <rect key="frame" x="10" y="244" width="394" height="100"/>
+                                <rect key="frame" x="10" y="244" width="394" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Ls1-ww-vxk"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ls1-ww-vxk"/>
                                 </constraints>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="uYt-pP-q57">
-                                <rect key="frame" x="10" y="385" width="394" height="100"/>
+                                <rect key="frame" x="10" y="325" width="394" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="CUp-GE-fjc"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ZSs-FZ-uae"/>
+                                    <constraint firstAttribute="height" constant="40" id="CUp-GE-fjc"/>
                                 </constraints>
                             </datePicker>
                         </subviews>

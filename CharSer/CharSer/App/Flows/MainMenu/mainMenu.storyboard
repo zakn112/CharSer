@@ -58,6 +58,9 @@
                                 <state key="normal" title="Установка тарифов">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="setPricesListButtonPress:" destination="aeV-xf-IWB" eventType="touchUpInside" id="Xdk-t3-7tm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whp-dw-n0L">
                                 <rect key="frame" x="10" y="294" width="394" height="50"/>

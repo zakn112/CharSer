@@ -421,7 +421,7 @@ extension DBCoreData{
     
     func getСhargObjectsList() ->([СhargObject]?) {
         let context = persistentContainer.viewContext
-    
+        
         let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
         //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
         
@@ -491,7 +491,7 @@ extension DBCoreData{
         managedObject.name = сhargObject.name
         managedObject.startTime = сhargObject.startTime
         managedObject.shutdownTime = сhargObject.shutdownTime
-       
+        
         // Запись объекта
         self.saveContext()
         
@@ -538,6 +538,148 @@ extension DBCoreData{
         let context = persistentContainer.viewContext
         
         let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
+        let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        request.sortDescriptors = [idSortDescriptor]
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            if objectsDB.count == 0 {
+                return 1
+            }
+            
+            return Int(objectsDB.first?.id ?? 0) + 1
+            
+        } catch {
+            print(error)
+        }
+        
+        return 1
+        
+    }
+    
+    
+}
+
+
+//MARK: SetPrices
+
+extension DBCoreData{
+    
+    func getSetPricesList() ->([SetPrices]?) {
+        let context = persistentContainer.viewContext
+        
+        let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            var objectsModel = [SetPrices]()
+            
+            objectsModel = objectsDB.map{ objectDB in
+                let objectModel = SetPrices()
+                objectModel.id = Int(objectDB.id)
+                objectModel.date = objectDB.date ?? Date()
+                
+                return objectModel
+            }
+            
+            return objectsModel
+            
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String) {
+        let context = persistentContainer.viewContext
+        var currentObject:CDSetPrices?
+        
+        let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
+        
+        let predicate = NSPredicate(format: "id == %ld", setPrices.id)
+        request.predicate = predicate
+        
+        do {
+            currentObject = try context.fetch(request).first
+        } catch {
+            print(error)
+        }
+        
+        
+        if update, currentObject == nil {
+            return (result: false, message: "Не найден объект базы данных для обновления")
+        }
+        
+        if !update, currentObject != nil {
+            return (result: false, message: "Уже есть объект с таким id")
+        }
+        
+        if !update {
+            // Описание сущности
+            let entityDescription = NSEntityDescription.entity(forEntityName: "CDSetPrices", in: context)
+            
+            // Создание нового объекта
+            currentObject = CDSetPrices(entity: entityDescription!, insertInto: context)
+        }
+        
+        guard let managedObject = currentObject else {
+            return (result: false, message: "Ошибка при создании объекта базы данных")
+        }
+        
+        // Установка значения атрибута
+        if !update {
+            managedObject.id = Int32(nextFreeSetPricesID())
+        }
+        managedObject.date = setPrices.date
+        
+        
+        // Запись объекта
+        self.saveContext()
+        
+        return (result: true, message: "")
+    }
+    
+    func getSetPricesByID(id: Int) -> (SetPrices?)  {
+        let context = persistentContainer.viewContext
+        
+        let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
+        
+        let predicate = NSPredicate(format: "id == %ld", id)
+        request.predicate = predicate
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            if objectsDB.count == 0 {
+                return nil
+            }
+            
+            var objectsModel = [SetPrices]()
+            
+            objectsModel = objectsDB.map{ objectDB in
+                let objectModel = SetPrices()
+                objectModel.id = Int(objectDB.id)
+                objectModel.date = objectDB.date ?? Date()
+                
+                return objectModel
+            }
+            
+            return objectsModel.first
+            
+        } catch {
+            print(error)
+        }
+        
+        return nil
+    }
+    
+    func nextFreeSetPricesID() -> (Int) {
+        
+        let context = persistentContainer.viewContext
+        
+        let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
         let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         request.sortDescriptors = [idSortDescriptor]
         

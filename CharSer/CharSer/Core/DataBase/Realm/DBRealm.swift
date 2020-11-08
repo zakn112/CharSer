@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class DBRealm: DataBaseInterface {
+class DBRealm {
     
     
     func setConfiguration() -> () {

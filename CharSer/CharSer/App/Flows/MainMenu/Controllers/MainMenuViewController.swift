@@ -14,6 +14,7 @@ class MainMenuViewController: UIViewController {
     var onCustomersList: (() -> Void)?
     var onChangeUser: (() -> Void)?
     var onСhargObjectsList: (() -> Void)?
+    var onSetPricesList: (() -> Void)?
     
     
     override func viewDidLoad() {
@@ -46,14 +47,9 @@ class MainMenuViewController: UIViewController {
     @IBAction func сhargObjectsListButtonPress(_ sender: Any) {
         onСhargObjectsList?()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func setPricesListButtonPress(_ sender: Any) {
+        onSetPricesList?()
     }
-    */
-
+    
 }

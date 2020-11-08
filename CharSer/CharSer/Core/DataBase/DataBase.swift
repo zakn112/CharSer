@@ -28,6 +28,10 @@ protocol DataBaseInterface {
     func addСhargObject(by сhargObject: СhargObject, update: Bool) -> (result: Bool, message: String)
     func getСhargObjectByID(id: Int) -> (СhargObject?)
     
+    func getSetPricesList() ->([SetPrices]?)
+    func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String)
+    func getSetPricesByID(id: Int) -> (SetPrices?)
+    
 }
 
 class DataBase: DataBaseInterface {
@@ -126,6 +130,25 @@ extension DataBase{
 
     func getСhargObjectByID(id: Int) -> (СhargObject?) {
         return currentDataBase.getСhargObjectByID(id: id)
+    }
+
+    
+}
+
+//MARK: SetPrices
+
+extension DataBase{
+    
+    func getSetPricesList() ->([SetPrices]?){
+        return currentDataBase.getSetPricesList()
+    }
+
+    func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String) {
+        return currentDataBase.addSetPrices(by: setPrices, update: update)
+    }
+
+    func getSetPricesByID(id: Int) -> (SetPrices?) {
+        return currentDataBase.getSetPricesByID(id: id)
     }
 
     

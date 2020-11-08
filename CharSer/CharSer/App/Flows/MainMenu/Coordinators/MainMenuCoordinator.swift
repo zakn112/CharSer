@@ -44,6 +44,11 @@ final class MainMenuCoordinator: BaseCoordinator {
             self?.showСhargObjectsListModule()
         }
         
+        controller.onSetPricesList = { [weak self] in
+           
+            self?.showSetPricesListModule()
+        }
+        
         
         self.rootController?.pushViewController(controller, animated: true)
 
@@ -81,6 +86,21 @@ final class MainMenuCoordinator: BaseCoordinator {
     
     private func showСhargObjectsListModule() {
         let coordinator = ChargObjectsListCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    private func showSetPricesListModule() {
+        let coordinator = SetPricesListCoordinator()
         
         if typeDependencyIsAdded(coordinator) {
             return

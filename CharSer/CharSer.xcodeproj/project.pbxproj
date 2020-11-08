@@ -19,6 +19,14 @@
 		33336FDD254D8666004EE9AF /* ChargObjectsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FDC254D8666004EE9AF /* ChargObjectsListCoordinator.swift */; };
 		33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33393830254E9A2700EA9457 /* CharSer.xcdatamodeld */; };
 		33393838254E9D6200EA9457 /* DBCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33393837254E9D6200EA9457 /* DBCoreData.swift */; };
+		3352952D2552F86100CD0705 /* SetPricesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352952C2552F86100CD0705 /* SetPricesListCoordinator.swift */; };
+		335295352552F88B00CD0705 /* SetPricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295342552F88B00CD0705 /* SetPricesViewController.swift */; };
+		3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295392552F8B100CD0705 /* SetPricesTableViewController.swift */; };
+		3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352953E2552F8E000CD0705 /* SetPricesTableViewCell.swift */; };
+		335295442552F8F700CD0705 /* SetPrices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335295432552F8F700CD0705 /* SetPrices.storyboard */; };
+		335295492552FFFB00CD0705 /* SetPricesVTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295482552FFFB00CD0705 /* SetPricesVTTableViewCell.swift */; };
+		3352954E255465B700CD0705 /* SetPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352954D255465B700CD0705 /* SetPrices.swift */; };
+		335295542554690700CD0705 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295532554690700CD0705 /* AlertManager.swift */; };
 		336DC9112534CAA400F9D3B2 /* ReferenceСustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9102534CAA400F9D3B2 /* ReferenceСustomer.swift */; };
 		336DC9162534CD4700F9D3B2 /* ReferenceСhargObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9152534CD4700F9D3B2 /* ReferenceСhargObject.swift */; };
 		336DC91B2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC91A2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift */; };
@@ -98,6 +106,18 @@
 		3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDChargObjects+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		3352950E25506B3B00CD0705 /* CDCustomers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		3352952C2552F86100CD0705 /* SetPricesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesListCoordinator.swift; sourceTree = "<group>"; };
+		335295342552F88B00CD0705 /* SetPricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesViewController.swift; sourceTree = "<group>"; };
+		335295392552F8B100CD0705 /* SetPricesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesTableViewController.swift; sourceTree = "<group>"; };
+		3352953E2552F8E000CD0705 /* SetPricesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesTableViewCell.swift; sourceTree = "<group>"; };
+		335295432552F8F700CD0705 /* SetPrices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPrices.storyboard; sourceTree = "<group>"; };
+		335295482552FFFB00CD0705 /* SetPricesVTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesVTTableViewCell.swift; sourceTree = "<group>"; };
+		3352954D255465B700CD0705 /* SetPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPrices.swift; sourceTree = "<group>"; };
+		335295532554690700CD0705 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		336DC9102534CAA400F9D3B2 /* ReferenceСustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceСustomer.swift"; sourceTree = "<group>"; };
 		336DC9152534CD4700F9D3B2 /* ReferenceСhargObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceСhargObject.swift"; sourceTree = "<group>"; };
 		336DC91A2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSettingTariffs.swift; sourceTree = "<group>"; };
@@ -241,6 +261,10 @@
 		33393842254EA39700EA9457 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */,
+				3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */,
+				3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */,
+				3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */,
 				3352950B25506B3B00CD0705 /* CDChargObjects+CoreDataClass.swift */,
 				3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */,
 				3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */,
@@ -249,6 +273,51 @@
 				33393851254EA44700EA9457 /* CDUsers+CoreDataProperties.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		335295282552F73C00CD0705 /* SetPrices */ = {
+			isa = PBXGroup;
+			children = (
+				335295292552F77600CD0705 /* Coordinators */,
+				3352952A2552F77D00CD0705 /* Controllers */,
+				3352952B2552F78700CD0705 /* Views */,
+				335295432552F8F700CD0705 /* SetPrices.storyboard */,
+			);
+			path = SetPrices;
+			sourceTree = "<group>";
+		};
+		335295292552F77600CD0705 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3352952C2552F86100CD0705 /* SetPricesListCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3352952A2552F77D00CD0705 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				335295342552F88B00CD0705 /* SetPricesViewController.swift */,
+				335295392552F8B100CD0705 /* SetPricesTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3352952B2552F78700CD0705 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3352953E2552F8E000CD0705 /* SetPricesTableViewCell.swift */,
+				335295482552FFFB00CD0705 /* SetPricesVTTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		33529552255468DA00CD0705 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				335295532554690700CD0705 /* AlertManager.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		336DC9312536115700F9D3B2 /* Navigation */ = {
@@ -275,6 +344,7 @@
 				336DC940253612A500F9D3B2 /* User.swift */,
 				33D5EE0325474B00007FB45F /* Customer.swift */,
 				33336FAC254D52A2004EE9AF /* СhargObject.swift */,
+				3352954D255465B700CD0705 /* SetPrices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +474,7 @@
 		33C6A2552532F74B00C299E9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				33529552255468DA00CD0705 /* Alerts */,
 				336DC939253611AA00F9D3B2 /* Session */,
 				336DC9312536115700F9D3B2 /* Navigation */,
 				33C6A2682532FA0500C299E9 /* DataBase */,
@@ -431,6 +502,7 @@
 		33C6A2582532F7B700C299E9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				335295282552F73C00CD0705 /* SetPrices */,
 				33336FB1254D532C004EE9AF /* СhargObjects */,
 				33D5EDE92545781C007FB45F /* Customers */,
 				33C6A6E5253C1C5D00DE32B9 /* Animations */,
@@ -702,6 +774,7 @@
 				33336FB3254D5377004EE9AF /* ChargObjects.storyboard in Resources */,
 				33C6A6C7253AF82600DE32B9 /* mainMenu.storyboard in Resources */,
 				336DC9492536171D00F9D3B2 /* Users.storyboard in Resources */,
+				335295442552F8F700CD0705 /* SetPrices.storyboard in Resources */,
 				33C6A22B2532F57200C299E9 /* Assets.xcassets in Resources */,
 				33C6A2292532F56F00C299E9 /* Main.storyboard in Resources */,
 			);
@@ -832,8 +905,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				336DC92A2535CFE600F9D3B2 /* DataBase.swift in Sources */,
+				3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */,
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
+				3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */,
+				335295542554690700CD0705 /* AlertManager.swift in Sources */,
 				33D5EDF5254749E7007FB45F /* CustomersListTableViewController.swift in Sources */,
 				33336FC0254D552A004EE9AF /* СhargObjectsTableViewController.swift in Sources */,
 				33C6A6D9253AFF3700DE32B9 /* MainDesktopViewController.swift in Sources */,
@@ -853,6 +929,8 @@
 				33C6A6E9253C1C8500DE32B9 /* MainMenuPushTransitionAnimator.swift in Sources */,
 				33C6A6D1253AFC2E00DE32B9 /* MainMenuCoordinator.swift in Sources */,
 				33C6A6E8253C1C8500DE32B9 /* MainMenuPopTransitionAnimator.swift in Sources */,
+				335295492552FFFB00CD0705 /* SetPricesVTTableViewCell.swift in Sources */,
+				3352954E255465B700CD0705 /* SetPrices.swift in Sources */,
 				336DC941253612A500F9D3B2 /* User.swift in Sources */,
 				33C6A26B2532FC6D00C299E9 /* ReferenceUser.swift in Sources */,
 				33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */,
@@ -861,8 +939,10 @@
 				336DC9352536117300F9D3B2 /* BaseCoordinator.swift in Sources */,
 				33C6A708253E082E00DE32B9 /* UserListCoordinator.swift in Sources */,
 				336DC9112534CAA400F9D3B2 /* ReferenceСustomer.swift in Sources */,
+				3352952D2552F86100CD0705 /* SetPricesListCoordinator.swift in Sources */,
 				33393838254E9D6200EA9457 /* DBCoreData.swift in Sources */,
 				33C6A6FA253C343300DE32B9 /* UsersListTableViewController.swift in Sources */,
+				335295352552F88B00CD0705 /* SetPricesViewController.swift in Sources */,
 				33C6A700253C34BD00DE32B9 /* UsersListTableViewCell.swift in Sources */,
 				339ADA9A253778D10054C624 /* LoginViewController.swift in Sources */,
 				33D5EE0425474B00007FB45F /* Customer.swift in Sources */,
