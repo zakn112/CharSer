@@ -26,11 +26,7 @@ class LoginViewController: UIViewController {
         let fieldsСheckResult = fieldsСheck()
         
         if !fieldsСheckResult.correct {
-            let alert = UIAlertController(title: "Error", message: fieldsСheckResult.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
+            AlertManager.shared.showWarning(fieldsСheckResult.message)
             return
         }
         
@@ -39,11 +35,7 @@ class LoginViewController: UIViewController {
             onSuccess?()
             return
         }else{
-            let alert = UIAlertController(title: "Error", message: "Не правильная пара Логин - пароль. Авторизация не выполнена", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
+            AlertManager.shared.showWarning("Не правильная пара Логин - пароль. Авторизация не выполнена")
             return
         }
         

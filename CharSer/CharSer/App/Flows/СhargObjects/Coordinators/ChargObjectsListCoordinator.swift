@@ -11,7 +11,8 @@ final class ChargObjectsListCoordinator: BaseCoordinator {
     
     var rootController: UINavigationController?
     var chargObjectsListController: ChargObjectsTableViewController?
-    var onFinishFlow: (() -> Void)?
+    var onFinishFlow: ((СhargObject?) -> Void)?
+    var isSelectMode = false
     
     override func start() {
         showCustomersListModule()
@@ -22,11 +23,16 @@ final class ChargObjectsListCoordinator: BaseCoordinator {
             .instantiateViewController(withIdentifier: "СhargObjectsList") as! ChargObjectsTableViewController
         
         controller.onСhargObjectSelected = { [weak self] chargObject in
-            self?.openСhargObject(chargObject: chargObject)
+            if self?.isSelectMode == true, chargObject != nil  {
+                self?.rootController?.popViewController(animated: true)
+                self?.onFinishFlow?(chargObject)
+            }else{
+                self?.openСhargObject(chargObject: chargObject)
+            }
         }
         
         controller.onFinishFlow = { [weak self] in
-            self?.onFinishFlow?()
+            self?.onFinishFlow?(nil)
         }
         
         self.chargObjectsListController = controller

@@ -31,24 +31,16 @@ class CustomerViewController: UIViewController {
         let fieldsСheckResult = fieldsСheck()
         
         if !fieldsСheckResult.correct {
-            let alert = UIAlertController(title: "Error", message: fieldsСheckResult.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
+            AlertManager.shared.showWarning(fieldsСheckResult.message)
             return
         }
         
         fillModelUsingForm()
       
-        let saveResult = DataBase.shared.addCustomer(by: thisObject!, update: !newObject)
+        let saveResult = DataBase.shared.addObject(by: thisObject!, update: !newObject)
         
         if !(saveResult.result) {
-            let alert = UIAlertController(title: "Error", message: saveResult.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
+            AlertManager.shared.showWarning(saveResult.message)
             return
         }
         

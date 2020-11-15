@@ -2,7 +2,7 @@
 //  CDSetPricesVTPrices+CoreDataProperties.swift
 //  CharSer
 //
-//  Created by Андрей Закусов on 05.11.2020.
+//  Created by Андрей Закусов on 12.11.2020.
 //
 //
 
@@ -16,11 +16,12 @@ extension CDSetPricesVTPrices {
         return NSFetchRequest<CDSetPricesVTPrices>(entityName: "CDSetPricesVTPrices")
     }
 
-    @NSManaged public var setPricesId: Int32
-    @NSManaged public var weekday: Int16
-    @NSManaged public var startTime: Date?
     @NSManaged public var endTime: Date?
-    @NSManaged public var price: Float
+    @NSManaged public var price: Double
+    @NSManaged public var startTime: Date?
+    @NSManaged public var strNumber: Int16
+    @NSManaged public var weekday: Int16
+    @NSManaged public var id: Int32
     @NSManaged public var setPrises: NSSet?
 
 }

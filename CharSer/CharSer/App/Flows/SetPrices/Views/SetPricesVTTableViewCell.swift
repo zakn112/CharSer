@@ -14,6 +14,8 @@ class SetPricesVTTableViewCell: UITableViewCell {
     private let endTimeDatePicker = UIDatePicker()
     private let priceTextField = UITextField()
     
+    var vtPricesItem: VTPricesItem?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +30,8 @@ class SetPricesVTTableViewCell: UITableViewCell {
     }
 
     func SetPricesVTItem(vtPricesItem: VTPricesItem){
+        self.vtPricesItem = vtPricesItem
+        
         weekdayTextField.text = String(vtPricesItem.weekday)
         startTimeDatePicker.setDate(vtPricesItem.startTime , animated: false)
         endTimeDatePicker.setDate(vtPricesItem.endTime , animated: false)
@@ -50,20 +54,24 @@ class SetPricesVTTableViewCell: UITableViewCell {
     }
     
     private func setupWeekdayTextField() {
+        weekdayTextField.addTarget(self, action: #selector(self.weekdayTextFieldEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(weekdayTextField)
     }
     
     private func setupStartTimeDatePicker() {
         startTimeDatePicker.datePickerMode = .time
+        startTimeDatePicker.addTarget(self, action: #selector(self.startTimeDatePickerEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(startTimeDatePicker)
     }
     
     private func setupEndTimeDatePicker() {
         endTimeDatePicker.datePickerMode = .time
+        endTimeDatePicker.addTarget(self, action: #selector(self.endTimeDatePickerEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(endTimeDatePicker)
     }
     
     private func setupPriceTextField() {
+        priceTextField.addTarget(self, action: #selector(self.priceTextFieldEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(priceTextField)
     }
     
@@ -79,6 +87,43 @@ class SetPricesVTTableViewCell: UITableViewCell {
         endTimeDatePicker.frame = CGRect(x: 2*parentWidth/4, y: 0, width: parentWidth/4 , height: parentHeight)
         priceTextField.frame = CGRect(x: 3*parentWidth/4, y: 0, width: parentWidth/4 , height: parentHeight)
         
+    }
+    
+    
+    @objc private func weekdayTextFieldEditingDidEnd() {
+        guard let _ = self.vtPricesItem else {
+            return
+        }
+        
+        self.vtPricesItem?.weekday = Int16(weekdayTextField.text ?? "0") ?? 0
+
+    }
+    
+    @objc private func startTimeDatePickerEditingDidEnd() {
+        guard let _ = self.vtPricesItem else {
+            return
+        }
+        
+        self.vtPricesItem?.startTime = startTimeDatePicker.date
+
+    }
+    
+    @objc private func endTimeDatePickerEditingDidEnd() {
+        guard let _ = self.vtPricesItem else {
+            return
+        }
+        
+        self.vtPricesItem?.endTime = endTimeDatePicker.date
+
+    }
+    
+    @objc private func priceTextFieldEditingDidEnd() {
+        guard let _ = self.vtPricesItem else {
+            return
+        }
+        
+        self.vtPricesItem?.price = Double(priceTextField.text ?? "0") ?? 0
+
     }
 
 }

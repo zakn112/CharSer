@@ -11,22 +11,13 @@ protocol DataBaseInterface {
     
     func setConfiguration() -> ()
     
-    func getObjectsList(object: ReferenceModel) ->([ReferenceModel]?)
+    func getObjectsList(object: ReferenceModel.Type) ->([ReferenceModel]?)
     func addObject(by object: ReferenceModel, update: Bool) -> (result: Bool, message: String)
     
     func getUsersCount() -> (Int)
-    func getUsersList() ->([User]?)
     func addUser(by user: User, update: Bool, updatePassword: Bool) -> (result: Bool, message: String)
     func getUserByLogin(login: String) -> (User?)
     func login(login: String, password: String) -> (User?)
-    
-    func getCustomersList() ->([Customer]?)
-    func addCustomer(by customer: Customer, update: Bool) -> (result: Bool, message: String)
-    func getCustomerByID(id: Int) -> (Customer?)
-    
-    func getСhargObjectsList() ->([СhargObject]?)
-    func addСhargObject(by сhargObject: СhargObject, update: Bool) -> (result: Bool, message: String)
-    func getСhargObjectByID(id: Int) -> (СhargObject?)
     
     func getSetPricesList() ->([SetPrices]?)
     func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String)
@@ -52,7 +43,7 @@ class DataBase: DataBaseInterface {
 
 extension DataBase{
     
-    func getObjectsList(object: ReferenceModel) ->([ReferenceModel]?){
+    func getObjectsList(object: ReferenceModel.Type) ->([ReferenceModel]?){
         return currentDataBase.getObjectsList(object: object)
     }
 
@@ -79,10 +70,6 @@ extension DataBase{
        return currentDataBase.getUsersCount()
     }
     
-    func getUsersList() ->([User]?){
-        return currentDataBase.getUsersList()
-    }
-    
     func addUser(by user: User, update: Bool, updatePassword: Bool) -> (result: Bool, message: String) {
         return currentDataBase.addUser(by: user, update: update, updatePassword: updatePassword)
     }
@@ -94,44 +81,6 @@ extension DataBase{
     func login(login: String, password: String) -> (User?) {
        return currentDataBase.login(login: login, password: password)
     }
-    
-}
-
-//MARK: Customers
-
-extension DataBase{
-    
-    func getCustomersList() ->([Customer]?){
-        return currentDataBase.getCustomersList()
-    }
-
-    func addCustomer(by customer: Customer, update: Bool) -> (result: Bool, message: String) {
-        return currentDataBase.addCustomer(by: customer, update: update)
-    }
-
-    func getCustomerByID(id: Int) -> (Customer?) {
-        return currentDataBase.getCustomerByID(id: id)
-    }
-
-    
-}
-
-//MARK: СhargObjects
-
-extension DataBase{
-    
-    func getСhargObjectsList() ->([СhargObject]?){
-        return currentDataBase.getСhargObjectsList()
-    }
-
-    func addСhargObject(by сhargObject: СhargObject, update: Bool) -> (result: Bool, message: String) {
-        return currentDataBase.addСhargObject(by: сhargObject, update: update)
-    }
-
-    func getСhargObjectByID(id: Int) -> (СhargObject?) {
-        return currentDataBase.getСhargObjectByID(id: id)
-    }
-
     
 }
 

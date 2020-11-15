@@ -64,23 +64,169 @@ class DBCoreData: DataBaseInterface {
 }
 
 //MARK: ReferenceObjectDB
+extension DBCoreData{
+    
+    func getObjectDB<T: NSManagedObject>(type: T.Type ,byID id: Int16) -> (T?) {
+        let context = persistentContainer.viewContext
+        
+        let request = T.fetchRequest()
+        
+        let predicate = NSPredicate(format: "id == %ld", id)
+        request.predicate = predicate
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            if objectsDB.count == 0 {
+                return nil
+            }
+            
+            return objectsDB.first as? T ?? nil
+            
+        } catch {
+            print(error)
+        }
+        
+        return nil
+    }
+    
+    func getObjectList<T: NSManagedObject & ReferenceObjectDB>(type: T.Type) ->([ReferenceModel]?) {
+        let context = persistentContainer.viewContext
+    
+        let request = T.fetchRequest()
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            var objectsModel = [ReferenceModel]()
+            
+            objectsModel = objectsDB.compactMap{ objectDB in
+                if let objectDB = objectDB as? ReferenceObjectDB {
+                    return objectDB.getModelByObjectDB()
+                }
+                return nil
+            }
+            
+            return objectsModel
+            
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    func addObject<T: NSManagedObject & ReferenceObjectDB>(type: T.Type , by object: ReferenceModel, update: Bool) -> (result: Bool, message: String) {
+        let context = persistentContainer.viewContext
+        var object = object
+        var currentObject:T?
+        
+        let request = T.fetchRequest()
+        
+        let predicate = NSPredicate(format: "id == %ld", object.id)
+        request.predicate = predicate
+        
+        do {
+            currentObject = try context.fetch(request).first as? T
+        } catch {
+            print(error)
+        }
+        
+        if update, currentObject == nil {
+            return (result: false, message: "Не найден объект базы данных для обновления")
+        }
+        
+        if !update, currentObject != nil {
+            return (result: false, message: "Уже есть объект с таким id")
+        }
+        
+        if !update {
+            let entityDescription = T.entity()
+            currentObject = T(entity: entityDescription, insertInto: context)
+        }
+        
+        guard let managedObject = currentObject else {
+            return (result: false, message: "Ошибка при создании объекта базы данных")
+        }
+        
+        if !update {
+            object.id = nextFreeID(by: T.self)
+        }
+        managedObject.fillByModel(modelObject: object)
+       
+        // Запись объекта
+        self.saveContext()
+        
+        return (result: true, message: "")
+    }
+    
+    func nextFreeID<T: NSManagedObject>(by object: T.Type) -> (Int) {
+        let context = persistentContainer.viewContext
+        
+        let request = T.fetchRequest()
+        let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        request.sortDescriptors = [idSortDescriptor]
+        
+        do {
+            let objectsDB = try context.fetch(request)
+            
+            if objectsDB.count == 0 {
+                return 1
+            }
+           
+            return Int((objectsDB.first as? ReferenceObjectDB)?.id ?? 0) + 1
+            
+        } catch {
+            print(error)
+        }
+        
+        return 1
+    }
+    
+}
+
+//MARK: universal function
 
 extension DBCoreData{
     
-    func  getObjectsList(object: ReferenceModel) ->([ReferenceModel]?){
+    func  getObjectsList(object: ReferenceModel.Type) ->([ReferenceModel]?){
+        
+        if object == Customer.self {
+        
+            return getObjectList(type: CDCustomers.self)
+            
+        }else if object == User.self {
+            
+            return getObjectList(type: CDUsers.self)
+            
+        }else if object == СhargObject.self {
+            
+            return getObjectList(type: CDChargObjects.self)
+            
+        }
         
         
         return nil
     }
     
     func addObject(by object: ReferenceModel, update: Bool) -> (result: Bool, message: String) {
-       
-       return (result: true, message: "")
+        if type(of: object) == Customer.self {
+        
+            return addObject(type: CDCustomers.self, by: object, update: update)
+            
+        }else if type(of: object) == User.self {
+            
+            return addObject(type: CDUsers.self, by: object, update: update)
+            
+        }else if type(of: object) == СhargObject.self {
+            
+            return addObject(type: CDChargObjects.self, by: object, update: update)
+            
+        }
+        
+        return (result: true, message: "")
     }
     
-    func nextFreeID(by object: ReferenceModel) -> (Int) {
-            return 1
-    }
+    
 }
 
 
@@ -102,39 +248,6 @@ extension DBCoreData{
         }
         
         return 0
-    }
-    
-    func getUsersList() ->([User]?) {
-        let context = persistentContainer.viewContext
-    
-        let request: NSFetchRequest<CDUsers> = NSFetchRequest<CDUsers>(entityName: "CDUsers")
-        //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
-        
-        do {
-            let usersDB = try context.fetch(request)
-            
-            var users = [User]()
-            
-            users = usersDB.map{ userDB in
-                let user = User()
-                
-                user.firstName = userDB.firstName ?? ""
-                user.lastName = userDB.lastName ?? ""
-                user.login = userDB.login ?? ""
-                if  userDB.role == "admin" {
-                    user.role = .admin
-                }else if userDB.role == "user" {
-                    user.role = .user
-                }
-                return user
-            }
-            
-            return users
-            
-        } catch {
-            print(error)
-        }
-        return nil
     }
     
     func addUser(by user: User, update: Bool, updatePassword: Bool) -> (result: Bool, message: String) {
@@ -272,295 +385,6 @@ extension DBCoreData{
     }
 }
 
-//MARK: Customers
-
-extension DBCoreData{
-    
-    func getCustomersList() ->([Customer]?) {
-        let context = persistentContainer.viewContext
-    
-        let request: NSFetchRequest<CDCustomers> = NSFetchRequest<CDCustomers>(entityName: "CDCustomers")
-        //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            var objectsModel = [Customer]()
-            
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = Customer()
-                objectModel.id = Int(objectDB.id)
-                objectModel.name = objectDB.name ?? ""
-                objectModel.phone = objectDB.phone ?? ""
-                
-                return objectModel
-            }
-            
-            return objectsModel
-            
-        } catch {
-            print(error)
-        }
-        return nil
-    }
-    
-    func addCustomer(by customer: Customer, update: Bool) -> (result: Bool, message: String) {
-        let context = persistentContainer.viewContext
-        var currentObject:CDCustomers?
-        
-        let request: NSFetchRequest<CDCustomers> = NSFetchRequest<CDCustomers>(entityName: "CDCustomers")
-        
-        let predicate = NSPredicate(format: "id == %ld", customer.id)
-        request.predicate = predicate
-        
-        do {
-            currentObject = try context.fetch(request).first
-        } catch {
-            print(error)
-        }
-        
-        
-        if update, currentObject == nil {
-            return (result: false, message: "Не найден объект базы данных для обновления")
-        }
-        
-        if !update, currentObject != nil {
-            return (result: false, message: "Уже есть объект тарификации с таким id")
-        }
-        
-        if !update {
-            // Описание сущности
-            let entityDescription = NSEntityDescription.entity(forEntityName: "CDCustomers", in: context)
-            
-            // Создание нового объекта
-            currentObject = CDCustomers(entity: entityDescription!, insertInto: context)
-        }
-        
-        guard let managedObject = currentObject else {
-            return (result: false, message: "Ошибка при создании объекта базы данных")
-        }
-        
-        // Установка значения атрибута
-        if !update {
-            managedObject.id = Int32(nextFreeCustomerID())
-        }
-        managedObject.name = customer.name
-        managedObject.phone = customer.phone
-       
-        // Запись объекта
-        self.saveContext()
-        
-        return (result: true, message: "")
-    }
-    
-    func getCustomerByID(id: Int) -> (Customer?) {
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDCustomers> = NSFetchRequest<CDCustomers>(entityName: "CDCustomers")
-        
-        let predicate = NSPredicate(format: "id == %ld", id)
-        request.predicate = predicate
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            if objectsDB.count == 0 {
-                return nil
-            }
-            
-            var objectsModel = [Customer]()
-            
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = Customer()
-                objectModel.id = Int(objectDB.id)
-                objectModel.name = objectDB.name ?? ""
-                objectModel.phone = objectDB.phone ?? ""
-                return objectModel
-            }
-            
-            return objectsModel.first
-            
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
-    
-    func nextFreeCustomerID() -> (Int) {
-       
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDCustomers> = NSFetchRequest<CDCustomers>(entityName: "CDCustomers")
-        let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-        request.sortDescriptors = [idSortDescriptor]
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            if objectsDB.count == 0 {
-                return 1
-            }
-            
-            return Int(objectsDB.first?.id ?? 0) + 1
-            
-        } catch {
-            print(error)
-        }
-        
-        return 1
-        
-    }
-    
-    
-}
-
-//MARK: СhargObjects
-
-extension DBCoreData{
-    
-    func getСhargObjectsList() ->([СhargObject]?) {
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
-        //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            var objectsModel = [СhargObject]()
-            
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = СhargObject()
-                objectModel.id = Int(objectDB.id)
-                objectModel.name = objectDB.name ?? ""
-                objectModel.startTime = objectDB.startTime ?? Date()
-                objectModel.shutdownTime = objectDB.shutdownTime ?? Date()
-                
-                return objectModel
-            }
-            
-            return objectsModel
-            
-        } catch {
-            print(error)
-        }
-        return nil
-    }
-    
-    func addСhargObject(by сhargObject: СhargObject, update: Bool) -> (result: Bool, message: String) {
-        let context = persistentContainer.viewContext
-        var currentObject:CDChargObjects?
-        
-        let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
-        
-        let predicate = NSPredicate(format: "id == %ld", сhargObject.id)
-        request.predicate = predicate
-        
-        do {
-            currentObject = try context.fetch(request).first
-        } catch {
-            print(error)
-        }
-        
-        
-        if update, currentObject == nil {
-            return (result: false, message: "Не найден объект базы данных для обновления")
-        }
-        
-        if !update, currentObject != nil {
-            return (result: false, message: "Уже есть объект тарификации с таким id")
-        }
-        
-        if !update {
-            // Описание сущности
-            let entityDescription = NSEntityDescription.entity(forEntityName: "CDChargObjects", in: context)
-            
-            // Создание нового объекта
-            currentObject = CDChargObjects(entity: entityDescription!, insertInto: context)
-        }
-        
-        guard let managedObject = currentObject else {
-            return (result: false, message: "Ошибка при создании объекта базы данных")
-        }
-        
-        // Установка значения атрибута
-        if !update {
-            managedObject.id = Int32(nextFreeСhargObjectID())
-        }
-        managedObject.name = сhargObject.name
-        managedObject.startTime = сhargObject.startTime
-        managedObject.shutdownTime = сhargObject.shutdownTime
-        
-        // Запись объекта
-        self.saveContext()
-        
-        return (result: true, message: "")
-    }
-    
-    func getСhargObjectByID(id: Int) -> (СhargObject?) {
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
-        
-        let predicate = NSPredicate(format: "id == %ld", id)
-        request.predicate = predicate
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            if objectsDB.count == 0 {
-                return nil
-            }
-            
-            var objectsModel = [СhargObject]()
-            
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = СhargObject()
-                objectModel.id = Int(objectDB.id)
-                objectModel.name = objectDB.name ?? ""
-                objectModel.startTime = objectDB.startTime ?? Date()
-                objectModel.shutdownTime = objectDB.shutdownTime ?? Date()
-                return objectModel
-            }
-            
-            return objectsModel.first
-            
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
-    
-    func nextFreeСhargObjectID() -> (Int) {
-        
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDChargObjects> = NSFetchRequest<CDChargObjects>(entityName: "CDChargObjects")
-        let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-        request.sortDescriptors = [idSortDescriptor]
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            if objectsDB.count == 0 {
-                return 1
-            }
-            
-            return Int(objectsDB.first?.id ?? 0) + 1
-            
-        } catch {
-            print(error)
-        }
-        
-        return 1
-        
-    }
-    
-    
-}
-
 
 //MARK: SetPrices
 
@@ -580,6 +404,16 @@ extension DBCoreData{
                 let objectModel = SetPrices()
                 objectModel.id = Int(objectDB.id)
                 objectModel.date = objectDB.date ?? Date()
+                
+                if let chargObjectDB = objectDB.chargObject {
+                    let chargObject = СhargObject()
+                    chargObject.id = Int(chargObjectDB.id)
+                    chargObject.name = chargObjectDB.name ?? ""
+                    chargObject.startTime = chargObjectDB.startTime ?? Date()
+                    chargObject.shutdownTime = chargObjectDB.shutdownTime ?? Date()
+                    
+                    objectModel.chargObject = chargObject
+                }
                 
                 return objectModel
             }
@@ -633,6 +467,38 @@ extension DBCoreData{
             managedObject.id = Int32(nextFreeSetPricesID())
         }
         managedObject.date = setPrices.date
+        if setPrices.chargObject == nil {
+            managedObject.chargObject = nil
+        }else{
+            managedObject.chargObject = getObjectDB(type: CDChargObjects.self, byID: Int16(setPrices.chargObject!.id))
+        }
+        
+        //Записываем табличную част
+        //Удалим старые записит табличной части
+        if let vtPricesDB = managedObject.vtPrices {
+            for vtPricesDBItem in vtPricesDB {
+                if let vtPricesItemDB = vtPricesDBItem as? CDSetPricesVTPrices {
+                    context.delete(vtPricesItemDB)
+                }
+            }
+        }
+        
+        let entityDescriptionCDSetPricesVTPrices = NSEntityDescription.entity(forEntityName: "CDSetPricesVTPrices", in: context)
+        
+        var strNumber:Int16 = 0
+        for vtPricesItem in setPrices.vtPrices {
+            let currentObjectVTPrices = CDSetPricesVTPrices(entity: entityDescriptionCDSetPricesVTPrices!, insertInto: context)
+            
+            currentObjectVTPrices.strNumber = strNumber
+            currentObjectVTPrices.weekday = vtPricesItem.weekday
+            currentObjectVTPrices.startTime = vtPricesItem.startTime
+            currentObjectVTPrices.endTime = vtPricesItem.endTime
+            currentObjectVTPrices.price = vtPricesItem.price
+            
+            currentObject?.addToVtPrices(currentObjectVTPrices)
+            
+            strNumber += 1
+        }
         
         
         // Запись объекта
@@ -662,6 +528,31 @@ extension DBCoreData{
                 let objectModel = SetPrices()
                 objectModel.id = Int(objectDB.id)
                 objectModel.date = objectDB.date ?? Date()
+                if let vtPrices = objectDB.vtPrices {
+                    objectModel.vtPrices = vtPrices.compactMap{ vtPricesItemDB in
+                        if let vtPricesItemDB = vtPricesItemDB as? CDSetPricesVTPrices {
+                            let vtPricesItem = VTPricesItem()
+                            vtPricesItem.strNumber = vtPricesItemDB.strNumber
+                            vtPricesItem.weekday = vtPricesItemDB.weekday
+                            vtPricesItem.startTime = vtPricesItemDB.startTime ?? Date()
+                            vtPricesItem.endTime = vtPricesItemDB.endTime ?? Date()
+                            vtPricesItem.price = vtPricesItemDB.price
+                            return vtPricesItem
+                        }
+                        
+                        return nil
+                    }.sorted(by: { $0.strNumber < $1.strNumber })
+                }
+                
+                if let chargObjectDB = objectDB.chargObject {
+                    let chargObject = СhargObject()
+                    chargObject.id = Int(chargObjectDB.id)
+                    chargObject.name = chargObjectDB.name ?? ""
+                    chargObject.startTime = chargObjectDB.startTime ?? Date()
+                    chargObject.shutdownTime = chargObjectDB.shutdownTime ?? Date()
+                    
+                    objectModel.chargObject = chargObject
+                }
                 
                 return objectModel
             }

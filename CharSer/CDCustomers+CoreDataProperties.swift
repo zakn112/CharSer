@@ -2,7 +2,7 @@
 //  CDCustomers+CoreDataProperties.swift
 //  CharSer
 //
-//  Created by Андрей Закусов on 02.11.2020.
+//  Created by Андрей Закусов on 12.11.2020.
 //
 //
 
@@ -16,9 +16,9 @@ extension CDCustomers {
         return NSFetchRequest<CDCustomers>(entityName: "CDCustomers")
     }
 
-    @NSManaged public var id: Int
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
+    @NSManaged public var id: Int32
 
 }
 

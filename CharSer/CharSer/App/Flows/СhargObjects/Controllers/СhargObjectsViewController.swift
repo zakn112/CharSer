@@ -30,39 +30,21 @@ class ChargObjectsViewController: UIViewController {
         let fieldsСheckResult = fieldsСheck()
 
         if !fieldsСheckResult.correct {
-            let alert = UIAlertController(title: "Error", message: fieldsСheckResult.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-
+            AlertManager.shared.showWarning(fieldsСheckResult.message)
             return
         }
 
         fillModelUsingForm()
 
-        let saveResult = DataBase.shared.addСhargObject(by: thisObject!, update: !newObject)
+        let saveResult = DataBase.shared.addObject(by: thisObject!, update: !newObject)
 
         if !(saveResult.result) {
-            let alert = UIAlertController(title: "Error", message: saveResult.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-
+            AlertManager.shared.showWarning(saveResult.message)
             return
         }
 
         onSuccess?()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     private func fieldsСheck() -> (correct: Bool, message: String) {
         var message = ""
@@ -83,7 +65,8 @@ class ChargObjectsViewController: UIViewController {
 
         if let thisObject = thisObject {
             thisObject.name = nameTextField.text ?? ""
-            //thisObject.phone = phoneTextField.text ?? ""
+            thisObject.startTime = startTimeDatePicker.date
+            thisObject.shutdownTime = shutdownTimeDatePicker.date
         }
 
     }
@@ -92,13 +75,15 @@ class ChargObjectsViewController: UIViewController {
         if thisObject == nil {
             idTextField.text = ""
             nameTextField.text = ""
-            //phoneTextField.text = ""
+            startTimeDatePicker.date = Date(timeIntervalSince1970: 0)
+            shutdownTimeDatePicker.date = Date(timeIntervalSince1970: 0)
 
             newObject = true
         }else{
             idTextField.text = String(thisObject?.id ?? 0)
             nameTextField.text = thisObject?.name
-            //phoneTextField.text = thisObject?.phone
+            startTimeDatePicker.date = thisObject?.startTime ?? Date(timeIntervalSince1970: 0)
+            shutdownTimeDatePicker.date = thisObject?.shutdownTime ?? Date(timeIntervalSince1970: 0)
 
             newObject = false
         }

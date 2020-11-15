@@ -92,7 +92,7 @@ final class MainMenuCoordinator: BaseCoordinator {
         }
         
         coordinator.rootController = rootController
-        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+        coordinator.onFinishFlow = { [weak self, weak coordinator] chargObject in
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)

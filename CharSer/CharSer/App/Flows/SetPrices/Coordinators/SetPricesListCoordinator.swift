@@ -43,9 +43,32 @@ final class SetPricesListCoordinator: BaseCoordinator {
             self?.rootController?.popViewController(animated: true)
             self?.setPricesTableViewController?.updateForm()
         }
+        
+        controller.onSelectСhargObject = { [weak self] setPricesViewController in
+            self?.openSelectСhargObject(setPricesViewController)
+        }
+        
         controller.thisObject = setPrices
 
         self.rootController?.pushViewController(controller, animated: true)
+    }
+    
+    func openSelectСhargObject(_ setPricesViewController: SetPricesViewController) {
+        let coordinator = ChargObjectsListCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.isSelectMode = true
+        coordinator.onFinishFlow = { [weak self, weak coordinator,  weak setPricesViewController] chargObject  in
+            setPricesViewController?.thisObject?.chargObject = chargObject
+            setPricesViewController?.updateInterface()
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
     }
    
     

@@ -10,6 +10,7 @@ import UIKit
 class SetPricesViewController: UIViewController {
     var onCansel: (() -> Void)?
     var onSuccess: (() -> Void)?
+    var onSelectСhargObject: ((SetPricesViewController) -> Void)?
     
     var thisObject: SetPrices?
     var newObject = false
@@ -21,6 +22,10 @@ class SetPricesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let _ = thisObject {
+            thisObject = DataBase.shared.getSetPricesByID(id: thisObject?.id ?? 0)
+        }
         
         idTextField.isEnabled = false
         
@@ -65,6 +70,11 @@ class SetPricesViewController: UIViewController {
         
     }
     
+    @IBAction func chargObjectTouchDown(_ sender: Any) {
+        onSelectСhargObject?(self)
+    }
+    
+    
     private func fieldsСheck() -> (correct: Bool, message: String) {
         var message = ""
         var correct = true
@@ -82,10 +92,10 @@ class SetPricesViewController: UIViewController {
             thisObject.date = dateDatePicker.date
             //thisObject.phone = phoneTextField.text ?? ""
         }
-
+      
     }
 
-    private func updateInterface() {
+    func updateInterface() {
         if thisObject == nil {
             idTextField.text = ""
             dateDatePicker.setDate(Date(), animated: false)
@@ -94,6 +104,10 @@ class SetPricesViewController: UIViewController {
         }else{
             idTextField.text = String(thisObject?.id ?? 0)
             dateDatePicker.setDate(thisObject?.date ?? Date(), animated: false)
+            
+            if let chargObject = self.thisObject?.chargObject {
+                chargObjectTextField.text = chargObject.name
+            }
 
             newObject = false
         }

@@ -15,9 +15,11 @@ class SetPrices: ReferenceModel {
     
 }
 
-struct VTPricesItem {
+class VTPricesItem: ReferenceModel {
+    var id: Int = 0
+    var strNumber: Int16 = 0
     var weekday: Int16 = 1
     var startTime: Date = Date(timeIntervalSince1970: 0)
     var endTime: Date = Date(timeIntervalSince1970: 0)
-    var price: Float = 0
+    var price: Double = 0
 }

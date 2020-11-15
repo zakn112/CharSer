@@ -8,18 +8,20 @@
 import UIKit
 
 class ChargObjectsTableViewController: UITableViewController {
-
-    var chargObjects: [СhargObject]?
+    
+    var chargObjects = [СhargObject]()
     
     var onFinishFlow: (() -> Void)?
     var onСhargObjectSelected: ((СhargObject?) -> Void)?
     
+    var isSelectMode = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        chargObjects = DataBase.shared.getСhargObjectsList()
+        chargObjects = DataBase.shared.getObjectsList(object: СhargObject.self) as? [СhargObject] ?? [СhargObject]()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -28,7 +30,7 @@ class ChargObjectsTableViewController: UITableViewController {
         }else{
             onFinishFlow?()
         }
-
+        
     }
     
     @IBAction func addButtonPress(_ sender: Any) {
@@ -36,26 +38,25 @@ class ChargObjectsTableViewController: UITableViewController {
     }
     
     func updateForm(){
-        chargObjects = DataBase.shared.getСhargObjectsList()
+        chargObjects = DataBase.shared.getObjectsList(object: СhargObject.self) as? [СhargObject] ?? [СhargObject]()
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return chargObjects?.count ?? 0
+        return chargObjects.count
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "chargObjectItem", for: indexPath) as? ChargObjectTableViewCell,
-           let chargObjects = chargObjects {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "chargObjectItem", for: indexPath) as? ChargObjectTableViewCell{
             cell.setСhargObject(chargObject: chargObjects[indexPath.row])
             return cell
         }
@@ -63,12 +64,11 @@ class ChargObjectsTableViewController: UITableViewController {
         return CustomerListTableViewCell()
     }
     
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let chargObjects = chargObjects {
-           let currentChargObjects = chargObjects[indexPath.row]
-            onСhargObjectSelected?(currentChargObjects)
-        }
+        let currentChargObjects = chargObjects[indexPath.row]
+        onСhargObjectSelected?(currentChargObjects)
+        
     }
-
+    
 }

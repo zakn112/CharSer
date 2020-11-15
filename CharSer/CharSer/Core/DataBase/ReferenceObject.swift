@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import RealmSwift
 
 protocol ReferenceObjectDB {
-    var id:Int { get set }
+   // associatedtype modelType
+    var id:Int32 { get set }
     func getModelByObjectDB() -> (ReferenceModel)
-    func getObjetType() -> (Object.Type)
     func fillByModel(modelObject: ReferenceModel) -> (Void)
 }

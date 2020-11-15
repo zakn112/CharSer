@@ -9,7 +9,7 @@ import UIKit
 
 class UsersListTableViewController: UITableViewController {
     
-    var users: [User]?
+    var users = [User]()
     
     var onFinishFlow: (() -> Void)?
     var onUserSelected: ((User?) -> Void)?
@@ -18,7 +18,7 @@ class UsersListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        users = DataBase.shared.getUsersList()
+        users = DataBase.shared.getObjectsList(object: User.self) as? [User] ?? [User]()
 
     }
     
@@ -37,7 +37,7 @@ class UsersListTableViewController: UITableViewController {
     }
     
     func updateForm(){
-        users = DataBase.shared.getUsersList()
+        users = DataBase.shared.getObjectsList(object: User.self) as? [User] ?? [User]()
         tableView.reloadData()
     }
     
@@ -50,13 +50,12 @@ class UsersListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return users?.count ?? 0
+        return users.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "userItem", for: indexPath) as? UsersListTableViewCell,
-           let users = users {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "userItem", for: indexPath) as? UsersListTableViewCell{
             cell.setUser(user: users[indexPath.row])
             return cell
         }
@@ -66,10 +65,8 @@ class UsersListTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let users = users {
-           let currentUser = users[indexPath.row]
-            onUserSelected?(currentUser)
-        }
+        let currentUser = users[indexPath.row]
+        onUserSelected?(currentUser)
     }
     
     

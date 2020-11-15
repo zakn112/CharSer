@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		00ACEF166C29116EDC0A5EFE /* Pods_CharSerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78DEEFE0C75CF0518342849 /* Pods_CharSerTests.framework */; };
 		19E684BCCB84FA6B48F542F9 /* Pods_CharSer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC75D525774BB593CB10C49A /* Pods_CharSer.framework */; };
+		332968AF255DB43100FACA5B /* CDSetPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */; };
+		332968B3255DB45B00FACA5B /* CDSetPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */; };
+		332968B7255DB45D00FACA5B /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */; };
+		332968BB255DB46000FACA5B /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */; };
+		332968BF255DB46200FACA5B /* CDChargObjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950B25506B3B00CD0705 /* CDChargObjects+CoreDataClass.swift */; };
+		332968C3255DB46500FACA5B /* CDChargObjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */; };
+		332968C7255DB46900FACA5B /* CDCustomers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */; };
+		332968CB255DB46C00FACA5B /* CDCustomers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950E25506B3B00CD0705 /* CDCustomers+CoreDataProperties.swift */; };
+		332968CF255DB46E00FACA5B /* CDUsers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33393850254EA44700EA9457 /* CDUsers+CoreDataClass.swift */; };
+		332968D0255DB47100FACA5B /* CDUsers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33393851254EA44700EA9457 /* CDUsers+CoreDataProperties.swift */; };
 		33336FAD254D52A2004EE9AF /* СhargObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FAC254D52A2004EE9AF /* СhargObject.swift */; };
 		33336FB3254D5377004EE9AF /* ChargObjects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33336FB2254D5377004EE9AF /* ChargObjects.storyboard */; };
 		33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FBA254D5516004EE9AF /* СhargObjectsViewController.swift */; };
@@ -27,11 +37,6 @@
 		335295492552FFFB00CD0705 /* SetPricesVTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295482552FFFB00CD0705 /* SetPricesVTTableViewCell.swift */; };
 		3352954E255465B700CD0705 /* SetPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352954D255465B700CD0705 /* SetPrices.swift */; };
 		335295542554690700CD0705 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335295532554690700CD0705 /* AlertManager.swift */; };
-		336DC9112534CAA400F9D3B2 /* ReferenceСustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9102534CAA400F9D3B2 /* ReferenceСustomer.swift */; };
-		336DC9162534CD4700F9D3B2 /* ReferenceСhargObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9152534CD4700F9D3B2 /* ReferenceСhargObject.swift */; };
-		336DC91B2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC91A2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift */; };
-		336DC9202534CF7200F9D3B2 /* TpDocumentSettingTariffsTariffs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC91F2534CF7200F9D3B2 /* TpDocumentSettingTariffsTariffs.swift */; };
-		336DC9252534D06800F9D3B2 /* DocumentCustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9242534D06800F9D3B2 /* DocumentCustomerOrder.swift */; };
 		336DC92A2535CFE600F9D3B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9292535CFE600F9D3B2 /* DataBase.swift */; };
 		336DC9342536117300F9D3B2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9322536117300F9D3B2 /* ApplicationCoordinator.swift */; };
 		336DC9352536117300F9D3B2 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC9332536117300F9D3B2 /* BaseCoordinator.swift */; };
@@ -50,8 +55,6 @@
 		33C6A22E2532F57200C299E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6A22C2532F57200C299E9 /* LaunchScreen.storyboard */; };
 		33C6A2392532F57200C299E9 /* CharSerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A2382532F57200C299E9 /* CharSerTests.swift */; };
 		33C6A2442532F57200C299E9 /* CharSerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A2432532F57200C299E9 /* CharSerUITests.swift */; };
-		33C6A26B2532FC6D00C299E9 /* ReferenceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A26A2532FC6D00C299E9 /* ReferenceUser.swift */; };
-		33C6A27B2532FD2400C299E9 /* DBRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A27A2532FD2400C299E9 /* DBRealm.swift */; };
 		33C6A6C7253AF82600DE32B9 /* mainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6A6C6253AF82600DE32B9 /* mainMenu.storyboard */; };
 		33C6A6CC253AF8F800DE32B9 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A6CB253AF8F800DE32B9 /* MainMenuViewController.swift */; };
 		33C6A6D1253AFC2E00DE32B9 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6A6D0253AFC2E00DE32B9 /* MainMenuCoordinator.swift */; };
@@ -118,11 +121,6 @@
 		3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		336DC9102534CAA400F9D3B2 /* ReferenceСustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceСustomer.swift"; sourceTree = "<group>"; };
-		336DC9152534CD4700F9D3B2 /* ReferenceСhargObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceСhargObject.swift"; sourceTree = "<group>"; };
-		336DC91A2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSettingTariffs.swift; sourceTree = "<group>"; };
-		336DC91F2534CF7200F9D3B2 /* TpDocumentSettingTariffsTariffs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TpDocumentSettingTariffsTariffs.swift; sourceTree = "<group>"; };
-		336DC9242534D06800F9D3B2 /* DocumentCustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCustomerOrder.swift; sourceTree = "<group>"; };
 		336DC9292535CFE600F9D3B2 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		336DC9322536117300F9D3B2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		336DC9332536117300F9D3B2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -147,8 +145,6 @@
 		33C6A23F2532F57200C299E9 /* CharSerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharSerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C6A2432532F57200C299E9 /* CharSerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharSerUITests.swift; sourceTree = "<group>"; };
 		33C6A2452532F57200C299E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33C6A26A2532FC6D00C299E9 /* ReferenceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceUser.swift; sourceTree = "<group>"; };
-		33C6A27A2532FD2400C299E9 /* DBRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRealm.swift; sourceTree = "<group>"; };
 		33C6A6C6253AF82600DE32B9 /* mainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mainMenu.storyboard; sourceTree = "<group>"; };
 		33C6A6CB253AF8F800DE32B9 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		33C6A6D0253AFC2E00DE32B9 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
@@ -247,15 +243,6 @@
 				33393837254E9D6200EA9457 /* DBCoreData.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		33393836254E9D3400EA9457 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				33C6A27A2532FD2400C299E9 /* DBRealm.swift */,
-				33C6A2692532FC4800C299E9 /* ModelRealm */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		33393842254EA39700EA9457 /* Model */ = {
@@ -538,25 +525,11 @@
 		33C6A2682532FA0500C299E9 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				33393836254E9D3400EA9457 /* Realm */,
 				3339382F254E99E300EA9457 /* CoreData */,
 				336DC9292535CFE600F9D3B2 /* DataBase.swift */,
 				33336FC7254D5B87004EE9AF /* ReferenceObject.swift */,
 			);
 			path = DataBase;
-			sourceTree = "<group>";
-		};
-		33C6A2692532FC4800C299E9 /* ModelRealm */ = {
-			isa = PBXGroup;
-			children = (
-				33C6A26A2532FC6D00C299E9 /* ReferenceUser.swift */,
-				336DC9102534CAA400F9D3B2 /* ReferenceСustomer.swift */,
-				336DC9152534CD4700F9D3B2 /* ReferenceСhargObject.swift */,
-				336DC91A2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift */,
-				336DC91F2534CF7200F9D3B2 /* TpDocumentSettingTariffsTariffs.swift */,
-				336DC9242534D06800F9D3B2 /* DocumentCustomerOrder.swift */,
-			);
-			path = ModelRealm;
 			sourceTree = "<group>";
 		};
 		33C6A6C3253AF7EC00DE32B9 /* MainMenu */ = {
@@ -672,7 +645,6 @@
 				33C6A21A2532F56F00C299E9 /* Sources */,
 				33C6A21B2532F56F00C299E9 /* Frameworks */,
 				33C6A21C2532F56F00C299E9 /* Resources */,
-				1BB5DEF69FC8FD1359EBDE4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -710,7 +682,6 @@
 				33C6A23B2532F57200C299E9 /* Sources */,
 				33C6A23C2532F57200C299E9 /* Frameworks */,
 				33C6A23D2532F57200C299E9 /* Resources */,
-				9EA0FFC4F1FB0FDDB1E8024D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -819,23 +790,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1BB5DEF69FC8FD1359EBDE4C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharSer/Pods-CharSer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharSer/Pods-CharSer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharSer/Pods-CharSer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3E8F96F572456E593D631765 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -880,23 +834,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9EA0FFC4F1FB0FDDB1E8024D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -907,51 +844,54 @@
 				336DC92A2535CFE600F9D3B2 /* DataBase.swift in Sources */,
 				3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */,
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
+				332968B7255DB45D00FACA5B /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
+				332968D0255DB47100FACA5B /* CDUsers+CoreDataProperties.swift in Sources */,
 				3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */,
 				335295542554690700CD0705 /* AlertManager.swift in Sources */,
 				33D5EDF5254749E7007FB45F /* CustomersListTableViewController.swift in Sources */,
 				33336FC0254D552A004EE9AF /* СhargObjectsTableViewController.swift in Sources */,
 				33C6A6D9253AFF3700DE32B9 /* MainDesktopViewController.swift in Sources */,
-				336DC9162534CD4700F9D3B2 /* ReferenceСhargObject.swift in Sources */,
+				332968CB255DB46C00FACA5B /* CDCustomers+CoreDataProperties.swift in Sources */,
 				33C6A2222532F56F00C299E9 /* AppDelegate.swift in Sources */,
-				336DC91B2534CE7C00F9D3B2 /* DocumentSettingTariffs.swift in Sources */,
 				33336FDD254D8666004EE9AF /* ChargObjectsListCoordinator.swift in Sources */,
-				336DC9252534D06800F9D3B2 /* DocumentCustomerOrder.swift in Sources */,
 				339ADA9F25377B9C0054C624 /* LoginCoordinator.swift in Sources */,
 				33336FD0254D5BDF004EE9AF /* ReferenceModel.swift in Sources */,
 				33C6A6E1253C1BE700DE32B9 /* MainDesktopNavigationController.swift in Sources */,
+				332968BB255DB46000FACA5B /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */,
 				33D5EDFF25474A35007FB45F /* CustomerListTableViewCell.swift in Sources */,
+				332968CF255DB46E00FACA5B /* CDUsers+CoreDataClass.swift in Sources */,
 				33C6A2242532F56F00C299E9 /* SceneDelegate.swift in Sources */,
 				339ADAA725377D2C0054C624 /* MainDesktopCoordinator.swift in Sources */,
 				33D5EDFA25474A02007FB45F /* CustomerViewController.swift in Sources */,
 				33336FC8254D5B87004EE9AF /* ReferenceObject.swift in Sources */,
 				33C6A6E9253C1C8500DE32B9 /* MainMenuPushTransitionAnimator.swift in Sources */,
 				33C6A6D1253AFC2E00DE32B9 /* MainMenuCoordinator.swift in Sources */,
+				332968C7255DB46900FACA5B /* CDCustomers+CoreDataClass.swift in Sources */,
 				33C6A6E8253C1C8500DE32B9 /* MainMenuPopTransitionAnimator.swift in Sources */,
 				335295492552FFFB00CD0705 /* SetPricesVTTableViewCell.swift in Sources */,
+				332968B3255DB45B00FACA5B /* CDSetPrices+CoreDataProperties.swift in Sources */,
 				3352954E255465B700CD0705 /* SetPrices.swift in Sources */,
 				336DC941253612A500F9D3B2 /* User.swift in Sources */,
-				33C6A26B2532FC6D00C299E9 /* ReferenceUser.swift in Sources */,
 				33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */,
 				336DC93B253611BE00F9D3B2 /* Session.swift in Sources */,
 				336DC94E25361ED800F9D3B2 /* UserCoordinator.swift in Sources */,
+				332968BF255DB46200FACA5B /* CDChargObjects+CoreDataClass.swift in Sources */,
 				336DC9352536117300F9D3B2 /* BaseCoordinator.swift in Sources */,
 				33C6A708253E082E00DE32B9 /* UserListCoordinator.swift in Sources */,
-				336DC9112534CAA400F9D3B2 /* ReferenceСustomer.swift in Sources */,
+				332968AF255DB43100FACA5B /* CDSetPrices+CoreDataClass.swift in Sources */,
 				3352952D2552F86100CD0705 /* SetPricesListCoordinator.swift in Sources */,
 				33393838254E9D6200EA9457 /* DBCoreData.swift in Sources */,
 				33C6A6FA253C343300DE32B9 /* UsersListTableViewController.swift in Sources */,
 				335295352552F88B00CD0705 /* SetPricesViewController.swift in Sources */,
 				33C6A700253C34BD00DE32B9 /* UsersListTableViewCell.swift in Sources */,
 				339ADA9A253778D10054C624 /* LoginViewController.swift in Sources */,
+				332968C3255DB46500FACA5B /* CDChargObjects+CoreDataProperties.swift in Sources */,
 				33D5EE0425474B00007FB45F /* Customer.swift in Sources */,
 				33C6A6CC253AF8F800DE32B9 /* MainMenuViewController.swift in Sources */,
-				33C6A27B2532FD2400C299E9 /* DBRealm.swift in Sources */,
 				33336FAD254D52A2004EE9AF /* СhargObject.swift in Sources */,
 				33336FD8254D852C004EE9AF /* СhargObjectTableViewCell.swift in Sources */,
 				33D5EE09254887C3007FB45F /* CustomersListCoordinator.swift in Sources */,
-				336DC9202534CF7200F9D3B2 /* TpDocumentSettingTariffsTariffs.swift in Sources */,
 				336DC9342536117300F9D3B2 /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
