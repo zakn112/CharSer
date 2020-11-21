@@ -11,7 +11,8 @@ final class CustomersListCoordinator: BaseCoordinator {
     
     var rootController: UINavigationController?
     var customerListController: CustomersListTableViewController?
-    var onFinishFlow: (() -> Void)?
+    var onFinishFlow: ((Customer?) -> Void)?
+    var isSelectMode = false
     
     override func start() {
         showCustomersListModule()
@@ -22,11 +23,17 @@ final class CustomersListCoordinator: BaseCoordinator {
             .instantiateViewController(withIdentifier: "CustomersList") as! CustomersListTableViewController
         
         controller.onCustomerSelected = { [weak self] customer in
-            self?.openCustomer(customer: customer)
+            if self?.isSelectMode == true, customer != nil  {
+                self?.rootController?.popViewController(animated: true)
+                self?.onFinishFlow?(customer)
+            }else{
+                self?.openCustomer(customer: customer)
+            }
+            
         }
         
         controller.onFinishFlow = { [weak self] in
-            self?.onFinishFlow?()
+            self?.onFinishFlow?(nil)
         }
         
         self.customerListController = controller

@@ -90,7 +90,7 @@ class SetPricesViewController: UIViewController {
 
         if let thisObject = thisObject {
             thisObject.date = dateDatePicker.date
-            //thisObject.phone = phoneTextField.text ?? ""
+            
         }
       
     }
@@ -99,7 +99,9 @@ class SetPricesViewController: UIViewController {
         if thisObject == nil {
             idTextField.text = ""
             dateDatePicker.setDate(Date(), animated: false)
-           
+            
+            thisObject = SetPrices()
+            
             newObject = true
         }else{
             idTextField.text = String(thisObject?.id ?? 0)

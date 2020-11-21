@@ -11,6 +11,9 @@ import CoreData
 
 class DBCoreData: DataBaseInterface {
     
+    static var shared = DBCoreData()
+    private init(){}
+    
     func setConfiguration() -> () {
        
         
@@ -202,8 +205,11 @@ extension DBCoreData{
             
             return getObjectList(type: CDChargObjects.self)
             
+        }else if object == CustomerOrder.self {
+            
+            return getObjectList(type: CDCustomerOrders.self)
+            
         }
-        
         
         return nil
     }
@@ -220,6 +226,10 @@ extension DBCoreData{
         }else if type(of: object) == СhargObject.self {
             
             return addObject(type: CDChargObjects.self, by: object, update: update)
+            
+        }else if type(of: object) == CustomerOrder.self {
+            
+            return addObject(type: CDCustomerOrders.self, by: object, update: update)
             
         }
         

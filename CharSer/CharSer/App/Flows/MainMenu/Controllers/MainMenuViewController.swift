@@ -15,6 +15,7 @@ class MainMenuViewController: UIViewController {
     var onChangeUser: (() -> Void)?
     var onСhargObjectsList: (() -> Void)?
     var onSetPricesList: (() -> Void)?
+    var onCustomerOrdersList: (() -> Void)?
     
     
     override func viewDidLoad() {
@@ -51,5 +52,10 @@ class MainMenuViewController: UIViewController {
     @IBAction func setPricesListButtonPress(_ sender: Any) {
         onSetPricesList?()
     }
+    
+    @IBAction func customerOrdersListButtonPress(_ sender: Any) {
+        onCustomerOrdersList?()
+    }
+    
     
 }

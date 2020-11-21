@@ -14,8 +14,6 @@ class ChargObjectsTableViewController: UITableViewController {
     var onFinishFlow: (() -> Void)?
     var onСhargObjectSelected: ((СhargObject?) -> Void)?
     
-    var isSelectMode = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -27,8 +27,8 @@ protocol DataBaseInterface {
 
 class DataBase: DataBaseInterface {
  
-    static var shared: DataBaseInterface = DataBase()
-    private let currentDataBase = DBCoreData()
+    static var shared = DataBase()
+    private let currentDataBase: DataBaseInterface = DBCoreData.shared
     
     private init(){}
     

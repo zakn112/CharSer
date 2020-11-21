@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,7 @@
 		336DC9492536171D00F9D3B2 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336DC9482536171D00F9D3B2 /* Users.storyboard */; };
 		336DC94E25361ED800F9D3B2 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC94D25361ED800F9D3B2 /* UserCoordinator.swift */; };
 		336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DC95225361F3300F9D3B2 /* UserViewController.swift */; };
+		338AA59E25612BF500938EBA /*  CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338AA59D25612BF500938EBA /*  CustomerOrder.swift */; };
 		339ADA9A253778D10054C624 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339ADA99253778D10054C624 /* LoginViewController.swift */; };
 		339ADA9F25377B9C0054C624 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339ADA9E25377B9C0054C624 /* LoginCoordinator.swift */; };
 		339ADAA725377D2C0054C624 /* MainDesktopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339ADAA625377D2C0054C624 /* MainDesktopCoordinator.swift */; };
@@ -71,6 +72,13 @@
 		33D5EDFF25474A35007FB45F /* CustomerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D5EDFE25474A35007FB45F /* CustomerListTableViewCell.swift */; };
 		33D5EE0425474B00007FB45F /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D5EE0325474B00007FB45F /* Customer.swift */; };
 		33D5EE09254887C3007FB45F /* CustomersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D5EE08254887C3007FB45F /* CustomersListCoordinator.swift */; };
+		33FE2FD92568F5A600711280 /* CustomerOrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FD82568F5A600711280 /* CustomerOrdersListCoordinator.swift */; };
+		33FE2FDE2568F5E700711280 /* CustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FDD2568F5E700711280 /* CustomerOrderViewController.swift */; };
+		33FE2FE32568F62800711280 /* CustomerOrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */; };
+		33FE2FE82568F66F00711280 /* CustomerOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */; };
+		33FE2FF02568F6A100711280 /* CustomerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */; };
+		33FE2FF62569102800711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */; };
+		33FE2FF72569102800711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */; };
 		8A87C29EE3DA63C0146323BF /* Pods_CharSer_CharSerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +137,7 @@
 		336DC9482536171D00F9D3B2 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		336DC94D25361ED800F9D3B2 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		336DC95225361F3300F9D3B2 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		338AA59D25612BF500938EBA /*  CustomerOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CustomerOrder.swift"; sourceTree = "<group>"; };
 		339ADA99253778D10054C624 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		339ADA9E25377B9C0054C624 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		339ADAA625377D2C0054C624 /* MainDesktopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDesktopCoordinator.swift; sourceTree = "<group>"; };
@@ -161,6 +170,13 @@
 		33D5EDFE25474A35007FB45F /* CustomerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListTableViewCell.swift; sourceTree = "<group>"; };
 		33D5EE0325474B00007FB45F /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		33D5EE08254887C3007FB45F /* CustomersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListCoordinator.swift; sourceTree = "<group>"; };
+		33FE2FD82568F5A600711280 /* CustomerOrdersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersListCoordinator.swift; sourceTree = "<group>"; };
+		33FE2FDD2568F5E700711280 /* CustomerOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewController.swift; sourceTree = "<group>"; };
+		33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersTableViewController.swift; sourceTree = "<group>"; };
+		33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersTableViewCell.swift; sourceTree = "<group>"; };
+		33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomerOrder.storyboard; sourceTree = "<group>"; };
+		33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		500BF7FE322D481E57E61BA7 /* Pods-CharSer-CharSerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer-CharSerUITests.release.xcconfig"; path = "Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5AE7A5943AFE72963F6D74C7 /* Pods-CharSer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer.debug.xcconfig"; path = "Target Support Files/Pods-CharSer/Pods-CharSer.debug.xcconfig"; sourceTree = "<group>"; };
 		6833B49065C6D7A76DE2D2C3 /* Pods-CharSerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSerTests.release.xcconfig"; path = "Target Support Files/Pods-CharSerTests/Pods-CharSerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +264,8 @@
 		33393842254EA39700EA9457 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */,
+				33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */,
 				3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */,
 				3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */,
 				3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */,
@@ -332,6 +350,7 @@
 				33D5EE0325474B00007FB45F /* Customer.swift */,
 				33336FAC254D52A2004EE9AF /* СhargObject.swift */,
 				3352954D255465B700CD0705 /* SetPrices.swift */,
+				338AA59D25612BF500938EBA /*  CustomerOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +384,42 @@
 				33C6A6F9253C343300DE32B9 /* UsersListTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		338AA59925612BAB00938EBA /*  CustomerOrder */ = {
+			isa = PBXGroup;
+			children = (
+				338AA59A25612BCD00938EBA /* Coordinators */,
+				338AA59B25612BD200938EBA /* Controllers */,
+				338AA59C25612BD800938EBA /* Views */,
+				33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */,
+			);
+			path = " CustomerOrder";
+			sourceTree = "<group>";
+		};
+		338AA59A25612BCD00938EBA /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				33FE2FD82568F5A600711280 /* CustomerOrdersListCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		338AA59B25612BD200938EBA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33FE2FDD2568F5E700711280 /* CustomerOrderViewController.swift */,
+				33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		338AA59C25612BD800938EBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		339ADAA325377C7B0054C624 /* MainDesktop */ = {
@@ -489,6 +544,7 @@
 		33C6A2582532F7B700C299E9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				338AA59925612BAB00938EBA /*  CustomerOrder */,
 				335295282552F73C00CD0705 /* SetPrices */,
 				33336FB1254D532C004EE9AF /* СhargObjects */,
 				33D5EDE92545781C007FB45F /* Customers */,
@@ -746,6 +802,7 @@
 				33C6A6C7253AF82600DE32B9 /* mainMenu.storyboard in Resources */,
 				336DC9492536171D00F9D3B2 /* Users.storyboard in Resources */,
 				335295442552F8F700CD0705 /* SetPrices.storyboard in Resources */,
+				33FE2FF02568F6A100711280 /* CustomerOrder.storyboard in Resources */,
 				33C6A22B2532F57200C299E9 /* Assets.xcassets in Resources */,
 				33C6A2292532F56F00C299E9 /* Main.storyboard in Resources */,
 			);
@@ -844,6 +901,7 @@
 				336DC92A2535CFE600F9D3B2 /* DataBase.swift in Sources */,
 				3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */,
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
+				33FE2FF72569102800711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */,
 				332968B7255DB45D00FACA5B /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
 				332968D0255DB47100FACA5B /* CDUsers+CoreDataProperties.swift in Sources */,
@@ -856,14 +914,19 @@
 				33C6A2222532F56F00C299E9 /* AppDelegate.swift in Sources */,
 				33336FDD254D8666004EE9AF /* ChargObjectsListCoordinator.swift in Sources */,
 				339ADA9F25377B9C0054C624 /* LoginCoordinator.swift in Sources */,
+				338AA59E25612BF500938EBA /*  CustomerOrder.swift in Sources */,
 				33336FD0254D5BDF004EE9AF /* ReferenceModel.swift in Sources */,
 				33C6A6E1253C1BE700DE32B9 /* MainDesktopNavigationController.swift in Sources */,
 				332968BB255DB46000FACA5B /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */,
+				33FE2FF62569102800711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */,
 				33D5EDFF25474A35007FB45F /* CustomerListTableViewCell.swift in Sources */,
 				332968CF255DB46E00FACA5B /* CDUsers+CoreDataClass.swift in Sources */,
+				33FE2FE82568F66F00711280 /* CustomerOrdersTableViewCell.swift in Sources */,
 				33C6A2242532F56F00C299E9 /* SceneDelegate.swift in Sources */,
 				339ADAA725377D2C0054C624 /* MainDesktopCoordinator.swift in Sources */,
+				33FE2FD92568F5A600711280 /* CustomerOrdersListCoordinator.swift in Sources */,
 				33D5EDFA25474A02007FB45F /* CustomerViewController.swift in Sources */,
+				33FE2FDE2568F5E700711280 /* CustomerOrderViewController.swift in Sources */,
 				33336FC8254D5B87004EE9AF /* ReferenceObject.swift in Sources */,
 				33C6A6E9253C1C8500DE32B9 /* MainMenuPushTransitionAnimator.swift in Sources */,
 				33C6A6D1253AFC2E00DE32B9 /* MainMenuCoordinator.swift in Sources */,
@@ -880,6 +943,7 @@
 				336DC9352536117300F9D3B2 /* BaseCoordinator.swift in Sources */,
 				33C6A708253E082E00DE32B9 /* UserListCoordinator.swift in Sources */,
 				332968AF255DB43100FACA5B /* CDSetPrices+CoreDataClass.swift in Sources */,
+				33FE2FE32568F62800711280 /* CustomerOrdersTableViewController.swift in Sources */,
 				3352952D2552F86100CD0705 /* SetPricesListCoordinator.swift in Sources */,
 				33393838254E9D6200EA9457 /* DBCoreData.swift in Sources */,
 				33C6A6FA253C343300DE32B9 /* UsersListTableViewController.swift in Sources */,

@@ -49,6 +49,11 @@ final class MainMenuCoordinator: BaseCoordinator {
             self?.showSetPricesListModule()
         }
         
+        controller.onCustomerOrdersList = { [weak self] in
+           
+            self?.showCustomerOrdersListModule()
+        }
+        
         
         self.rootController?.pushViewController(controller, animated: true)
 
@@ -77,7 +82,7 @@ final class MainMenuCoordinator: BaseCoordinator {
         }
         
         coordinator.rootController = rootController
-        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+        coordinator.onFinishFlow = { [weak self, weak coordinator] customer in
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)
@@ -101,6 +106,21 @@ final class MainMenuCoordinator: BaseCoordinator {
     
     private func showSetPricesListModule() {
         let coordinator = SetPricesListCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    private func showCustomerOrdersListModule() {
+        let coordinator = CustomerOrdersListCoordinator()
         
         if typeDependencyIsAdded(coordinator) {
             return

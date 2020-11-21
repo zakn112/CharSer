@@ -1,26 +1,24 @@
 //
-//  CustomersListTableViewController.swift
+//  CustomerOrdersTableViewController.swift
 //  CharSer
 //
-//  Created by Андрей Закусов on 26.10.2020.
+//  Created by Андрей Закусов on 21.11.2020.
 //
 
 import UIKit
 
-class CustomersListTableViewController: UITableViewController {
-    var customers = [Customer]()
+class CustomerOrdersTableViewController: UITableViewController {
+    var customerOrdersDocs: [CustomerOrder] = [CustomerOrder]()
     
     var onFinishFlow: (() -> Void)?
-    var onCustomerSelected: ((Customer?) -> Void)?
-    
-    var isSelectMode = false
+    var onCustomerOrderSelected: ((CustomerOrder?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        customers = DataBase.shared.getObjectsList(object: Customer.self) as? [Customer] ?? [Customer]()
-
+        customerOrdersDocs = DataBase.shared.getObjectsList(object: CustomerOrder.self) as? [CustomerOrder] ?? [CustomerOrder]()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,44 +27,45 @@ class CustomersListTableViewController: UITableViewController {
         }else{
             onFinishFlow?()
         }
-
+        
     }
     
     @IBAction func addButtonPress(_ sender: Any) {
-        onCustomerSelected?(nil)
+        onCustomerOrderSelected?(nil)
     }
     
-
     func updateForm(){
-        customers = DataBase.shared.getObjectsList(object: Customer.self) as? [Customer] ?? [Customer]()
+        customerOrdersDocs = DataBase.shared.getObjectsList(object: CustomerOrder.self) as? [CustomerOrder] ?? [CustomerOrder]()
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return customers.count
+        return customerOrdersDocs.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "customerItem", for: indexPath) as? CustomerListTableViewCell{
-            cell.setCustomer(customer: customers[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "customerOrdersItem", for: indexPath) as? CustomerOrdersTableViewCell {
+            cell.setCustomerOrder(customerOrder: customerOrdersDocs[indexPath.row])
             return cell
         }
         
-        return CustomerListTableViewCell()
+        return CustomerOrdersTableViewCell()
     }
     
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentCustomer = customers[indexPath.row]
-        onCustomerSelected?(currentCustomer)
+        
+        let currentCustomerOrderDoc = customerOrdersDocs[indexPath.row]
+        onCustomerOrderSelected?(currentCustomerOrderDoc)
+        
     }
-
+  
 }
