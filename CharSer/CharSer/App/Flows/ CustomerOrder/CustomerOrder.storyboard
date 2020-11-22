@@ -100,6 +100,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gnS-VM-uIu"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="startTimeValueChanged:" destination="zNt-f1-0L6" eventType="valueChanged" id="SJZ-iC-rOo"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Окончание сеанса:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1El-Nd-yYi">
                                 <rect key="frame" x="10" y="386" width="394" height="30"/>
@@ -115,6 +118,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="M7S-Un-1d8"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="endTimeValueChanged:" destination="zNt-f1-0L6" eventType="valueChanged" id="o4w-Cj-1XY"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Длительность:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMr-lj-V2h">
                                 <rect key="frame" x="10" y="466" width="120" height="30"/>

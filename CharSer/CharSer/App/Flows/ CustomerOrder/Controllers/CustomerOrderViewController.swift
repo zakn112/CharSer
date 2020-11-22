@@ -30,14 +30,13 @@ class CustomerOrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let _ = thisObject {
-            //thisObject = DataBase.shared.getSetPricesByID(id: thisObject?.id ?? 0)
-        }
-        
         idTextField.isEnabled = false
         
         updateInterface()
         // Do any additional setup after loading the view.
+        
+        //перенести в модельвью
+        durationLabel.text = TariffCalculation.shared.durationTimeIntervalString(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
     }
     
     @IBAction func saveButtonPress(_ sender: Any) {
@@ -77,6 +76,19 @@ class CustomerOrderViewController: UIViewController {
         onSelectCustomer?(self)
     }
     
+    @IBAction func startTimeValueChanged(_ sender: Any) {
+        //перенести во вьюмодель
+        durationLabel.text = TariffCalculation.shared.durationTimeIntervalString(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
+        thisObject?.amount = TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
+        amountLabel.text = String(TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date))
+    }
+    
+    @IBAction func endTimeValueChanged(_ sender: Any) {
+        //перенести во вьюмодель
+        durationLabel.text = TariffCalculation.shared.durationTimeIntervalString(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
+        thisObject?.amount = TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
+        amountLabel.text = String(TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date))
+    }
     
     private func fieldsСheck() -> (correct: Bool, message: String) {
         var message = ""

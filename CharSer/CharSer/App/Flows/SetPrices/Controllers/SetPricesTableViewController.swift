@@ -8,7 +8,7 @@
 import UIKit
 
 class SetPricesTableViewController: UITableViewController {
-    var setPicesDocs: [SetPrices]?
+    var setPicesDocs = [SetPrices]()
     
     var onFinishFlow: (() -> Void)?
     var onSetPicesSelected: ((SetPrices?) -> Void)?
@@ -18,7 +18,7 @@ class SetPricesTableViewController: UITableViewController {
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        setPicesDocs = DataBase.shared.getSetPricesList()
+        setPicesDocs = DataBase.shared.getObjectsList(object: SetPrices.self) as? [SetPrices] ?? [SetPrices]()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,7 +35,7 @@ class SetPricesTableViewController: UITableViewController {
     }
 
     func updateForm(){
-        setPicesDocs = DataBase.shared.getSetPricesList()
+        setPicesDocs = DataBase.shared.getObjectsList(object: SetPrices.self) as? [SetPrices] ?? [SetPrices]()
         tableView.reloadData()
     }
     
@@ -48,12 +48,11 @@ class SetPricesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return setPicesDocs?.count ?? 0
+        return setPicesDocs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "setPricesItem", for: indexPath) as? SetPricesTableViewCell,
-           let setPicesDocs = setPicesDocs {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "setPricesItem", for: indexPath) as? SetPricesTableViewCell{
             cell.setSetPrices(setPrices: setPicesDocs[indexPath.row])
             return cell
         }
@@ -63,10 +62,8 @@ class SetPricesTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let setPicesDocs = setPicesDocs {
-           let currentSetPicesDoc = setPicesDocs[indexPath.row]
-            onSetPicesSelected?(currentSetPicesDoc)
-        }
+        let currentSetPicesDoc = setPicesDocs[indexPath.row]
+        onSetPicesSelected?(currentSetPicesDoc)
     }
   
 }

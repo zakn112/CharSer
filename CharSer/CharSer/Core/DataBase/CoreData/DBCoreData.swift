@@ -209,6 +209,10 @@ extension DBCoreData{
             
             return getObjectList(type: CDCustomerOrders.self)
             
+        }else if object == SetPrices.self {
+            
+            return getObjectList(type: CDSetPrices.self)
+            
         }
         
         return nil
@@ -400,42 +404,6 @@ extension DBCoreData{
 
 extension DBCoreData{
     
-    func getSetPricesList() ->([SetPrices]?) {
-        let context = persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
-        
-        do {
-            let objectsDB = try context.fetch(request)
-            
-            var objectsModel = [SetPrices]()
-            
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = SetPrices()
-                objectModel.id = Int(objectDB.id)
-                objectModel.date = objectDB.date ?? Date()
-                
-                if let chargObjectDB = objectDB.chargObject {
-                    let chargObject = СhargObject()
-                    chargObject.id = Int(chargObjectDB.id)
-                    chargObject.name = chargObjectDB.name ?? ""
-                    chargObject.startTime = chargObjectDB.startTime ?? Date()
-                    chargObject.shutdownTime = chargObjectDB.shutdownTime ?? Date()
-                    
-                    objectModel.chargObject = chargObject
-                }
-                
-                return objectModel
-            }
-            
-            return objectsModel
-            
-        } catch {
-            print(error)
-        }
-        return nil
-    }
-    
     func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String) {
         let context = persistentContainer.viewContext
         var currentObject:CDSetPrices?
@@ -474,7 +442,7 @@ extension DBCoreData{
         
         // Установка значения атрибута
         if !update {
-            managedObject.id = Int32(nextFreeSetPricesID())
+            managedObject.id = Int32(nextFreeID(by: CDSetPrices.self))
         }
         managedObject.date = setPrices.date
         if setPrices.chargObject == nil {
@@ -534,37 +502,8 @@ extension DBCoreData{
             
             var objectsModel = [SetPrices]()
             
-            objectsModel = objectsDB.map{ objectDB in
-                let objectModel = SetPrices()
-                objectModel.id = Int(objectDB.id)
-                objectModel.date = objectDB.date ?? Date()
-                if let vtPrices = objectDB.vtPrices {
-                    objectModel.vtPrices = vtPrices.compactMap{ vtPricesItemDB in
-                        if let vtPricesItemDB = vtPricesItemDB as? CDSetPricesVTPrices {
-                            let vtPricesItem = VTPricesItem()
-                            vtPricesItem.strNumber = vtPricesItemDB.strNumber
-                            vtPricesItem.weekday = vtPricesItemDB.weekday
-                            vtPricesItem.startTime = vtPricesItemDB.startTime ?? Date()
-                            vtPricesItem.endTime = vtPricesItemDB.endTime ?? Date()
-                            vtPricesItem.price = vtPricesItemDB.price
-                            return vtPricesItem
-                        }
-                        
-                        return nil
-                    }.sorted(by: { $0.strNumber < $1.strNumber })
-                }
-                
-                if let chargObjectDB = objectDB.chargObject {
-                    let chargObject = СhargObject()
-                    chargObject.id = Int(chargObjectDB.id)
-                    chargObject.name = chargObjectDB.name ?? ""
-                    chargObject.startTime = chargObjectDB.startTime ?? Date()
-                    chargObject.shutdownTime = chargObjectDB.shutdownTime ?? Date()
-                    
-                    objectModel.chargObject = chargObject
-                }
-                
-                return objectModel
+            objectsModel = objectsDB.compactMap{ objectDB in
+                return objectDB.getModelByObjectDB() as? SetPrices
             }
             
             return objectsModel.first
@@ -576,29 +515,33 @@ extension DBCoreData{
         return nil
     }
     
-    func nextFreeSetPricesID() -> (Int) {
-        
+    func getSetPricesLast() -> (SetPrices?) {
         let context = persistentContainer.viewContext
         
         let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
-        let idSortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-        request.sortDescriptors = [idSortDescriptor]
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sort]
         
         do {
             let objectsDB = try context.fetch(request)
             
             if objectsDB.count == 0 {
-                return 1
+                return nil
             }
             
-            return Int(objectsDB.first?.id ?? 0) + 1
+            var objectsModel = [SetPrices]()
+            
+            objectsModel = objectsDB.compactMap{ objectDB in
+                return objectDB.getModelByObjectDB() as? SetPrices
+            }
+            
+            return objectsModel.first
             
         } catch {
             print(error)
         }
         
-        return 1
-        
+        return nil
     }
     
     

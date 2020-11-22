@@ -19,9 +19,9 @@ protocol DataBaseInterface {
     func getUserByLogin(login: String) -> (User?)
     func login(login: String, password: String) -> (User?)
     
-    func getSetPricesList() ->([SetPrices]?)
     func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String)
     func getSetPricesByID(id: Int) -> (SetPrices?)
+    func getSetPricesLast() -> (SetPrices?)
     
 }
 
@@ -88,16 +88,16 @@ extension DataBase{
 
 extension DataBase{
     
-    func getSetPricesList() ->([SetPrices]?){
-        return currentDataBase.getSetPricesList()
-    }
-
     func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String) {
         return currentDataBase.addSetPrices(by: setPrices, update: update)
     }
 
     func getSetPricesByID(id: Int) -> (SetPrices?) {
         return currentDataBase.getSetPricesByID(id: id)
+    }
+    
+    func getSetPricesLast() -> (SetPrices?) {
+        return currentDataBase.getSetPricesLast()
     }
 
     

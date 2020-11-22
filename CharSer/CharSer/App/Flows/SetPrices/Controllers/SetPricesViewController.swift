@@ -23,10 +23,6 @@ class SetPricesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let _ = thisObject {
-            thisObject = DataBase.shared.getSetPricesByID(id: thisObject?.id ?? 0)
-        }
-        
         idTextField.isEnabled = false
         
         pricesTableView.delegate = self
