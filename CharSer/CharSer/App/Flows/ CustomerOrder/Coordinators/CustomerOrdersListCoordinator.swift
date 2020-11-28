@@ -52,6 +52,10 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
             self?.openSelectCustomer(customerOrderViewController)
         }
         
+        controller.onPaymentForm = { [weak self] customerOrderViewController in
+            self?.openPaymentForm(customerOrderViewController)
+        }
+        
         controller.thisObject = customerOrder
 
         self.rootController?.pushViewController(controller, animated: true)
@@ -91,6 +95,25 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
         }
         addDependency(coordinator)
         coordinator.start()
+    }
+    
+    func openPaymentForm(_ customerOrderViewController: CustomerOrderViewController) {
+        let controller = UIStoryboard(name: "PaymentForm", bundle: nil)
+            .instantiateViewController(withIdentifier: "PaymentForm") as! PaymentFormViewController
+        
+        if let customerOrder = customerOrderViewController.thisObject {
+            controller.amountToBePaid = customerOrder.amount - customerOrder.amountPaid
+        }
+        
+        controller.onPay = { [weak self, weak customerOrderViewController] sum in
+            if let sum = sum  {
+                customerOrderViewController?.addPayment(sum)
+            }
+            self?.rootController?.popViewController(animated: true)
+        }
+        
+        self.rootController?.pushViewController(controller, animated: true)
+        
     }
     
 }

@@ -104,7 +104,7 @@ class TariffCalculation {
                                                                                     to: intervalsToCalcWithPricesItem.end).minute ?? 0)/60
         }
         
-        return amount
+        return round(amount*100)/100
     }
     
     func startDayDate(_ date: Date, _ addDays: Int = 0) -> (Date) {

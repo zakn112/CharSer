@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!-- Оплата-->
+        <scene sceneID="wjp-l5-oEy">
+            <objects>
+                <viewController storyboardIdentifier="PaymentForm" id="DFM-bI-acp" customClass="PaymentFormViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Akp-37-S3v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма к оплате:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aql-vp-kIX">
+                                <rect key="frame" x="10" y="98" width="394" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7sc-Kw-bm8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NUU-4Z-0uS">
+                                <rect key="frame" x="10" y="129" width="394" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="32Y-hI-S3W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма оплаты:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSe-Ks-5w4">
+                                <rect key="frame" x="10" y="173" width="394" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GnZ-PH-QZz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rN1-ZI-YeL">
+                                <rect key="frame" x="10" y="204" width="394" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="hbd-g7-xp4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="amountOfPaymentEditing:" destination="DFM-bI-acp" eventType="editingChanged" id="VmZ-iK-tHv"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сдача:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70g-WA-wsp">
+                                <rect key="frame" x="10" y="248" width="394" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JBP-BZ-UW2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZsV-06-gTy">
+                                <rect key="frame" x="10" y="279" width="394" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2F0-h2-jeF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MA-dv-gOE">
+                                <rect key="frame" x="30" y="333" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mCP-QF-WE5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Оплатить">
+                                    <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="payButtonPress:" destination="DFM-bI-acp" eventType="touchUpInside" id="a5F-i7-xZF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E3X-7y-MeM"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="70g-WA-wsp" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="140-VY-kBe"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="aql-vp-kIX" secondAttribute="trailing" constant="10" id="1PG-dv-e93"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="8MA-dv-gOE" secondAttribute="trailing" constant="30" id="BDg-de-lrH"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="70g-WA-wsp" secondAttribute="trailing" constant="10" id="FuM-SR-kuL"/>
+                            <constraint firstItem="ZsV-06-gTy" firstAttribute="top" secondItem="70g-WA-wsp" secondAttribute="bottom" constant="10" id="G41-TL-tPl"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="ZsV-06-gTy" secondAttribute="trailing" constant="10" id="Iul-dt-Koa"/>
+                            <constraint firstItem="rN1-ZI-YeL" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="JGT-3K-aCV"/>
+                            <constraint firstItem="NUU-4Z-0uS" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="JI4-Uu-QAE"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="mSe-Ks-5w4" secondAttribute="trailing" constant="10" id="LyR-M5-zQY"/>
+                            <constraint firstItem="mSe-Ks-5w4" firstAttribute="top" secondItem="NUU-4Z-0uS" secondAttribute="bottom" constant="10" id="MPA-Pd-9FX"/>
+                            <constraint firstItem="rN1-ZI-YeL" firstAttribute="top" secondItem="mSe-Ks-5w4" secondAttribute="bottom" constant="10" id="TLH-43-JP2"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="rN1-ZI-YeL" secondAttribute="trailing" constant="10" id="TzH-jq-3XL"/>
+                            <constraint firstItem="8MA-dv-gOE" firstAttribute="top" secondItem="ZsV-06-gTy" secondAttribute="bottom" constant="20" id="U0d-Ye-QcA"/>
+                            <constraint firstItem="aql-vp-kIX" firstAttribute="top" secondItem="E3X-7y-MeM" secondAttribute="top" constant="10" id="XMv-dp-X2C"/>
+                            <constraint firstItem="mSe-Ks-5w4" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="aXH-lz-HVg"/>
+                            <constraint firstItem="ZsV-06-gTy" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="gL2-4N-EyI"/>
+                            <constraint firstItem="8MA-dv-gOE" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="30" id="k60-kX-RUD"/>
+                            <constraint firstItem="aql-vp-kIX" firstAttribute="leading" secondItem="E3X-7y-MeM" secondAttribute="leading" constant="10" id="lsY-7y-vOR"/>
+                            <constraint firstItem="NUU-4Z-0uS" firstAttribute="top" secondItem="aql-vp-kIX" secondAttribute="bottom" constant="10" id="m59-kk-bNB"/>
+                            <constraint firstItem="70g-WA-wsp" firstAttribute="top" secondItem="rN1-ZI-YeL" secondAttribute="bottom" constant="10" id="wHO-6e-S30"/>
+                            <constraint firstItem="E3X-7y-MeM" firstAttribute="trailing" secondItem="NUU-4Z-0uS" secondAttribute="trailing" constant="10" id="zWV-tA-isl"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title=" Оплата" id="oUN-dh-TkX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="amountOfPaymentTextField" destination="rN1-ZI-YeL" id="Ixe-B0-QBe"/>
+                        <outlet property="amountToBePaidTextField" destination="NUU-4Z-0uS" id="cPa-sJ-Nyb"/>
+                        <outlet property="changeTextField" destination="ZsV-06-gTy" id="Tnv-YP-nJS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1qP-aK-8h2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

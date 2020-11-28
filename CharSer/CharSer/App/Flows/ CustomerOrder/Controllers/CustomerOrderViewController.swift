@@ -12,6 +12,7 @@ class CustomerOrderViewController: UIViewController {
     var onSuccess: (() -> Void)?
     var onSelectСhargObject: ((CustomerOrderViewController) -> Void)?
     var onSelectCustomer: ((CustomerOrderViewController) -> Void)?
+    var onPaymentForm: ((CustomerOrderViewController) -> Void)?
     
     var thisObject: CustomerOrder?
     var isNewObject = false
@@ -63,6 +64,7 @@ class CustomerOrderViewController: UIViewController {
     }
     
     @IBAction func makePaymentButtonPress(_ sender: Any) {
+        onPaymentForm?(self)
     }
     
     @IBAction func cancelOrderButtonPress(_ sender: Any) {
@@ -83,7 +85,7 @@ class CustomerOrderViewController: UIViewController {
         //перенести во вьюмодель
         durationLabel.text = TariffCalculation.shared.durationTimeIntervalString(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
         thisObject?.amount = TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date)
-        amountLabel.text = String(TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date))
+        amountLabel.text = String(format: "%.2f", TariffCalculation.shared.ammuntTimeInterval(start: startTimeDatePicker.date, end: endTimeDatePicker.date))
     }
     
     @IBAction func endTimeValueChanged(_ sender: Any) {
@@ -151,5 +153,10 @@ class CustomerOrderViewController: UIViewController {
         isNewObject = (thisObject?.id ?? 0) == 0
 
        }
+    
+    func addPayment(_ sum: Double){
+        thisObject?.amountPaid += sum
+        updateInterface()
+    }
 }
 
