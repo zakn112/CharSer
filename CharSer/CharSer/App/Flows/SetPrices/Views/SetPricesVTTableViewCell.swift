@@ -60,12 +60,14 @@ class SetPricesVTTableViewCell: UITableViewCell {
     
     private func setupStartTimeDatePicker() {
         startTimeDatePicker.datePickerMode = .time
+        startTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
         startTimeDatePicker.addTarget(self, action: #selector(self.startTimeDatePickerEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(startTimeDatePicker)
     }
     
     private func setupEndTimeDatePicker() {
         endTimeDatePicker.datePickerMode = .time
+        endTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
         endTimeDatePicker.addTarget(self, action: #selector(self.endTimeDatePickerEditingDidEnd), for: UIControl.Event.editingDidEnd)
         addSubview(endTimeDatePicker)
     }

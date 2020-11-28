@@ -9,16 +9,6 @@
 /* Begin PBXBuildFile section */
 		00ACEF166C29116EDC0A5EFE /* Pods_CharSerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78DEEFE0C75CF0518342849 /* Pods_CharSerTests.framework */; };
 		19E684BCCB84FA6B48F542F9 /* Pods_CharSer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC75D525774BB593CB10C49A /* Pods_CharSer.framework */; };
-		332968AF255DB43100FACA5B /* CDSetPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */; };
-		332968B3255DB45B00FACA5B /* CDSetPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */; };
-		332968B7255DB45D00FACA5B /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */; };
-		332968BB255DB46000FACA5B /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */; };
-		332968BF255DB46200FACA5B /* CDChargObjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950B25506B3B00CD0705 /* CDChargObjects+CoreDataClass.swift */; };
-		332968C3255DB46500FACA5B /* CDChargObjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */; };
-		332968C7255DB46900FACA5B /* CDCustomers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */; };
-		332968CB255DB46C00FACA5B /* CDCustomers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352950E25506B3B00CD0705 /* CDCustomers+CoreDataProperties.swift */; };
-		332968CF255DB46E00FACA5B /* CDUsers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33393850254EA44700EA9457 /* CDUsers+CoreDataClass.swift */; };
-		332968D0255DB47100FACA5B /* CDUsers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33393851254EA44700EA9457 /* CDUsers+CoreDataProperties.swift */; };
 		33336FAD254D52A2004EE9AF /* СhargObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FAC254D52A2004EE9AF /* СhargObject.swift */; };
 		33336FB3254D5377004EE9AF /* ChargObjects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33336FB2254D5377004EE9AF /* ChargObjects.storyboard */; };
 		33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FBA254D5516004EE9AF /* СhargObjectsViewController.swift */; };
@@ -77,9 +67,19 @@
 		33FE2FE32568F62800711280 /* CustomerOrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */; };
 		33FE2FE82568F66F00711280 /* CustomerOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */; };
 		33FE2FF02568F6A100711280 /* CustomerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */; };
-		33FE2FF62569102800711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */; };
-		33FE2FF72569102800711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */; };
 		33FE2FFD256A4A7D00711280 /* TariffCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE2FFC256A4A7D00711280 /* TariffCalculation.swift */; };
+		33FE3013256C26D600711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3007256C26D500711280 /* CDCustomerOrders+CoreDataProperties.swift */; };
+		33FE3014256C26D600711280 /* CDSetPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3008256C26D500711280 /* CDSetPrices+CoreDataClass.swift */; };
+		33FE3015256C26D600711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3009256C26D500711280 /* CDCustomerOrders+CoreDataClass.swift */; };
+		33FE3016256C26D600711280 /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300A256C26D600711280 /* CDSetPricesVTPrices+CoreDataProperties.swift */; };
+		33FE3017256C26D600711280 /* CDSetPrices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300B256C26D600711280 /* CDSetPrices+CoreDataProperties.swift */; };
+		33FE3018256C26D600711280 /* CDUsers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300C256C26D600711280 /* CDUsers+CoreDataClass.swift */; };
+		33FE3019256C26D600711280 /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300D256C26D600711280 /* CDSetPricesVTPrices+CoreDataClass.swift */; };
+		33FE301A256C26D600711280 /* CDCustomers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300E256C26D600711280 /* CDCustomers+CoreDataClass.swift */; };
+		33FE301B256C26D600711280 /* CDChargObjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE300F256C26D600711280 /* CDChargObjects+CoreDataProperties.swift */; };
+		33FE301C256C26D600711280 /* CDChargObjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3010256C26D600711280 /* CDChargObjects+CoreDataClass.swift */; };
+		33FE301D256C26D600711280 /* CDUsers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3011256C26D600711280 /* CDUsers+CoreDataProperties.swift */; };
+		33FE301E256C26D600711280 /* CDCustomers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3012256C26D600711280 /* CDCustomers+CoreDataProperties.swift */; };
 		8A87C29EE3DA63C0146323BF /* Pods_CharSer_CharSerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,12 +112,6 @@
 		33336FDC254D8666004EE9AF /* ChargObjectsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargObjectsListCoordinator.swift; sourceTree = "<group>"; };
 		33393831254E9A2700EA9457 /* CharSer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharSer.xcdatamodel; sourceTree = "<group>"; };
 		33393837254E9D6200EA9457 /* DBCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBCoreData.swift; sourceTree = "<group>"; };
-		33393850254EA44700EA9457 /* CDUsers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUsers+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		33393851254EA44700EA9457 /* CDUsers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUsers+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		3352950B25506B3B00CD0705 /* CDChargObjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDChargObjects+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDChargObjects+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		3352950E25506B3B00CD0705 /* CDCustomers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3352952C2552F86100CD0705 /* SetPricesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesListCoordinator.swift; sourceTree = "<group>"; };
 		335295342552F88B00CD0705 /* SetPricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesViewController.swift; sourceTree = "<group>"; };
 		335295392552F8B100CD0705 /* SetPricesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesTableViewController.swift; sourceTree = "<group>"; };
@@ -126,10 +120,6 @@
 		335295482552FFFB00CD0705 /* SetPricesVTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPricesVTTableViewCell.swift; sourceTree = "<group>"; };
 		3352954D255465B700CD0705 /* SetPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPrices.swift; sourceTree = "<group>"; };
 		335295532554690700CD0705 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		336DC9292535CFE600F9D3B2 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		336DC9322536117300F9D3B2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		336DC9332536117300F9D3B2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -176,9 +166,19 @@
 		33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersTableViewController.swift; sourceTree = "<group>"; };
 		33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomerOrder.storyboard; sourceTree = "<group>"; };
-		33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		33FE2FFC256A4A7D00711280 /* TariffCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffCalculation.swift; sourceTree = "<group>"; };
+		33FE3007256C26D500711280 /* CDCustomerOrders+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33FE3008256C26D500711280 /* CDSetPrices+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE3009256C26D500711280 /* CDCustomerOrders+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCustomerOrders+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE300A256C26D600711280 /* CDSetPricesVTPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33FE300B256C26D600711280 /* CDSetPrices+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDSetPrices+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33FE300C256C26D600711280 /* CDUsers+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDUsers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE300D256C26D600711280 /* CDSetPricesVTPrices+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDSetPricesVTPrices+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE300E256C26D600711280 /* CDCustomers+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE300F256C26D600711280 /* CDChargObjects+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDChargObjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33FE3010256C26D600711280 /* CDChargObjects+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDChargObjects+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33FE3011256C26D600711280 /* CDUsers+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDUsers+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33FE3012256C26D600711280 /* CDCustomers+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCustomers+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		500BF7FE322D481E57E61BA7 /* Pods-CharSer-CharSerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer-CharSerUITests.release.xcconfig"; path = "Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5AE7A5943AFE72963F6D74C7 /* Pods-CharSer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer.debug.xcconfig"; path = "Target Support Files/Pods-CharSer/Pods-CharSer.debug.xcconfig"; sourceTree = "<group>"; };
 		6833B49065C6D7A76DE2D2C3 /* Pods-CharSerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSerTests.release.xcconfig"; path = "Target Support Files/Pods-CharSerTests/Pods-CharSerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,18 +266,18 @@
 		33393842254EA39700EA9457 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				33FE2FF42569102800711280 /* CDCustomerOrders+CoreDataClass.swift */,
-				33FE2FF52569102800711280 /* CDCustomerOrders+CoreDataProperties.swift */,
-				3352955B255479B000CD0705 /* CDSetPrices+CoreDataClass.swift */,
-				3352955C255479B000CD0705 /* CDSetPrices+CoreDataProperties.swift */,
-				3352955D255479B000CD0705 /* CDSetPricesVTPrices+CoreDataClass.swift */,
-				3352955E255479B000CD0705 /* CDSetPricesVTPrices+CoreDataProperties.swift */,
-				3352950B25506B3B00CD0705 /* CDChargObjects+CoreDataClass.swift */,
-				3352950C25506B3B00CD0705 /* CDChargObjects+CoreDataProperties.swift */,
-				3352950D25506B3B00CD0705 /* CDCustomers+CoreDataClass.swift */,
-				3352950E25506B3B00CD0705 /* CDCustomers+CoreDataProperties.swift */,
-				33393850254EA44700EA9457 /* CDUsers+CoreDataClass.swift */,
-				33393851254EA44700EA9457 /* CDUsers+CoreDataProperties.swift */,
+				33FE3010256C26D600711280 /* CDChargObjects+CoreDataClass.swift */,
+				33FE300F256C26D600711280 /* CDChargObjects+CoreDataProperties.swift */,
+				33FE3009256C26D500711280 /* CDCustomerOrders+CoreDataClass.swift */,
+				33FE3007256C26D500711280 /* CDCustomerOrders+CoreDataProperties.swift */,
+				33FE300E256C26D600711280 /* CDCustomers+CoreDataClass.swift */,
+				33FE3012256C26D600711280 /* CDCustomers+CoreDataProperties.swift */,
+				33FE3008256C26D500711280 /* CDSetPrices+CoreDataClass.swift */,
+				33FE300B256C26D600711280 /* CDSetPrices+CoreDataProperties.swift */,
+				33FE300D256C26D600711280 /* CDSetPricesVTPrices+CoreDataClass.swift */,
+				33FE300A256C26D600711280 /* CDSetPricesVTPrices+CoreDataProperties.swift */,
+				33FE300C256C26D600711280 /* CDUsers+CoreDataClass.swift */,
+				33FE3011256C26D600711280 /* CDUsers+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -911,49 +911,47 @@
 			files = (
 				336DC92A2535CFE600F9D3B2 /* DataBase.swift in Sources */,
 				3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */,
+				33FE3015256C26D600711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */,
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
-				33FE2FF72569102800711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */,
-				332968B7255DB45D00FACA5B /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
-				332968D0255DB47100FACA5B /* CDUsers+CoreDataProperties.swift in Sources */,
 				3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */,
 				335295542554690700CD0705 /* AlertManager.swift in Sources */,
 				33D5EDF5254749E7007FB45F /* CustomersListTableViewController.swift in Sources */,
+				33FE3017256C26D600711280 /* CDSetPrices+CoreDataProperties.swift in Sources */,
+				33FE3016256C26D600711280 /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */,
 				33336FC0254D552A004EE9AF /* СhargObjectsTableViewController.swift in Sources */,
 				33C6A6D9253AFF3700DE32B9 /* MainDesktopViewController.swift in Sources */,
-				332968CB255DB46C00FACA5B /* CDCustomers+CoreDataProperties.swift in Sources */,
 				33C6A2222532F56F00C299E9 /* AppDelegate.swift in Sources */,
+				33FE301C256C26D600711280 /* CDChargObjects+CoreDataClass.swift in Sources */,
 				33336FDD254D8666004EE9AF /* ChargObjectsListCoordinator.swift in Sources */,
 				339ADA9F25377B9C0054C624 /* LoginCoordinator.swift in Sources */,
 				338AA59E25612BF500938EBA /*  CustomerOrder.swift in Sources */,
 				33336FD0254D5BDF004EE9AF /* ReferenceModel.swift in Sources */,
 				33C6A6E1253C1BE700DE32B9 /* MainDesktopNavigationController.swift in Sources */,
-				332968BB255DB46000FACA5B /* CDSetPricesVTPrices+CoreDataProperties.swift in Sources */,
-				33FE2FF62569102800711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */,
 				33D5EDFF25474A35007FB45F /* CustomerListTableViewCell.swift in Sources */,
-				332968CF255DB46E00FACA5B /* CDUsers+CoreDataClass.swift in Sources */,
 				33FE2FE82568F66F00711280 /* CustomerOrdersTableViewCell.swift in Sources */,
 				33C6A2242532F56F00C299E9 /* SceneDelegate.swift in Sources */,
 				339ADAA725377D2C0054C624 /* MainDesktopCoordinator.swift in Sources */,
 				33FE2FD92568F5A600711280 /* CustomerOrdersListCoordinator.swift in Sources */,
+				33FE3014256C26D600711280 /* CDSetPrices+CoreDataClass.swift in Sources */,
 				33D5EDFA25474A02007FB45F /* CustomerViewController.swift in Sources */,
 				33FE2FDE2568F5E700711280 /* CustomerOrderViewController.swift in Sources */,
 				33336FC8254D5B87004EE9AF /* ReferenceObject.swift in Sources */,
+				33FE301A256C26D600711280 /* CDCustomers+CoreDataClass.swift in Sources */,
 				33C6A6E9253C1C8500DE32B9 /* MainMenuPushTransitionAnimator.swift in Sources */,
 				33C6A6D1253AFC2E00DE32B9 /* MainMenuCoordinator.swift in Sources */,
-				332968C7255DB46900FACA5B /* CDCustomers+CoreDataClass.swift in Sources */,
 				33C6A6E8253C1C8500DE32B9 /* MainMenuPopTransitionAnimator.swift in Sources */,
 				335295492552FFFB00CD0705 /* SetPricesVTTableViewCell.swift in Sources */,
-				332968B3255DB45B00FACA5B /* CDSetPrices+CoreDataProperties.swift in Sources */,
+				33FE3013256C26D600711280 /* CDCustomerOrders+CoreDataProperties.swift in Sources */,
 				3352954E255465B700CD0705 /* SetPrices.swift in Sources */,
 				336DC941253612A500F9D3B2 /* User.swift in Sources */,
 				33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */,
+				33FE301E256C26D600711280 /* CDCustomers+CoreDataProperties.swift in Sources */,
+				33FE301B256C26D600711280 /* CDChargObjects+CoreDataProperties.swift in Sources */,
 				336DC93B253611BE00F9D3B2 /* Session.swift in Sources */,
 				336DC94E25361ED800F9D3B2 /* UserCoordinator.swift in Sources */,
-				332968BF255DB46200FACA5B /* CDChargObjects+CoreDataClass.swift in Sources */,
 				336DC9352536117300F9D3B2 /* BaseCoordinator.swift in Sources */,
 				33C6A708253E082E00DE32B9 /* UserListCoordinator.swift in Sources */,
-				332968AF255DB43100FACA5B /* CDSetPrices+CoreDataClass.swift in Sources */,
 				33FE2FFD256A4A7D00711280 /* TariffCalculation.swift in Sources */,
 				33FE2FE32568F62800711280 /* CustomerOrdersTableViewController.swift in Sources */,
 				3352952D2552F86100CD0705 /* SetPricesListCoordinator.swift in Sources */,
@@ -961,14 +959,16 @@
 				33C6A6FA253C343300DE32B9 /* UsersListTableViewController.swift in Sources */,
 				335295352552F88B00CD0705 /* SetPricesViewController.swift in Sources */,
 				33C6A700253C34BD00DE32B9 /* UsersListTableViewCell.swift in Sources */,
+				33FE3019256C26D600711280 /* CDSetPricesVTPrices+CoreDataClass.swift in Sources */,
 				339ADA9A253778D10054C624 /* LoginViewController.swift in Sources */,
-				332968C3255DB46500FACA5B /* CDChargObjects+CoreDataProperties.swift in Sources */,
 				33D5EE0425474B00007FB45F /* Customer.swift in Sources */,
 				33C6A6CC253AF8F800DE32B9 /* MainMenuViewController.swift in Sources */,
 				33336FAD254D52A2004EE9AF /* СhargObject.swift in Sources */,
 				33336FD8254D852C004EE9AF /* СhargObjectTableViewCell.swift in Sources */,
 				33D5EE09254887C3007FB45F /* CustomersListCoordinator.swift in Sources */,
 				336DC9342536117300F9D3B2 /* ApplicationCoordinator.swift in Sources */,
+				33FE301D256C26D600711280 /* CDUsers+CoreDataProperties.swift in Sources */,
+				33FE3018256C26D600711280 /* CDUsers+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,6 +32,9 @@ class CustomerOrderViewController: UIViewController {
         
         idTextField.isEnabled = false
         
+//        startTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
+//        endTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
+        
         updateInterface()
         // Do any additional setup after loading the view.
         
