@@ -15,7 +15,6 @@ public class CDSetPrices: NSManagedObject {
 }
 
 extension CDSetPrices:  ReferenceObjectDB{
-    typealias modelType = SetPrices
     
     func getModelByObjectDB() -> (ReferenceModel) {
         let modelObject = SetPrices()

@@ -49,7 +49,7 @@ final class ChargObjectsListCoordinator: BaseCoordinator {
             self?.rootController?.popViewController(animated: true)
             self?.chargObjectsListController?.updateForm()
         }
-        controller.thisObject = chargObject
+        controller.thisObject = chargObject ?? СhargObject()
 
         self.rootController?.pushViewController(controller, animated: true)
     }

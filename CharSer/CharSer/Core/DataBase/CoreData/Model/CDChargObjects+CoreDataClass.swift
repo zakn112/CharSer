@@ -18,8 +18,6 @@ public class CDChargObjects: NSManagedObject {
 
 extension CDChargObjects:  ReferenceObjectDB{
     
-    typealias modelType = СhargObject
-    
     func getModelByObjectDB() -> (ReferenceModel) {
         let modelObject = СhargObject()
         modelObject.id = Int(self.id)

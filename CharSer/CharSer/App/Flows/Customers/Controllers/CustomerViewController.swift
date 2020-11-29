@@ -8,11 +8,11 @@
 import UIKit
 
 class CustomerViewController: UIViewController {
-   
+    
     var onCansel: (() -> Void)?
     var onSuccess: (() -> Void)?
     
-    var thisObject: Customer?
+    var thisObject = Customer()
     var newObject = false
     
     @IBOutlet weak var idTextField: UITextField!
@@ -21,7 +21,7 @@ class CustomerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         updateInterface()
         
         // Do any additional setup after loading the view.
@@ -36,8 +36,8 @@ class CustomerViewController: UIViewController {
         }
         
         fillModelUsingForm()
-      
-        let saveResult = DataBase.shared.addObject(by: thisObject!, update: !newObject)
+        
+        let saveResult = DataBase.shared.addObject(by: thisObject, update: !newObject)
         
         if !(saveResult.result) {
             AlertManager.shared.showWarning(saveResult.message)
@@ -47,18 +47,6 @@ class CustomerViewController: UIViewController {
         onSuccess?()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: - Private implementation
     
     private func fieldsСheck() -> (correct: Bool, message: String) {
         var message = ""
@@ -73,32 +61,25 @@ class CustomerViewController: UIViewController {
     }
     
     private func fillModelUsingForm() {
-        if thisObject == nil {
-            thisObject = Customer()
-        }
-       
-        if let thisObject = thisObject {
-            thisObject.name = nameTextField.text ?? ""
-            thisObject.phone = phoneTextField.text ?? ""
-        }
-        
+        thisObject.name = nameTextField.text ?? ""
+        thisObject.phone = phoneTextField.text ?? ""
     }
     
     private func updateInterface() {
-        if thisObject == nil {
+        if thisObject.id == 0 {
             idTextField.text = ""
             nameTextField.text = ""
             phoneTextField.text = ""
             
             newObject = true
         }else{
-            idTextField.text = String(thisObject?.id ?? 0)
-            nameTextField.text = thisObject?.name
-            phoneTextField.text = thisObject?.phone
-        
+            idTextField.text = String(thisObject.id)
+            nameTextField.text = thisObject.name
+            phoneTextField.text = thisObject.phone
+            
             newObject = false
         }
         
-       }
-
+    }
+    
 }

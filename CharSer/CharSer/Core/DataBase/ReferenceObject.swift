@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ReferenceObjectDB {
-   // associatedtype modelType
     var id:Int32 { get set }
     func getModelByObjectDB() -> (ReferenceModel)
     func fillByModel(modelObject: ReferenceModel) -> (Void)

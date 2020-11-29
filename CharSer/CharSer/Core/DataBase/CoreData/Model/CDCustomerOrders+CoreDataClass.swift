@@ -15,7 +15,6 @@ public class CDCustomerOrders: NSManagedObject {
 }
 
 extension CDCustomerOrders:  ReferenceObjectDB{
-    typealias modelType = CustomerOrder
     
     func getModelByObjectDB() -> (ReferenceModel) {
         let modelObject = CustomerOrder()

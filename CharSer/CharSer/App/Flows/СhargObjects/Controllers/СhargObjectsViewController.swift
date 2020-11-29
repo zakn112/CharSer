@@ -11,7 +11,7 @@ class ChargObjectsViewController: UIViewController {
     var onCansel: (() -> Void)?
     var onSuccess: (() -> Void)?
     
-    var thisObject: СhargObject?
+    var thisObject = СhargObject()
     var newObject = false
     
     @IBOutlet weak var idTextField: UITextField!
@@ -36,7 +36,7 @@ class ChargObjectsViewController: UIViewController {
 
         fillModelUsingForm()
 
-        let saveResult = DataBase.shared.addObject(by: thisObject!, update: !newObject)
+        let saveResult = DataBase.shared.addObject(by: thisObject, update: !newObject)
 
         if !(saveResult.result) {
             AlertManager.shared.showWarning(saveResult.message)
@@ -59,20 +59,14 @@ class ChargObjectsViewController: UIViewController {
     }
 
     private func fillModelUsingForm() {
-        if thisObject == nil {
-            thisObject = СhargObject()
-        }
-
-        if let thisObject = thisObject {
             thisObject.name = nameTextField.text ?? ""
             thisObject.startTime = startTimeDatePicker.date
             thisObject.shutdownTime = shutdownTimeDatePicker.date
-        }
-
+       
     }
 
     private func updateInterface() {
-        if thisObject == nil {
+        if thisObject.id == 0 {
             idTextField.text = ""
             nameTextField.text = ""
             startTimeDatePicker.date = Date(timeIntervalSince1970: 0)
@@ -80,10 +74,10 @@ class ChargObjectsViewController: UIViewController {
 
             newObject = true
         }else{
-            idTextField.text = String(thisObject?.id ?? 0)
-            nameTextField.text = thisObject?.name
-            startTimeDatePicker.date = thisObject?.startTime ?? Date(timeIntervalSince1970: 0)
-            shutdownTimeDatePicker.date = thisObject?.shutdownTime ?? Date(timeIntervalSince1970: 0)
+            idTextField.text = String(thisObject.id)
+            nameTextField.text = thisObject.name
+            startTimeDatePicker.date = thisObject.startTime
+            shutdownTimeDatePicker.date = thisObject.shutdownTime
 
             newObject = false
         }

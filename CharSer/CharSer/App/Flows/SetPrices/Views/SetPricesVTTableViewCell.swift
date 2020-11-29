@@ -93,38 +93,42 @@ class SetPricesVTTableViewCell: UITableViewCell {
     
     
     @objc private func weekdayTextFieldEditingDidEnd() {
-        guard let _ = self.vtPricesItem else {
+        guard let vtPricesItem = self.vtPricesItem,
+              let weekdayText = weekdayTextField.text,
+              let weekday = Int16(weekdayText) else {
             return
         }
         
-        self.vtPricesItem?.weekday = Int16(weekdayTextField.text ?? "0") ?? 0
+        vtPricesItem.weekday = weekday
 
     }
     
     @objc private func startTimeDatePickerEditingDidEnd() {
-        guard let _ = self.vtPricesItem else {
+        guard let vtPricesItem = self.vtPricesItem else {
             return
         }
         
-        self.vtPricesItem?.startTime = startTimeDatePicker.date
+        vtPricesItem.startTime = startTimeDatePicker.date
 
     }
     
     @objc private func endTimeDatePickerEditingDidEnd() {
-        guard let _ = self.vtPricesItem else {
+        guard let vtPricesItem = self.vtPricesItem else {
             return
         }
         
-        self.vtPricesItem?.endTime = endTimeDatePicker.date
+        vtPricesItem.endTime = endTimeDatePicker.date
 
     }
     
     @objc private func priceTextFieldEditingDidEnd() {
-        guard let _ = self.vtPricesItem else {
+        guard let vtPricesItem = self.vtPricesItem,
+              let priceStr = priceTextField.text,
+              let price = Double(priceStr) else {
             return
         }
         
-        self.vtPricesItem?.price = Double(priceTextField.text ?? "0") ?? 0
+        vtPricesItem.price = price
 
     }
 

@@ -48,8 +48,8 @@ final class SetPricesListCoordinator: BaseCoordinator {
             self?.openSelectСhargObject(setPricesViewController)
         }
         
-        controller.thisObject = setPrices
-
+        controller.thisObject = setPrices ?? SetPrices()
+        
         self.rootController?.pushViewController(controller, animated: true)
     }
     
@@ -63,7 +63,7 @@ final class SetPricesListCoordinator: BaseCoordinator {
         coordinator.rootController = rootController
         coordinator.isSelectMode = true
         coordinator.onFinishFlow = { [weak self, weak coordinator,  weak setPricesViewController] chargObject  in
-            setPricesViewController?.thisObject?.chargObject = chargObject
+            setPricesViewController?.thisObject.chargObject = chargObject
             setPricesViewController?.updateInterface()
             self?.removeDependency(coordinator)
         }

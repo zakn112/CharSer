@@ -50,7 +50,7 @@ final class CustomersListCoordinator: BaseCoordinator {
             self?.rootController?.popViewController(animated: true)
             self?.customerListController?.updateForm()
         }
-        controller.thisObject = customer
+        controller.thisObject = customer ?? Customer()
 
         self.rootController?.pushViewController(controller, animated: true)
     }

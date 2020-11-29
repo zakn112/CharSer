@@ -55,7 +55,7 @@ class UsersListTableViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "userItem", for: indexPath) as? UsersListTableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: UsersListTableViewCell.cellIdentifier, for: indexPath) as? UsersListTableViewCell{
             cell.setUser(user: users[indexPath.row])
             return cell
         }

@@ -16,8 +16,6 @@ public class CDSetPricesVTPrices: NSManagedObject {
 
 extension CDSetPricesVTPrices:  ReferenceObjectDB{
     
-    typealias modelType = VTPricesItem
-    
     func getModelByObjectDB() -> (ReferenceModel) {
         let modelObject = VTPricesItem()
         modelObject.strNumber = self.strNumber

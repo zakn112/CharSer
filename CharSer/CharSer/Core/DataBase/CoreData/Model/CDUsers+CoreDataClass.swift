@@ -16,8 +16,6 @@ public class CDUsers: NSManagedObject {
 
 extension CDUsers:  ReferenceObjectDB{
     
-    typealias modelType = User
-    
     func getModelByObjectDB() -> (ReferenceModel) {
         let objectModel = User()
         

@@ -56,7 +56,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
             self?.openPaymentForm(customerOrderViewController)
         }
         
-        controller.thisObject = customerOrder
+        controller.thisObject = customerOrder ?? CustomerOrder()
 
         self.rootController?.pushViewController(controller, animated: true)
     }
@@ -71,7 +71,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
         coordinator.rootController = rootController
         coordinator.isSelectMode = true
         coordinator.onFinishFlow = { [weak self, weak coordinator,  weak customerOrderViewController] chargObject  in
-            customerOrderViewController?.thisObject?.chargObject = chargObject
+            customerOrderViewController?.thisObject.chargObject = chargObject
             customerOrderViewController?.updateInterface()
             self?.removeDependency(coordinator)
         }
@@ -89,7 +89,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
         coordinator.rootController = rootController
         coordinator.isSelectMode = true
         coordinator.onFinishFlow = { [weak self, weak coordinator,  weak customerOrderViewController] customer  in
-            customerOrderViewController?.thisObject?.customer = customer
+            customerOrderViewController?.thisObject.customer = customer
             customerOrderViewController?.updateInterface()
             self?.removeDependency(coordinator)
         }
@@ -101,9 +101,8 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
         let controller = UIStoryboard(name: "PaymentForm", bundle: nil)
             .instantiateViewController(withIdentifier: "PaymentForm") as! PaymentFormViewController
         
-        if let customerOrder = customerOrderViewController.thisObject {
-            controller.amountToBePaid = customerOrder.amount - customerOrder.amountPaid
-        }
+        let customerOrder = customerOrderViewController.thisObject
+        controller.amountToBePaid = customerOrder.amount - customerOrder.amountPaid
         
         controller.onPay = { [weak self, weak customerOrderViewController] sum in
             if let sum = sum  {

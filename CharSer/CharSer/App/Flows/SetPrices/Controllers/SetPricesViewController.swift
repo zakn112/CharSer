@@ -12,7 +12,7 @@ class SetPricesViewController: UIViewController {
     var onSuccess: (() -> Void)?
     var onSelectСhargObject: ((SetPricesViewController) -> Void)?
     
-    var thisObject: SetPrices?
+    var thisObject = SetPrices()
     var newObject = false
     
     @IBOutlet weak var idTextField: UITextField!
@@ -42,7 +42,7 @@ class SetPricesViewController: UIViewController {
 
         fillModelUsingForm()
 
-        let saveResult = DataBase.shared.addSetPrices(by: thisObject!, update: !newObject)
+        let saveResult = DataBase.shared.addSetPrices(by: thisObject, update: !newObject)
 
         if !(saveResult.result) {
             AlertManager.shared.showWarning(saveResult.message)
@@ -54,15 +54,9 @@ class SetPricesViewController: UIViewController {
     
     
     @IBAction func addVTItemButtonPress(_ sender: Any) {
-        if thisObject == nil {
-            thisObject = SetPrices()
-        }
         
-        if let thisObject = thisObject {
-            thisObject.vtPrices.append(VTPricesItem())
-        }
-        
-        pricesTableView.reloadData()
+       thisObject.vtPrices.append(VTPricesItem())
+       pricesTableView.reloadData()
         
     }
     
@@ -80,30 +74,21 @@ class SetPricesViewController: UIViewController {
     }
 
     private func fillModelUsingForm() {
-        if thisObject == nil {
-            thisObject = SetPrices()
-        }
-
-        if let thisObject = thisObject {
-            thisObject.date = dateDatePicker.date
-            
-        }
-      
+       thisObject.date = dateDatePicker.date
     }
 
     func updateInterface() {
-        if thisObject == nil {
+        if thisObject.id == 0 {
             idTextField.text = ""
             dateDatePicker.setDate(Date(), animated: false)
             
-            thisObject = SetPrices()
-            
             newObject = true
         }else{
-            idTextField.text = String(thisObject?.id ?? 0)
-            dateDatePicker.setDate(thisObject?.date ?? Date(), animated: false)
+         
+            idTextField.text = String(thisObject.id)
+            dateDatePicker.setDate(thisObject.date, animated: false)
             
-            if let chargObject = self.thisObject?.chargObject {
+            if let chargObject = thisObject.chargObject {
                 chargObjectTextField.text = chargObject.name
             }
 
@@ -123,13 +108,12 @@ extension SetPricesViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return thisObject?.vtPrices.count ?? 0
+        return thisObject.vtPrices.count
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "pricesVTItem", for: indexPath) as? SetPricesVTTableViewCell,
-           let vtPrices = thisObject?.vtPrices {
-            cell.SetPricesVTItem(vtPricesItem: vtPrices[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SetPricesVTTableViewCell.cellIdentifier, for: indexPath) as? SetPricesVTTableViewCell{
+            cell.SetPricesVTItem(vtPricesItem: thisObject.vtPrices[indexPath.row])
             return cell
         }
         

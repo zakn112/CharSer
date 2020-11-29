@@ -16,8 +16,6 @@ public class CDCustomers: NSManagedObject {
 
 extension CDCustomers:  ReferenceObjectDB{
     
-    typealias modelType = Customer
-    
     func getModelByObjectDB() -> (ReferenceModel) {
         let modelObject = Customer()
         modelObject.id = Int(self.id)
