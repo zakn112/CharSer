@@ -14,11 +14,23 @@ class CustomerOrder: ReferenceModel {
     var status: CustomerOrderStatus = .new
     var customer: Customer?
     var author: User?
-    var startDate: Date = Date()
-    var endDate: Date = Date()
+    var startDate: Date = Date() {
+        didSet{
+            self.setDuration()
+        }
+    }
+    var endDate: Date = Date() {
+        didSet{
+            self.setDuration()
+        }
+    }
     var amount:Double = 0
     var amountPaid:Double = 0
+    var durationText: String = ""
     
+    private func setDuration(){
+        self.durationText = TariffCalculation.shared.durationTimeIntervalString(start: self.startDate, end: self.endDate)
+    }
 }
 
 enum CustomerOrderStatus: String{

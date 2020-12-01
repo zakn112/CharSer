@@ -118,40 +118,36 @@ extension DBCoreData{
         return nil
     }
     
-    func addObject<T: NSManagedObject & ReferenceObjectDB>(type: T.Type , by object: ReferenceModel, update: Bool) -> (result: Bool, message: String) {
+    func addObject<T: NSManagedObject & ReferenceObjectDB>(type: T.Type , by object: ReferenceModel) -> (result: Bool, message: String) {
         let context = persistentContainer.viewContext
         var object = object
         var currentObject:T?
         
-        let request = T.fetchRequest()
-        
-        let predicate = NSPredicate(format: "id == %ld", object.id)
-        request.predicate = predicate
-        
-        do {
-            currentObject = try context.fetch(request).first as? T
-        } catch {
-            print(error)
-        }
-        
-        if update, currentObject == nil {
-            return (result: false, message: "Не найден объект базы данных для обновления")
-        }
-        
-        if !update, currentObject != nil {
-            return (result: false, message: "Уже есть объект с таким id")
-        }
-        
-        if !update {
+        if object.id == 0 {
             let entityDescription = T.entity()
             currentObject = T(entity: entityDescription, insertInto: context)
+        }else{
+            let request = T.fetchRequest()
+            
+            let predicate = NSPredicate(format: "id == %ld", object.id)
+            request.predicate = predicate
+            
+            do {
+                currentObject = try context.fetch(request).first as? T
+            } catch {
+                print(error)
+            }
+            
+            if object.id == 0, currentObject == nil {
+                return (result: false, message: "Не найден объект базы данных для обновления")
+            }
         }
         
         guard let managedObject = currentObject else {
             return (result: false, message: "Ошибка при создании объекта базы данных")
         }
         
-        if !update {
+        if object.id == 0 {
             object.id = nextFreeID(by: T.self)
         }
         managedObject.fillByModel(modelObject: object)
@@ -218,22 +214,22 @@ extension DBCoreData{
         return nil
     }
     
-    func addObject(by object: ReferenceModel, update: Bool) -> (result: Bool, message: String) {
+    func addObject(by object: ReferenceModel) -> (result: Bool, message: String) {
         if type(of: object) == Customer.self {
         
-            return addObject(type: CDCustomers.self, by: object, update: update)
+            return addObject(type: CDCustomers.self, by: object)
             
         }else if type(of: object) == User.self {
             
-            return addObject(type: CDUsers.self, by: object, update: update)
+            return addObject(type: CDUsers.self, by: object)
             
         }else if type(of: object) == СhargObject.self {
             
-            return addObject(type: CDChargObjects.self, by: object, update: update)
+            return addObject(type: CDChargObjects.self, by: object)
             
         }else if type(of: object) == CustomerOrder.self {
             
-            return addObject(type: CDCustomerOrders.self, by: object, update: update)
+            return addObject(type: CDCustomerOrders.self, by: object)
             
         }
         

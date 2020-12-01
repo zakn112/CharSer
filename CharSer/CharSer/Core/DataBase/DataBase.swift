@@ -12,7 +12,7 @@ protocol DataBaseInterface {
     func setConfiguration() -> ()
     
     func getObjectsList(object: ReferenceModel.Type) ->([ReferenceModel]?)
-    func addObject(by object: ReferenceModel, update: Bool) -> (result: Bool, message: String)
+    func addObject(by object: ReferenceModel) -> (result: Bool, message: String)
     
     func getUsersCount() -> (Int)
     func addUser(by user: User, update: Bool, updatePassword: Bool) -> (result: Bool, message: String)
@@ -47,18 +47,9 @@ extension DataBase{
         return currentDataBase.getObjectsList(object: object)
     }
 
-    func addObject(by object: ReferenceModel, update: Bool) -> (result: Bool, message: String) {
-        return currentDataBase.addObject(by: object, update: update)
+    func addObject(by object: ReferenceModel) -> (result: Bool, message: String) {
+        return currentDataBase.addObject(by: object)
     }
-
-//    func getObjectByID(id: Int) -> (ReferenceModel?) {
-//        return currentDataBase.getObjectByID(id: id)
-//    }
-
-//    func getObjectsCount(object: ReferenceObjectDB) -> (Int) {
-//        return currentDataBase.getObjectsCount(object: object)
-//    }
-
     
 }
 

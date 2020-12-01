@@ -25,6 +25,18 @@ extension CDCustomerOrders:  ReferenceObjectDB{
         modelObject.amount = self.amount
         modelObject.amountPaid = self.amountPaid
         
+        switch self.status {
+        case "new": modelObject.status = .new
+        case "booked": modelObject.status = .booked
+        case "inProgress": modelObject.status = .inProgress
+        case "cancelled": modelObject.status = .cancelled
+        case "completed": modelObject.status = .completed
+        case .none:
+            break
+        case .some(_):
+            break
+        }
+        
         if let chargObjectDB = self.chargObject {
             modelObject.chargObject = chargObjectDB.getModelByObjectDB() as? СhargObject
         }
@@ -51,6 +63,7 @@ extension CDCustomerOrders:  ReferenceObjectDB{
             self.endDate = modelObject.endDate
             self.amount = modelObject.amount
             self.amountPaid = modelObject.amountPaid
+            self.status = modelObject.status.rawValue
             
             if modelObject.chargObject == nil {
                 self.chargObject = nil

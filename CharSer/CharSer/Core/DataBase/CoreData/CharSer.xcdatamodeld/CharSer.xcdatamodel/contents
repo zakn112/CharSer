@@ -14,6 +14,7 @@
         <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUsers"/>
         <relationship name="chargObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChargObjects"/>
         <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDCustomers"/>
@@ -48,10 +49,10 @@
     </entity>
     <elements>
         <element name="CDChargObjects" positionX="-515.5859375" positionY="223.3984375" width="128" height="118"/>
+        <element name="CDCustomerOrders" positionX="-360" positionY="-18" width="128" height="193"/>
         <element name="CDCustomers" positionX="-561.5234375" positionY="14.83984375" width="128" height="88"/>
         <element name="CDSetPrices" positionX="-191.95703125" positionY="253.15234375" width="128" height="103"/>
         <element name="CDSetPricesVTPrices" positionX="25.5703125" positionY="222.8203125" width="128" height="148"/>
         <element name="CDUsers" positionX="-561.2578125" positionY="-166.6875" width="128" height="133"/>
-        <element name="CDCustomerOrders" positionX="-360" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

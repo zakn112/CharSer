@@ -83,6 +83,8 @@
 		33FE302D2572559C00711280 /* PaymentForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FE302C2572559C00711280 /* PaymentForm.storyboard */; };
 		33FE3032257257E300711280 /* PaymentFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE3031257257E300711280 /* PaymentFormViewController.swift */; };
 		33FE30382573819C00711280 /* TableView.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE30372573819C00711280 /* TableView.Cell.swift */; };
+		33FE30502576AF7500711280 /* CustomerOrderViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE304F2576AF7500711280 /* CustomerOrderViewPresenter.swift */; };
+		33FE30592576BBCD00711280 /* CustomerOrderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE30582576BBCD00711280 /* CustomerOrderViewBuilder.swift */; };
 		8A87C29EE3DA63C0146323BF /* Pods_CharSer_CharSerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +187,8 @@
 		33FE302C2572559C00711280 /* PaymentForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentForm.storyboard; sourceTree = "<group>"; };
 		33FE3031257257E300711280 /* PaymentFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFormViewController.swift; sourceTree = "<group>"; };
 		33FE30372573819C00711280 /* TableView.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.Cell.swift; sourceTree = "<group>"; };
+		33FE304F2576AF7500711280 /* CustomerOrderViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewPresenter.swift; sourceTree = "<group>"; };
+		33FE30582576BBCD00711280 /* CustomerOrderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewBuilder.swift; sourceTree = "<group>"; };
 		500BF7FE322D481E57E61BA7 /* Pods-CharSer-CharSerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer-CharSerUITests.release.xcconfig"; path = "Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5AE7A5943AFE72963F6D74C7 /* Pods-CharSer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer.debug.xcconfig"; path = "Target Support Files/Pods-CharSer/Pods-CharSer.debug.xcconfig"; sourceTree = "<group>"; };
 		6833B49065C6D7A76DE2D2C3 /* Pods-CharSerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSerTests.release.xcconfig"; path = "Target Support Files/Pods-CharSerTests/Pods-CharSerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -398,7 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				338AA59A25612BCD00938EBA /* Coordinators */,
-				338AA59B25612BD200938EBA /* Controllers */,
+				33FE304E2576AF0F00711280 /* Presenters */,
+				33FE30572576BBA300711280 /* Builders */,
 				338AA59C25612BD800938EBA /* Views */,
 				33FE2FEF2568F6A100711280 /* CustomerOrder.storyboard */,
 			);
@@ -413,18 +418,11 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		338AA59B25612BD200938EBA /* Controllers */ = {
+		338AA59C25612BD800938EBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				33FE2FDD2568F5E700711280 /* CustomerOrderViewController.swift */,
 				33FE2FE22568F62800711280 /* CustomerOrdersTableViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		338AA59C25612BD800938EBA /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				33FE2FE72568F66F00711280 /* CustomerOrdersTableViewCell.swift */,
 			);
 			path = Views;
@@ -727,6 +725,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		33FE304E2576AF0F00711280 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				33FE304F2576AF7500711280 /* CustomerOrderViewPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		33FE30572576BBA300711280 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				33FE30582576BBCD00711280 /* CustomerOrderViewBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
 		9FB6AC3BE986E86C5496D7EE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +977,7 @@
 				3352953A2552F8B100CD0705 /* SetPricesTableViewController.swift in Sources */,
 				33FE3015256C26D600711280 /* CDCustomerOrders+CoreDataClass.swift in Sources */,
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
+				33FE30502576AF7500711280 /* CustomerOrderViewPresenter.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
 				3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */,
 				335295542554690700CD0705 /* AlertManager.swift in Sources */,
@@ -999,6 +1014,7 @@
 				336DC941253612A500F9D3B2 /* User.swift in Sources */,
 				33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */,
 				33FE301E256C26D600711280 /* CDCustomers+CoreDataProperties.swift in Sources */,
+				33FE30592576BBCD00711280 /* CustomerOrderViewBuilder.swift in Sources */,
 				33FE301B256C26D600711280 /* CDChargObjects+CoreDataProperties.swift in Sources */,
 				336DC93B253611BE00F9D3B2 /* Session.swift in Sources */,
 				336DC94E25361ED800F9D3B2 /* UserCoordinator.swift in Sources */,

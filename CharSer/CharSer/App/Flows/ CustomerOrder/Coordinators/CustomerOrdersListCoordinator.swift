@@ -36,8 +36,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
     }
     
     func openCustomerOrder(customerOrder: CustomerOrder?) {
-        let controller = UIStoryboard(name: "CustomerOrder", bundle: nil)
-            .instantiateViewController(withIdentifier: "CustomerOrder") as! CustomerOrderViewController
+        guard let controller = CustomerOrderViewBuilder.build() as? CustomerOrderViewController else { return }
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)
@@ -106,7 +105,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
         
         controller.onPay = { [weak self, weak customerOrderViewController] sum in
             if let sum = sum  {
-                customerOrderViewController?.addPayment(sum)
+                customerOrderViewController?.presenter.addPayment(sum)
             }
             self?.rootController?.popViewController(animated: true)
         }

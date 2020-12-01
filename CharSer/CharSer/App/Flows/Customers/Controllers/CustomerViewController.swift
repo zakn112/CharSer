@@ -37,7 +37,7 @@ class CustomerViewController: UIViewController {
         
         fillModelUsingForm()
         
-        let saveResult = DataBase.shared.addObject(by: thisObject, update: !newObject)
+        let saveResult = DataBase.shared.addObject(by: thisObject)
         
         if !(saveResult.result) {
             AlertManager.shared.showWarning(saveResult.message)
