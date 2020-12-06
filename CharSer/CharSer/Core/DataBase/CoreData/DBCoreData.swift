@@ -542,3 +542,55 @@ extension DBCoreData{
     
     
 }
+
+//MARK: MainDesktopItem
+
+extension DBCoreData{
+    
+    func getMainDesktopItems() -> ([MainDesktopItem]?){
+        
+        
+        
+        
+        guard let chargObjects = getObjectsList(object: СhargObject.self) as? [СhargObject] else { return nil}
+        
+        var mainDesktopItems = [MainDesktopItem]()
+        
+        mainDesktopItems = chargObjects.compactMap{ chargObject in
+       
+            
+            let mainDesktopItem = MainDesktopItem()
+            
+            let context = persistentContainer.viewContext
+
+            let request: NSFetchRequest<CDCustomerOrders> = NSFetchRequest<CDCustomerOrders>(entityName: "CDCustomerOrders")
+
+            let currentDate = NSDate()
+
+            let predicate = NSPredicate(format: "chargObject.id = %ld AND endDate > %@", chargObject.id , currentDate)
+            request.predicate = predicate
+
+            do {
+                let objectsDB = try context.fetch(request)
+
+                let customerOrder = objectsDB.first?.getModelByObjectDB()
+
+                if let customerOrder = customerOrder as? CustomerOrder {
+                    mainDesktopItem.customerOrder = customerOrder
+                }
+
+            } catch {
+                print(error)
+            }
+
+            mainDesktopItem.chargObject = chargObject
+            
+            
+            return mainDesktopItem
+            
+        }
+        
+        return mainDesktopItems
+    }
+    
+}

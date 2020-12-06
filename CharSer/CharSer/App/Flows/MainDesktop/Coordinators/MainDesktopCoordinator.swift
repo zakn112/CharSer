@@ -17,8 +17,7 @@ final class MainDesktopCoordinator: BaseCoordinator {
     }
     
     private func showMainDesktop() {
-        let controller = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "mainDesktop") as! MainDesktopViewController
+        let controller = MainDesktopViewBuilder.build() as! MainDesktopCollectionViewController
         
         controller.onMainMenu = { [weak self] in
             self?.showMainMenuModule()

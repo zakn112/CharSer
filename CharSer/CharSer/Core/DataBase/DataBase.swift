@@ -23,6 +23,8 @@ protocol DataBaseInterface {
     func getSetPricesByID(id: Int) -> (SetPrices?)
     func getSetPricesLast() -> (SetPrices?)
     
+    func getMainDesktopItems() -> ([MainDesktopItem]?)
+    
 }
 
 class DataBase: DataBaseInterface {
@@ -94,5 +96,15 @@ extension DataBase{
     
 }
 
+
+//MARK: MainDesktopItem
+
+extension DataBase{
+    
+    func getMainDesktopItems() -> ([MainDesktopItem]?){
+        return currentDataBase.getMainDesktopItems()
+    }
+    
+}
 
 
