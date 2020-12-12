@@ -21,8 +21,8 @@ final class LoginCoordinator: BaseCoordinator {
     }
     
     private func showLoginModule() {
-        let controller = UIStoryboard(name: "Users", bundle: nil)
-            .instantiateViewController(withIdentifier: "login") as! LoginViewController
+        let controller = UIStoryboard(name: StoryboardsNames.users.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: LoginViewController.storyBoardIdentifier ) as! LoginViewController
         
         controller.onCansel = { [weak self] in
             //self?.showRecoverModule()
@@ -39,8 +39,8 @@ final class LoginCoordinator: BaseCoordinator {
     }
     
     private func showLoginModulePush() {
-        let controller = UIStoryboard(name: "Users", bundle: nil)
-            .instantiateViewController(withIdentifier: "login") as! LoginViewController
+        let controller = UIStoryboard(name: StoryboardsNames.users.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: LoginViewController.storyBoardIdentifier ) as! LoginViewController
         
         controller.onCansel = { [weak self] in
             //self?.showRecoverModule()

@@ -52,7 +52,7 @@ class SetPricesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SetPricesTableViewCell.cellIdentifier, for: indexPath) as? SetPricesTableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SetPricesTableViewCell.storyBoardIdentifier, for: indexPath) as? SetPricesTableViewCell{
             cell.setSetPrices(setPrices: setPicesDocs[indexPath.row])
             return cell
         }

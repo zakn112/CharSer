@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let reuseIdentifier = MainDesktopCollectionViewCell.cellIdentifier
+private let reuseIdentifier = MainDesktopCollectionViewCell.storyBoardIdentifier
 
 class MainDesktopCollectionViewController: UICollectionViewController {
 

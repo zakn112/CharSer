@@ -54,7 +54,7 @@ class ChargObjectsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ChargObjectTableViewCell.cellIdentifier, for: indexPath) as? ChargObjectTableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ChargObjectTableViewCell.storyBoardIdentifier, for: indexPath) as? ChargObjectTableViewCell{
             cell.setСhargObject(chargObject: chargObjects[indexPath.row])
             return cell
         }

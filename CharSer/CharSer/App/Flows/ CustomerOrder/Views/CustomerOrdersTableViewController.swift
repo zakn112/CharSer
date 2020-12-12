@@ -53,7 +53,7 @@ class CustomerOrdersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CustomerOrdersTableViewCell.cellIdentifier, for: indexPath) as? CustomerOrdersTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CustomerOrdersTableViewCell.storyBoardIdentifier, for: indexPath) as? CustomerOrdersTableViewCell {
             cell.setCustomerOrder(customerOrder: customerOrdersDocs[indexPath.row])
             return cell
         }

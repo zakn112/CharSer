@@ -9,9 +9,9 @@ import UIKit
 
 final class CustomerOrderViewBuilder {
 
-    static func build() -> (UIViewController & CustomerOrderViewInput) {
-        let controller = UIStoryboard(name: "CustomerOrder", bundle: nil)
-            .instantiateViewController(withIdentifier: "CustomerOrder") as! CustomerOrderViewController
+    static func build() -> (CustomerOrderViewController & CustomerOrderViewInput) {
+        let controller = UIStoryboard(name: StoryboardsNames.customerOrder.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: CustomerOrderViewController.storyBoardIdentifier ) as! CustomerOrderViewController
         
         let presenter = CustomerOrderViewPresenter()
         

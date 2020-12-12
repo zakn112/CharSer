@@ -11,7 +11,7 @@
         <!--Клиент-->
         <scene sceneID="Z85-9c-YZq">
             <objects>
-                <viewController storyboardIdentifier="Customer" id="NWa-Rt-XMO" customClass="CustomerViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomerViewController" id="NWa-Rt-XMO" customClass="CustomerViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2G-An-Mo7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
         <!--Клиенты-->
         <scene sceneID="CIc-Gw-IK6">
             <objects>
-                <tableViewController storyboardIdentifier="CustomersList" id="m9K-ae-BjW" customClass="CustomersListTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CustomersListTableViewController" id="m9K-ae-BjW" customClass="CustomersListTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="78g-sv-H6P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

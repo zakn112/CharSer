@@ -8,5 +8,5 @@
 import UIKit
 
 extension UICollectionViewCell {
-    static var cellIdentifier: String { String(describing: self) }
+    static var storyBoardIdentifier: String { String(describing: self) }
 }

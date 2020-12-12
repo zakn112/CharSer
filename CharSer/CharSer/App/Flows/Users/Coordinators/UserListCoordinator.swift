@@ -18,8 +18,8 @@ final class UserListCoordinator: BaseCoordinator {
     }
     
     private func showUserListModule() {
-        let controller = UIStoryboard(name: "Users", bundle: nil)
-            .instantiateViewController(withIdentifier: "UsersList") as! UsersListTableViewController
+        let controller = UIStoryboard(name: StoryboardsNames.users.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: UsersListTableViewController.storyBoardIdentifier) as! UsersListTableViewController
         
         controller.onUserSelected = { [weak self] user in
             self?.openUser(user: user)
@@ -36,8 +36,8 @@ final class UserListCoordinator: BaseCoordinator {
     }
     
     func openUser(user: User?) {
-        let controller = UIStoryboard(name: "Users", bundle: nil)
-            .instantiateViewController(withIdentifier: "User") as! UserViewController
+        let controller = UIStoryboard(name: StoryboardsNames.users.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: UserViewController.storyBoardIdentifier) as! UserViewController
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)

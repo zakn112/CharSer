@@ -11,7 +11,7 @@
         <!--Объект тарификации-->
         <scene sceneID="vtp-YA-v9t">
             <objects>
-                <viewController storyboardIdentifier="СhargObject" id="wSg-D9-qf3" customClass="ChargObjectsViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChargObjectsViewController" id="wSg-D9-qf3" customClass="ChargObjectsViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3rG-zZ-XZN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
         <!--Объекты тарификации-->
         <scene sceneID="AFP-q6-FKg">
             <objects>
-                <tableViewController storyboardIdentifier="СhargObjectsList" id="Uev-FE-mvM" customClass="ChargObjectsTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChargObjectsTableViewController" id="Uev-FE-mvM" customClass="ChargObjectsTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lye-A1-od5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

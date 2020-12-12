@@ -11,7 +11,7 @@
         <!-- Оплата-->
         <scene sceneID="wjp-l5-oEy">
             <objects>
-                <viewController storyboardIdentifier="PaymentForm" id="DFM-bI-acp" customClass="PaymentFormViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentFormViewController" id="DFM-bI-acp" customClass="PaymentFormViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Akp-37-S3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

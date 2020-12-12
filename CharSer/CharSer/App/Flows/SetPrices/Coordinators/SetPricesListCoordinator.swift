@@ -18,8 +18,8 @@ final class SetPricesListCoordinator: BaseCoordinator {
     }
     
     private func showSetPricesListModule() {
-        let controller = UIStoryboard(name: "SetPrices", bundle: nil)
-            .instantiateViewController(withIdentifier: "SetPricesList") as! SetPricesTableViewController
+        let controller = UIStoryboard(name: StoryboardsNames.setPrices.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: SetPricesTableViewController.storyBoardIdentifier) as! SetPricesTableViewController
         
         controller.onSetPicesSelected = { [weak self] setPrices in
             self?.openSetPrices(setPrices: setPrices)
@@ -36,8 +36,8 @@ final class SetPricesListCoordinator: BaseCoordinator {
     }
     
     func openSetPrices(setPrices: SetPrices?) {
-        let controller = UIStoryboard(name: "SetPrices", bundle: nil)
-            .instantiateViewController(withIdentifier: "SetPrices") as! SetPricesViewController
+        let controller = UIStoryboard(name: StoryboardsNames.setPrices.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: SetPricesViewController.storyBoardIdentifier) as! SetPricesViewController
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)

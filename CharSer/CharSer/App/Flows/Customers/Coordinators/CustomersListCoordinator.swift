@@ -19,8 +19,8 @@ final class CustomersListCoordinator: BaseCoordinator {
     }
     
     private func showCustomersListModule() {
-        let controller = UIStoryboard(name: "Customers", bundle: nil)
-            .instantiateViewController(withIdentifier: "CustomersList") as! CustomersListTableViewController
+        let controller = UIStoryboard(name: StoryboardsNames.customers.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: CustomersListTableViewController.storyBoardIdentifier ) as! CustomersListTableViewController
         
         controller.onCustomerSelected = { [weak self] customer in
             if self?.isSelectMode == true, customer != nil  {
@@ -43,8 +43,8 @@ final class CustomersListCoordinator: BaseCoordinator {
     }
     
     func openCustomer(customer: Customer?) {
-        let controller = UIStoryboard(name: "Customers", bundle: nil)
-            .instantiateViewController(withIdentifier: "Customer") as! CustomerViewController
+        let controller = UIStoryboard(name: StoryboardsNames.customers.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: CustomerViewController.storyBoardIdentifier ) as! CustomerViewController
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)

@@ -18,8 +18,8 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
     }
     
     private func showCustomerOrdersListModule() {
-        let controller = UIStoryboard(name: "CustomerOrder", bundle: nil)
-            .instantiateViewController(withIdentifier: "CustomerOrdersList") as! CustomerOrdersTableViewController
+        let controller = UIStoryboard(name: StoryboardsNames.customerOrder.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: CustomerOrdersTableViewController.storyBoardIdentifier) as! CustomerOrdersTableViewController
         
         controller.onCustomerOrderSelected = { [weak self] customerOrder in
             self?.openCustomerOrder(customerOrder: customerOrder)
@@ -36,7 +36,7 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
     }
     
     func openCustomerOrder(customerOrder: CustomerOrder?) {
-        guard let controller = CustomerOrderViewBuilder.build() as? CustomerOrderViewController else { return }
+        let controller = CustomerOrderViewBuilder.build()
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)
@@ -97,8 +97,8 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
     }
     
     func openPaymentForm(_ customerOrderViewController: CustomerOrderViewController) {
-        let controller = UIStoryboard(name: "PaymentForm", bundle: nil)
-            .instantiateViewController(withIdentifier: "PaymentForm") as! PaymentFormViewController
+        let controller = UIStoryboard(name: StoryboardsNames.paymentForm.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: PaymentFormViewController.storyBoardIdentifier) as! PaymentFormViewController
         
         let customerOrder = customerOrderViewController.thisObject
         controller.amountToBePaid = customerOrder.amount - customerOrder.amountPaid

@@ -41,7 +41,7 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
             durationLabel.text = "Длительность: --"
             ammountLabel.text = "Сумма: -- руб."
         }else{
-            customerNameLabel.text = "Гость: \(mainDesktopItem.customerOrder.customer?.name ?? "")"
+            customerNameLabel.text = mainDesktopItem.customerOrder.customer.flatMap { "Гость: \($0.name)" }
             
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"

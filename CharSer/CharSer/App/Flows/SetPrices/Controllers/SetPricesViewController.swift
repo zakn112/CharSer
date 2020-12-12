@@ -112,7 +112,7 @@ extension SetPricesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SetPricesVTTableViewCell.cellIdentifier, for: indexPath) as? SetPricesVTTableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SetPricesVTTableViewCell.storyBoardIdentifier, for: indexPath) as? SetPricesVTTableViewCell{
             cell.SetPricesVTItem(vtPricesItem: thisObject.vtPrices[indexPath.row])
             return cell
         }

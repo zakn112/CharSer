@@ -11,7 +11,7 @@
         <!--Установка тарифов-->
         <scene sceneID="HZ6-3l-aiI">
             <objects>
-                <viewController storyboardIdentifier="SetPrices" id="i5L-cj-hQd" customClass="SetPricesViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetPricesViewController" id="i5L-cj-hQd" customClass="SetPricesViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MuS-QT-f5h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
         <!--Установка тарифов-->
         <scene sceneID="1fU-fV-d1l">
             <objects>
-                <tableViewController storyboardIdentifier="SetPricesList" id="0GW-Ja-JAs" customClass="SetPricesTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SetPricesTableViewController" id="0GW-Ja-JAs" customClass="SetPricesTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uda-aC-QZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

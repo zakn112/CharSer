@@ -11,7 +11,7 @@
         <!--Заказ клиента-->
         <scene sceneID="y6X-Lk-38n">
             <objects>
-                <viewController storyboardIdentifier="CustomerOrder" id="zNt-f1-0L6" customClass="CustomerOrderViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomerOrderViewController" id="zNt-f1-0L6" customClass="CustomerOrderViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dXT-fH-ufc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +323,7 @@
         <!--Заказы клиентов-->
         <scene sceneID="dtL-jq-0O5">
             <objects>
-                <tableViewController storyboardIdentifier="CustomerOrdersList" id="otr-Te-Ajs" customClass="CustomerOrdersTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CustomerOrdersTableViewController" id="otr-Te-Ajs" customClass="CustomerOrdersTableViewController" customModule="CharSer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iF4-pK-wtI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -17,8 +17,8 @@ final class MainMenuCoordinator: BaseCoordinator {
     }
     
     private func showMainMenuModule() {
-        let controller = UIStoryboard(name: "mainMenu", bundle: nil)
-            .instantiateViewController(withIdentifier: "mainMenu") as! MainMenuViewController
+        let controller = UIStoryboard(name: StoryboardsNames.mainMenu.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: MainMenuViewController.storyBoardIdentifier) as! MainMenuViewController
         
         controller.onMainDesktop = { [weak self] in
             self?.onFinishFlow?()

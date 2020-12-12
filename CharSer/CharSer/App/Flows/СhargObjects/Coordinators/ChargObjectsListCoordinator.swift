@@ -19,8 +19,8 @@ final class ChargObjectsListCoordinator: BaseCoordinator {
     }
     
     private func showCustomersListModule() {
-        let controller = UIStoryboard(name: "ChargObjects", bundle: nil)
-            .instantiateViewController(withIdentifier: "СhargObjectsList") as! ChargObjectsTableViewController
+        let controller = UIStoryboard(name: StoryboardsNames.chargObjects.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: ChargObjectsTableViewController.storyBoardIdentifier ) as! ChargObjectsTableViewController
         
         controller.onСhargObjectSelected = { [weak self] chargObject in
             if self?.isSelectMode == true, chargObject != nil  {
@@ -42,8 +42,8 @@ final class ChargObjectsListCoordinator: BaseCoordinator {
     }
     
     func openСhargObject(chargObject: СhargObject?) {
-        let controller = UIStoryboard(name: "ChargObjects", bundle: nil)
-            .instantiateViewController(withIdentifier: "СhargObject") as! ChargObjectsViewController
+        let controller = UIStoryboard(name: StoryboardsNames.chargObjects.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: ChargObjectsViewController.storyBoardIdentifier ) as! ChargObjectsViewController
         
         controller.onSuccess = { [weak self] in
             self?.rootController?.popViewController(animated: true)
