@@ -71,16 +71,12 @@ extension CDCustomerOrders:  ReferenceObjectDB{
                 self.chargObject = db.getObjectDB(type: CDChargObjects.self, byID: Int16(modelObject.chargObject!.id))
             }
             
-            if modelObject.customer == nil {
-                self.customer = nil
-            }else{
-                self.customer = db.getObjectDB(type: CDCustomers.self, byID: Int16(modelObject.customer!.id))
+            if let customerId = modelObject.customer?.id {
+                self.customer = db.getObjectDB(type: CDCustomers.self, byID: Int16(customerId))
             }
             
-            if modelObject.author == nil {
-                self.author = nil
-            }else{
-                self.author = db.getObjectDB(type: CDUsers.self, byID: Int16(modelObject.author!.id))
+            if let authorId = modelObject.author?.id {
+                self.author = db.getObjectDB(type: CDUsers.self, byID: Int16(authorId))
             }
         }
         
