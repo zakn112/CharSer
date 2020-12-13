@@ -12,6 +12,8 @@ private let reuseIdentifier = MainDesktopCollectionViewCell.storyBoardIdentifier
 class MainDesktopCollectionViewController: UICollectionViewController {
 
     var onMainMenu: (() -> Void)?
+    var onNewOrder: ((СhargObject) -> Void)?
+    var onOpenOrder: ((CustomerOrder) -> Void)?
     
     var presenter: MainDesktopViewOutput!
     
@@ -31,6 +33,10 @@ class MainDesktopCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
+    func updateForm(){
+        presenter.updateItems()
+    }
+    
     @IBAction func LeftSwype(_ sender: Any) {
         onMainMenu?()
     }
@@ -58,6 +64,7 @@ class MainDesktopCollectionViewController: UICollectionViewController {
     
         if let cell = cell as? MainDesktopCollectionViewCell {
             cell.mainDesktopItem = desktopItems[indexPath.row]
+            cell.delegate = self
             return cell
         }
     
@@ -111,4 +118,16 @@ extension MainDesktopCollectionViewController: UICollectionViewDelegateFlowLayou
         width = width/CGFloat(numbernHorizontally)
         return CGSize(width: width - 10, height: 160.0)
     }
+}
+
+extension MainDesktopCollectionViewController: MainDesktopCollectionViewCellDelegate {
+    func newOrder(_ chargObject: СhargObject) {
+        onNewOrder?(chargObject)
+    }
+    
+    func openOrder(_ customerOrder: CustomerOrder) {
+        onOpenOrder?(customerOrder)
+    }
+    
+    
 }

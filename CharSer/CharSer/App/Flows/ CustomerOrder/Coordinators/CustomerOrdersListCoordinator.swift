@@ -36,82 +36,21 @@ final class CustomerOrdersListCoordinator: BaseCoordinator {
     }
     
     func openCustomerOrder(customerOrder: CustomerOrder?) {
-        let controller = CustomerOrderViewBuilder.build()
         
-        controller.onSuccess = { [weak self] in
-            self?.rootController?.popViewController(animated: true)
+        let coordinator = CustomerOrderCoordinator()
+        
+        if typeDependencyIsAdded(coordinator) {
+            return
+        }
+        
+        coordinator.rootController = rootController
+        coordinator.onFinishFlow = { [weak self, weak coordinator] in
             self?.customerOrdersListTableViewController?.updateForm()
-        }
-        
-        controller.onSelectСhargObject = { [weak self] customerOrderViewController in
-            self?.openSelectСhargObject(customerOrderViewController)
-        }
-        
-        controller.onSelectCustomer = { [weak self] customerOrderViewController in
-            self?.openSelectCustomer(customerOrderViewController)
-        }
-        
-        controller.onPaymentForm = { [weak self] customerOrderViewController in
-            self?.openPaymentForm(customerOrderViewController)
-        }
-        
-        controller.thisObject = customerOrder ?? CustomerOrder()
-
-        self.rootController?.pushViewController(controller, animated: true)
-    }
-    
-    func openSelectСhargObject(_ customerOrderViewController: CustomerOrderViewController) {
-        let coordinator = ChargObjectsListCoordinator()
-        
-        if typeDependencyIsAdded(coordinator) {
-            return
-        }
-        
-        coordinator.rootController = rootController
-        coordinator.isSelectMode = true
-        coordinator.onFinishFlow = { [weak self, weak coordinator,  weak customerOrderViewController] chargObject  in
-            customerOrderViewController?.thisObject.chargObject = chargObject
-            customerOrderViewController?.updateInterface()
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)
-        coordinator.start()
+        coordinator.start(customerOrder: customerOrder)
     }
-    
-    func openSelectCustomer(_ customerOrderViewController: CustomerOrderViewController) {
-        let coordinator = CustomersListCoordinator()
-        
-        if typeDependencyIsAdded(coordinator) {
-            return
-        }
-        
-        coordinator.rootController = rootController
-        coordinator.isSelectMode = true
-        coordinator.onFinishFlow = { [weak self, weak coordinator,  weak customerOrderViewController] customer  in
-            customerOrderViewController?.thisObject.customer = customer
-            customerOrderViewController?.updateInterface()
-            self?.removeDependency(coordinator)
-        }
-        addDependency(coordinator)
-        coordinator.start()
-    }
-    
-    func openPaymentForm(_ customerOrderViewController: CustomerOrderViewController) {
-        let controller = UIStoryboard(name: StoryboardsNames.paymentForm.rawValue, bundle: nil)
-            .instantiateViewController(withIdentifier: PaymentFormViewController.storyBoardIdentifier) as! PaymentFormViewController
-        
-        let customerOrder = customerOrderViewController.thisObject
-        controller.amountToBePaid = customerOrder.amount - customerOrder.amountPaid
-        
-        controller.onPay = { [weak self, weak customerOrderViewController] sum in
-            if let sum = sum  {
-                customerOrderViewController?.presenter.addPayment(sum)
-            }
-            self?.rootController?.popViewController(animated: true)
-        }
-        
-        self.rootController?.pushViewController(controller, animated: true)
-        
-    }
+       
     
 }

@@ -22,6 +22,7 @@ class SetPricesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         idTextField.isEnabled = false
         

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol MainDesktopCollectionViewCellDelegate {
+    func newOrder(_ chargObject: СhargObject)
+    func openOrder(_ customerOrder: CustomerOrder)
+}
+
 class MainDesktopCollectionViewCell: UICollectionViewCell {
     
     var mainDesktopItem = MainDesktopItem() {
@@ -20,6 +25,7 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
     private let startEndTimeLabel = UILabel()
     private let durationLabel = UILabel()
     private let ammountLabel = UILabel()
+    private let ammountPaidLabel = UILabel()
     
     private let newOrderButton = UIButton()
     private let currentOrderButton = UIButton()
@@ -30,7 +36,7 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
     
     private let dateLabel = UILabel()
     
-    
+    var delegate: MainDesktopCollectionViewCellDelegate?
     
     func updateView() {
         chargObjectNameLabel.text = mainDesktopItem.chargObject.name
@@ -40,17 +46,19 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
             
             durationLabel.text = "Длительность: --"
             ammountLabel.text = "Сумма: -- руб."
+            ammountPaidLabel.text = "Оплачено: -- руб."
         }else{
             customerNameLabel.text = mainDesktopItem.customerOrder.customer.flatMap { "Гость: \($0.name)" }
             
             let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm"
+            formatter.dateFormat = "dd.MM HH:mm"
             let startDate = formatter.string(from: mainDesktopItem.customerOrder.startDate as Date)
             let endDate = formatter.string(from: mainDesktopItem.customerOrder.endDate as Date)
             startEndTimeLabel.text = "C \(startDate) по \(endDate)"
             
             durationLabel.text = "Длительность: \(mainDesktopItem.customerOrder.durationText)"
             ammountLabel.text = "Сумма: \(mainDesktopItem.customerOrder.amount) руб."
+            ammountPaidLabel.text = "Оплачено: \(mainDesktopItem.customerOrder.amountPaid) руб."
         }
         
         
@@ -86,6 +94,7 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
         setupStartEndTimeLabel(leftView)
         setupDurationLabel(leftView)
         setupAmmountLabel(leftView)
+        setupAmmountPaidLabel(leftView)
     }
     
     private func setupRightView() {
@@ -105,10 +114,12 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupStartEndTimeLabel(_ parentView: UIView) {
+        startEndTimeLabel.font = UIFont.systemFont(ofSize: 14)
         parentView.addSubview(startEndTimeLabel)
     }
     
     private func setupDurationLabel(_ parentView: UIView) {
+        durationLabel.font = UIFont.systemFont(ofSize: 14)
         parentView.addSubview(durationLabel)
     }
     
@@ -116,13 +127,23 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
         parentView.addSubview(ammountLabel)
     }
     
+    private func setupAmmountPaidLabel(_ parentView: UIView) {
+        ammountPaidLabel.font = UIFont.systemFont(ofSize: 14)
+        parentView.addSubview(ammountPaidLabel)
+    }
+    
     private func setupNewOrderButton(_ parentView: UIView) {
+        newOrderButton.addTarget(self, action: #selector(self.newOrderButtonPress), for: UIButton.Event.touchDown)
+        
         newOrderButton.backgroundColor = .white
         newOrderButton.setTitleColor(.blue, for: .normal)
         parentView.addSubview(newOrderButton)
     }
     
     private func setupCurrentOrderButton(_ parentView: UIView) {
+        
+        currentOrderButton.addTarget(self, action: #selector(self.currentOrderButtonPress), for: UIButton.Event.touchDown)
+        
         currentOrderButton.backgroundColor = .white
         currentOrderButton.setTitleColor(.black, for: .normal)
         parentView.addSubview(currentOrderButton)
@@ -139,40 +160,56 @@ class MainDesktopCollectionViewCell: UICollectionViewCell {
         
         var currentY:CGFloat = 10
         var currentHeight:CGFloat = 20
+        let margin:CGFloat = 5
         
         chargObjectNameLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
         
-        currentY += (10 + currentHeight)
+        currentY += (margin + currentHeight)
         currentHeight = 20
         
         customerNameLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
         
-        currentY += (10 + currentHeight)
-        currentHeight = 20
+        currentY += (margin + currentHeight)
+        currentHeight = 15
         
         startEndTimeLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
         
-        currentY += (10 + currentHeight)
-        currentHeight = 20
+        currentY += (margin + currentHeight)
+        currentHeight = 15
         
         durationLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
         
-        currentY += (10 + currentHeight)
+        currentY += (margin + currentHeight)
         currentHeight = 20
         
         ammountLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
         
+        currentY += (margin + currentHeight)
+        currentHeight = 15
+        
+        ammountPaidLabel.frame = CGRect(x: 20, y: currentY, width: leftViewWidth - 30, height: currentHeight)
+        
         //rightView
-        currentY = 10
+        currentY = margin
         currentHeight = 30
         
         newOrderButton.frame = CGRect(x: 10, y: currentY, width: rightViewWidth - 20, height: currentHeight)
         
-        currentY += (10 + currentHeight)
+        currentY += (margin + currentHeight)
         currentHeight = 30
         
         currentOrderButton.frame = CGRect(x: 10, y: currentY, width: rightViewWidth - 20, height: currentHeight)
         
+    }
+    
+    @objc private func currentOrderButtonPress() {
+        if mainDesktopItem.customerOrder.id != 0 {
+            delegate?.openOrder(mainDesktopItem.customerOrder)
+        }
+    }
+    
+    @objc private func newOrderButtonPress() {
+        delegate?.newOrder(mainDesktopItem.chargObject)
     }
     
 }

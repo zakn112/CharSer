@@ -42,7 +42,9 @@ class ChargObjectsViewController: UIViewController {
             AlertManager.shared.showWarning(saveResult.message)
             return
         }
-
+        
+        Session.shared.chargObjectChanges.value += 1
+        
         onSuccess?()
     }
     

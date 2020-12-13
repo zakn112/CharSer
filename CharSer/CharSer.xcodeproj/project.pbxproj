@@ -12,6 +12,8 @@
 		332A04C52584C223005F9AF8 /* StoryboardsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04C42584C223005F9AF8 /* StoryboardsNames.swift */; };
 		332A04CA2584C6B8005F9AF8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04C92584C6B8005F9AF8 /* TableViewController.swift */; };
 		332A04D22584C83E005F9AF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04D12584C83E005F9AF8 /* ViewController.swift */; };
+		332A04D72584E2A2005F9AF8 /* CustomerOrderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04D62584E2A2005F9AF8 /* CustomerOrderCoordinator.swift */; };
+		332A04DD2585FC57005F9AF8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04DC2585FC57005F9AF8 /* Observer.swift */; };
 		33336FAD254D52A2004EE9AF /* СhargObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FAC254D52A2004EE9AF /* СhargObject.swift */; };
 		33336FB3254D5377004EE9AF /* ChargObjects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33336FB2254D5377004EE9AF /* ChargObjects.storyboard */; };
 		33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33336FBA254D5516004EE9AF /* СhargObjectsViewController.swift */; };
@@ -118,6 +120,8 @@
 		332A04C42584C223005F9AF8 /* StoryboardsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardsNames.swift; sourceTree = "<group>"; };
 		332A04C92584C6B8005F9AF8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		332A04D12584C83E005F9AF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		332A04D62584E2A2005F9AF8 /* CustomerOrderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCoordinator.swift; sourceTree = "<group>"; };
+		332A04DC2585FC57005F9AF8 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		33336FAC254D52A2004EE9AF /* СhargObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СhargObject.swift"; sourceTree = "<group>"; };
 		33336FB2254D5377004EE9AF /* ChargObjects.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChargObjects.storyboard; sourceTree = "<group>"; };
 		33336FBA254D5516004EE9AF /* СhargObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СhargObjectsViewController.swift"; sourceTree = "<group>"; };
@@ -243,6 +247,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332A04DB2585FC49005F9AF8 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				332A04DC2585FC57005F9AF8 /* Observer.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
 		33336FB1254D532C004EE9AF /* СhargObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				33FE2FD82568F5A600711280 /* CustomerOrdersListCoordinator.swift */,
+				332A04D62584E2A2005F9AF8 /* CustomerOrderCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -542,6 +555,7 @@
 		33C6A2552532F74B00C299E9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				332A04DB2585FC49005F9AF8 /* Observer */,
 				33529552255468DA00CD0705 /* Alerts */,
 				336DC939253611AA00F9D3B2 /* Session */,
 				336DC9312536115700F9D3B2 /* Navigation */,
@@ -1027,6 +1041,7 @@
 				336DC95325361F3300F9D3B2 /* UserViewController.swift in Sources */,
 				33FE30502576AF7500711280 /* CustomerOrderViewPresenter.swift in Sources */,
 				33336FBB254D5516004EE9AF /* СhargObjectsViewController.swift in Sources */,
+				332A04D72584E2A2005F9AF8 /* CustomerOrderCoordinator.swift in Sources */,
 				3352953F2552F8E000CD0705 /* SetPricesTableViewCell.swift in Sources */,
 				335295542554690700CD0705 /* AlertManager.swift in Sources */,
 				33D5EDF5254749E7007FB45F /* CustomersListTableViewController.swift in Sources */,
@@ -1055,6 +1070,7 @@
 				33FE30382573819C00711280 /* TableView.Cell.swift in Sources */,
 				33FE2FDE2568F5E700711280 /* CustomerOrderViewController.swift in Sources */,
 				33336FC8254D5B87004EE9AF /* ReferenceObject.swift in Sources */,
+				332A04DD2585FC57005F9AF8 /* Observer.swift in Sources */,
 				33FE301A256C26D600711280 /* CDCustomers+CoreDataClass.swift in Sources */,
 				33E5E221257BAFE200CD5281 /* CollectionViewCell.swift in Sources */,
 				33C6A6E9253C1C8500DE32B9 /* MainMenuPushTransitionAnimator.swift in Sources */,

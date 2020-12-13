@@ -60,6 +60,8 @@ extension CustomerOrderViewPresenter: CustomerOrderViewOutput {
             return
         }
         
+        Session.shared.customerOrdersChanges.value += 1
+        
         viewInput.saveSuccess()
     }
     

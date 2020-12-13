@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomerOrderViewController: UIViewController {
+    var onFinishFlow: (() -> Void)?
     var onCansel: (() -> Void)?
     var onSuccess: (() -> Void)?
     var onSelectСhargObject: ((CustomerOrderViewController) -> Void)?
@@ -31,10 +32,20 @@ class CustomerOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         updateInterface()
         
         idTextField.isEnabled = false
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let _ = self.navigationController?.viewControllers.firstIndex(of: self) {
+            
+        }else{
+            onFinishFlow?()
+        }
         
     }
     

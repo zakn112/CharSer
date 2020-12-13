@@ -16,6 +16,10 @@ class Session {
     var currenUser: User? { didSet { saveSessionParameter("user") } }
     var firstRun = false
     
+    public let customerOrdersChanges: Observable<Int> = Observable(1)
+    public let customerChanges: Observable<Int> = Observable(1)
+    public let chargObjectChanges: Observable<Int> = Observable(1)
+    
     private init() {
         if let currenUserLogin = UserDefaults.standard.string(forKey: "currenUser") {
             currenUser = DataBase.shared.getUserByLogin(login: currenUserLogin)
@@ -30,3 +34,5 @@ class Session {
         }
     }
 }
+
+

@@ -44,6 +44,8 @@ class CustomerViewController: UIViewController {
             return
         }
         
+        Session.shared.customerChanges.value += 1
+        
         onSuccess?()
     }
     
