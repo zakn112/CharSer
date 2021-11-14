@@ -21,6 +21,7 @@ protocol CustomerOrderViewOutput {
     func saveCustomerOrder()
     func startTimeValueChanged()
     func endTimeValueChanged()
+    func didChangeChargObject()
     func addPayment(_ sum: Double)
     func cancelOrder()
     func completOrder()
@@ -65,16 +66,28 @@ extension CustomerOrderViewPresenter: CustomerOrderViewOutput {
         viewInput.saveSuccess()
     }
     
+    func didChangeChargObject() {
+        guard let viewInput = viewInput else { return }
+        
+        viewInput.thisObject.amount = TariffCalculation.shared.ammuntTimeInterval(chargObject: viewInput.thisObject.chargObject, start: viewInput.thisObject.startDate, end: viewInput.thisObject.endDate)
+        
+        viewInput.updateInterface()
+    }
+    
     func startTimeValueChanged(){
         guard let viewInput = viewInput else { return }
         
-        viewInput.thisObject.amount = TariffCalculation.shared.ammuntTimeInterval(start: viewInput.thisObject.startDate, end: viewInput.thisObject.endDate)
+        viewInput.thisObject.amount = TariffCalculation.shared.ammuntTimeInterval(chargObject: viewInput.thisObject.chargObject, start: viewInput.thisObject.startDate, end: viewInput.thisObject.endDate)
+        
+        viewInput.updateInterface()
     }
     
     func endTimeValueChanged(){
         guard let viewInput = viewInput else { return }
         
-        viewInput.thisObject.amount = TariffCalculation.shared.ammuntTimeInterval(start: viewInput.thisObject.startDate, end: viewInput.thisObject.endDate)
+        viewInput.thisObject.amount = TariffCalculation.shared.ammuntTimeInterval(chargObject: viewInput.thisObject.chargObject, start: viewInput.thisObject.startDate, end: viewInput.thisObject.endDate)
+        
+        viewInput.updateInterface()
     }
     
     func addPayment(_ sum: Double){

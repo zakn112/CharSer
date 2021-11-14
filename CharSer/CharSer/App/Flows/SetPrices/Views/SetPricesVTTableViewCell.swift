@@ -9,7 +9,7 @@ import UIKit
 
 class SetPricesVTTableViewCell: UITableViewCell {
 
-    private let weekdayTextField = UITextField()
+    private let weekdayTextField = UIPickerView()
     private let startTimeDatePicker = UIDatePicker()
     private let endTimeDatePicker = UIDatePicker()
     private let priceTextField = UITextField()
@@ -32,7 +32,7 @@ class SetPricesVTTableViewCell: UITableViewCell {
     func SetPricesVTItem(vtPricesItem: VTPricesItem){
         self.vtPricesItem = vtPricesItem
         
-        weekdayTextField.text = String(vtPricesItem.weekday)
+        weekdayTextField.
         startTimeDatePicker.setDate(vtPricesItem.startTime , animated: false)
         endTimeDatePicker.setDate(vtPricesItem.endTime , animated: false)
         priceTextField.text = String(vtPricesItem.price)

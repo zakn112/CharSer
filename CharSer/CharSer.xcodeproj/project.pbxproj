@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00ACEF166C29116EDC0A5EFE /* Pods_CharSerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78DEEFE0C75CF0518342849 /* Pods_CharSerTests.framework */; };
-		19E684BCCB84FA6B48F542F9 /* Pods_CharSer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC75D525774BB593CB10C49A /* Pods_CharSer.framework */; };
 		332A04C52584C223005F9AF8 /* StoryboardsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04C42584C223005F9AF8 /* StoryboardsNames.swift */; };
-		332A04CA2584C6B8005F9AF8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04C92584C6B8005F9AF8 /* TableViewController.swift */; };
 		332A04D22584C83E005F9AF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04D12584C83E005F9AF8 /* ViewController.swift */; };
 		332A04D72584E2A2005F9AF8 /* CustomerOrderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04D62584E2A2005F9AF8 /* CustomerOrderCoordinator.swift */; };
 		332A04DD2585FC57005F9AF8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A04DC2585FC57005F9AF8 /* Observer.swift */; };
@@ -95,7 +92,6 @@
 		33FE30382573819C00711280 /* TableView.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE30372573819C00711280 /* TableView.Cell.swift */; };
 		33FE30502576AF7500711280 /* CustomerOrderViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE304F2576AF7500711280 /* CustomerOrderViewPresenter.swift */; };
 		33FE30592576BBCD00711280 /* CustomerOrderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE30582576BBCD00711280 /* CustomerOrderViewBuilder.swift */; };
-		8A87C29EE3DA63C0146323BF /* Pods_CharSer_CharSerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,9 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharSer_CharSerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332A04C42584C223005F9AF8 /* StoryboardsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardsNames.swift; sourceTree = "<group>"; };
-		332A04C92584C6B8005F9AF8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		332A04D12584C83E005F9AF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		332A04D62584E2A2005F9AF8 /* CustomerOrderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCoordinator.swift; sourceTree = "<group>"; };
 		332A04DC2585FC57005F9AF8 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -213,10 +207,8 @@
 		5AE7A5943AFE72963F6D74C7 /* Pods-CharSer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer.debug.xcconfig"; path = "Target Support Files/Pods-CharSer/Pods-CharSer.debug.xcconfig"; sourceTree = "<group>"; };
 		6833B49065C6D7A76DE2D2C3 /* Pods-CharSerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSerTests.release.xcconfig"; path = "Target Support Files/Pods-CharSerTests/Pods-CharSerTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E7C34E99B35F5D362CC7835 /* Pods-CharSerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSerTests.debug.xcconfig"; path = "Target Support Files/Pods-CharSerTests/Pods-CharSerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A78DEEFE0C75CF0518342849 /* Pods_CharSerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharSerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0C5A50D45721D91FCE3422 /* Pods-CharSer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer.release.xcconfig"; path = "Target Support Files/Pods-CharSer/Pods-CharSer.release.xcconfig"; sourceTree = "<group>"; };
 		FB2EFDB7AF9CFB998E439C55 /* Pods-CharSer-CharSerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharSer-CharSerUITests.debug.xcconfig"; path = "Target Support Files/Pods-CharSer-CharSerUITests/Pods-CharSer-CharSerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		FC75D525774BB593CB10C49A /* Pods_CharSer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharSer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E684BCCB84FA6B48F542F9 /* Pods_CharSer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00ACEF166C29116EDC0A5EFE /* Pods_CharSerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +230,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A87C29EE3DA63C0146323BF /* Pods_CharSer_CharSerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +352,13 @@
 				335295532554690700CD0705 /* AlertManager.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		3355CB852740F6EC00E1CDF7 /* CommonObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonObjects;
 			sourceTree = "<group>";
 		};
 		336DC9312536115700F9D3B2 /* Navigation */ = {
@@ -584,6 +580,7 @@
 		33C6A2582532F7B700C299E9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				3355CB852740F6EC00E1CDF7 /* CommonObjects */,
 				33FE30362573814000711280 /* Extensions */,
 				33FE3028257254EC00711280 /* PaymentForm */,
 				338AA59925612BAB00938EBA /*  CustomerOrder */,
@@ -780,7 +777,6 @@
 			children = (
 				33FE30372573819C00711280 /* TableView.Cell.swift */,
 				33E5E220257BAFE200CD5281 /* CollectionViewCell.swift */,
-				332A04C92584C6B8005F9AF8 /* TableViewController.swift */,
 				332A04D12584C83E005F9AF8 /* ViewController.swift */,
 				332A04C42584C223005F9AF8 /* StoryboardsNames.swift */,
 			);
@@ -819,9 +815,6 @@
 		D9BEDAA47132AB09FE6C6A8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC75D525774BB593CB10C49A /* Pods_CharSer.framework */,
-				2B462FCAF2C25D9C9264CA55 /* Pods_CharSer_CharSerUITests.framework */,
-				A78DEEFE0C75CF0518342849 /* Pods_CharSerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1083,7 +1076,6 @@
 				33E5E227257BB0AF00CD5281 /* MainDesktopViewPresenter.swift in Sources */,
 				336DC941253612A500F9D3B2 /* User.swift in Sources */,
 				33393832254E9A2700EA9457 /* CharSer.xcdatamodeld in Sources */,
-				332A04CA2584C6B8005F9AF8 /* TableViewController.swift in Sources */,
 				33FE301E256C26D600711280 /* CDCustomers+CoreDataProperties.swift in Sources */,
 				33FE30592576BBCD00711280 /* CustomerOrderViewBuilder.swift in Sources */,
 				33FE301B256C26D600711280 /* CDChargObjects+CoreDataProperties.swift in Sources */,

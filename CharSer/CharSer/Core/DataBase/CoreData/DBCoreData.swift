@@ -511,12 +511,14 @@ extension DBCoreData{
         return nil
     }
     
-    func getSetPricesLast() -> (SetPrices?) {
+    func getSetPricesLast(chargObjectID: Int) -> (SetPrices?) {
         let context = persistentContainer.viewContext
         
         let request: NSFetchRequest<CDSetPrices> = NSFetchRequest<CDSetPrices>(entityName: "CDSetPrices")
         let sort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sort]
+        let predicate = NSPredicate(format: "chargObject.id == %ld", chargObjectID)
+        request.predicate = predicate
         
         do {
             let objectsDB = try context.fetch(request)

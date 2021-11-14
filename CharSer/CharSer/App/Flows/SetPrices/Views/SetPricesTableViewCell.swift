@@ -11,9 +11,14 @@ class SetPricesTableViewCell: UITableViewCell {
 
     private let idLabel = UILabel()
     private let dateLabel = UILabel()
+    private let chargObjectLabel = UILabel()
+    private let formatter = DateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        formatter.dateFormat = "dd.MM.yy HH:mm"
+        
         setupView()
        
     }
@@ -26,18 +31,21 @@ class SetPricesTableViewCell: UITableViewCell {
 
     func setSetPrices(setPrices: SetPrices){
         idLabel.text = String(setPrices.id)
-        dateLabel.text = setPrices.date.description
+        dateLabel.text = formatter.string(from: setPrices.date as Date)
+        chargObjectLabel.text = setPrices.chargObject?.name
     }
     
     private func setupView() {
         removeSubviews()
         setupIdLabel()
         setupDateLabel()
+        setupChargObjectLabel()
     }
     
     private func removeSubviews() {
         idLabel.removeFromSuperview()
         dateLabel.removeFromSuperview()
+        chargObjectLabel.removeFromSuperview()
     }
     
     private func setupIdLabel() {
@@ -50,11 +58,16 @@ class SetPricesTableViewCell: UITableViewCell {
         addSubview(dateLabel)
     }
     
+    private func setupChargObjectLabel() {
+        addSubview(chargObjectLabel)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        idLabel.frame = CGRect(x: 0, y: 0, width: 100, height: self.bounds.size.height)
-        dateLabel.frame = CGRect(x: 100, y: 0, width: self.bounds.size.width - 100, height: self.bounds.size.height)
+        idLabel.frame = CGRect(x: 0, y: 0, width: 50, height: self.bounds.size.height)
+        dateLabel.frame = CGRect(x: 50, y: 0, width: 150, height: self.bounds.size.height)
+        chargObjectLabel.frame = CGRect(x: 200, y: 0, width: self.bounds.size.width - 200, height: self.bounds.size.height)
         
     }
 }

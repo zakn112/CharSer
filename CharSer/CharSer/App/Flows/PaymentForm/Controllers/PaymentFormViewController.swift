@@ -75,3 +75,15 @@ class PaymentFormViewController: UIViewController {
     */
 
 }
+
+extension PaymentFormViewController: Storyboardable {
+    var storyBoardIdentifier: String {
+        return "PaymentFormViewController"
+    }
+
+    var StoryboardName: String {
+        return "PaymentForm"
+    }
+    
+    
+}

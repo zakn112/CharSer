@@ -10,3 +10,9 @@ import UIKit
 extension UIViewController {
     static var storyBoardIdentifier: String { String(describing: self) }
 }
+
+protocol Storyboardable {
+    var storyBoardIdentifier: String { get };
+    var StoryboardName: String { get }
+    
+}

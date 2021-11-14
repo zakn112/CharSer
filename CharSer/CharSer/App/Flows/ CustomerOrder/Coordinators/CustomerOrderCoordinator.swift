@@ -58,7 +58,7 @@ final class CustomerOrderCoordinator: BaseCoordinator {
         coordinator.isSelectMode = true
         coordinator.onFinishFlow = { [weak self, weak coordinator,  weak customerOrderViewController] chargObject  in
             customerOrderViewController?.thisObject.chargObject = chargObject
-            customerOrderViewController?.updateInterface()
+            customerOrderViewController?.presenter.didChangeChargObject()
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)

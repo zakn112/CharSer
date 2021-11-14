@@ -9,10 +9,11 @@ import Foundation
 
 class TariffCalculation {
     static let shared = TariffCalculation()
-    var calendar = Calendar.current//Calendar(identifier: .gregorian)
+    var calendar = Calendar(identifier: .gregorian)
+    
     
     init() {
-//        calendar.timeZone = TimeZone.init(identifier: "UTC")!
+        calendar.timeZone = TimeZone.init(identifier: "UTC")!
 //        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
     }
     
@@ -45,8 +46,12 @@ class TariffCalculation {
         return intervalDiscription
     }
     
-    func ammuntTimeInterval(start: Date, end: Date) -> (Double) {
+    func ammuntTimeInterval(chargObject: СhargObject?, start: Date, end: Date) -> (Double) {
         guard end > start else {
+            return 0
+        }
+        
+        guard let chargObject = chargObject else {
             return 0
         }
         
@@ -70,7 +75,7 @@ class TariffCalculation {
             }
         }
         
-        guard let setPrices = DataBase.shared.getSetPricesLast() else {return 0}
+        guard let setPrices = DataBase.shared.getSetPricesLast(chargObjectID: chargObject.id) else {return 0}
         
         var intervalsToCalcWithPrices = [(weekday: Int, start: Date, end: Date, price: Double)]()
         
@@ -86,7 +91,7 @@ class TariffCalculation {
                     let componentEnd2 = calendar.dateComponents([.hour, .minute], from: pricesItem.endTime)
                     guard let endPrice = calendar.date(byAdding: componentEnd2, to: startOfDay) else { continue }
                     
-                    if let intersection = intersectionOfPeriods(intervalsToCalcItem.start.toLocalTime(), intervalsToCalcItem.end.toLocalTime(), startPrice, endPrice) {
+                    if let intersection = intersectionOfPeriods(intervalsToCalcItem.start, intervalsToCalcItem.end, startPrice, endPrice) {
                         intervalsToCalcWithPrices.append((weekday: intervalsToCalcItem.weekday,
                                                           start: intersection.start,
                                                           end: intersection.end,

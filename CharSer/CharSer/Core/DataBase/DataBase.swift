@@ -21,7 +21,7 @@ protocol DataBaseInterface {
     
     func addSetPrices(by setPrices: SetPrices, update: Bool) -> (result: Bool, message: String)
     func getSetPricesByID(id: Int) -> (SetPrices?)
-    func getSetPricesLast() -> (SetPrices?)
+    func getSetPricesLast(chargObjectID: Int) -> (SetPrices?)
     
     func getMainDesktopItems() -> ([MainDesktopItem]?)
     
@@ -89,8 +89,8 @@ extension DataBase{
         return currentDataBase.getSetPricesByID(id: id)
     }
     
-    func getSetPricesLast() -> (SetPrices?) {
-        return currentDataBase.getSetPricesLast()
+    func getSetPricesLast(chargObjectID: Int) -> (SetPrices?) {
+        return currentDataBase.getSetPricesLast(chargObjectID: chargObjectID)
     }
 
     

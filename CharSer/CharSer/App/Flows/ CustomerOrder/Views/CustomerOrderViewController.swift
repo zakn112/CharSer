@@ -34,6 +34,12 @@ class CustomerOrderViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+        startTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
+        endTimeDatePicker.timeZone = TimeZone.init(identifier: "UTC")
+        
+        startTimeDatePicker.date = Date().toGlobalTime()
+        endTimeDatePicker.date = Date().toGlobalTime()
+        
         updateInterface()
         
         idTextField.isEnabled = false
@@ -78,19 +84,14 @@ class CustomerOrderViewController: UIViewController {
         thisObject.startDate = startTimeDatePicker.date
       
         presenter.startTimeValueChanged()
-      
-        updateInterface()
     }
     
     @IBAction func endTimeValueChanged(_ sender: Any) {
         thisObject.endDate = endTimeDatePicker.date
         
         presenter.endTimeValueChanged()
-      
-        updateInterface()
     }
     
-   
     
     private func fillModelUsingForm() {
         
@@ -99,6 +100,7 @@ class CustomerOrderViewController: UIViewController {
         thisObject.endDate = endTimeDatePicker.date
         
     }
+    
     
     func updateInterface() {
         
